@@ -18,6 +18,7 @@ public class LoginCommand implements Command {
 
         String login    = request.getParameter("login").trim();
         String password = request.getParameter("password");
+        //String desireToBeSpeaker = request.getParameter("desireToBeSpeaker");
 
         ServiceFactory serviceFactory   = ServiceFactory.getInstance();
         UserService userService         = serviceFactory.getUserService();
@@ -25,17 +26,24 @@ public class LoginCommand implements Command {
         try {
             System.out.println("LoginCommand.java -> inside try");
             User user = userService.findUserByLoginAndPassword(login, password);
+            String path = CommandUtil.getPageBasedOnRole(user.getRole());
+
+            System.out.println("---------------->>>>>>> " + user.getRole());
+
             request.getSession().setAttribute("user", user);
+            CommandUtil.goToPage(request, response, path);
+
         } catch (ServiceException e) {
+            System.out.println("LoginCommand.java -> inside catch");
         }
 
-        if (request.getSession().getAttribute("user") != null) {
-            String path = "/WEB-INF/view/main_page.jsp";
-            CommandUtil.goToPage(request, response, path);
-        } else {
-            request.setAttribute("wrongPassOrLogin", true);
-            String path = "/";
-            CommandUtil.goToPage(request, response, path);
-        }
+//        if (request.getSession().getAttribute("user") != null) {
+//            String path = "/WEB-INF/view/user_page.jsp";
+//            CommandUtil.goToPage(request, response, path);
+//        } else {
+//            request.setAttribute("wrongPassOrLogin", true);
+//            String path = "/";
+//            CommandUtil.goToPage(request, response, path);
+//        }
     }
 }

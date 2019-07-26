@@ -1,11 +1,9 @@
 package controller.command;
 
+import controller.command.admin.*;
 import controller.command.common.impl.LoginCommand;
 import controller.command.common.impl.LogoutCommand;
-import controller.command.common.impl.ScheduleCommand;
-import controller.command.common.show.ShowLoginCommand;
-import controller.command.common.show.ShowMainCommand;
-import controller.command.common.show.ShowScheduleCommand;
+import controller.command.common.impl.NotFoundPageCommand;
 import controller.command.util.Operation;
 import model.exception.NotFoundCommandException;
 
@@ -21,13 +19,25 @@ public class CommandFactory {
     private static final Map<String, Command> commands = new HashMap<>();
 
     static {
-        commands.put(Operation.LOGIN.getPath(), new LoginCommand());
-        commands.put(Operation.LOGOUT.getPath(), new LogoutCommand());
-        commands.put(Operation.SHOW_LOGIN_PAGE.getPath(), new ShowLoginCommand());
-        commands.put(Operation.SHOW_MAIN_PAGE.getPath(), new ShowMainCommand());
+        commands.put(Operation.LOGIN.getPath(),             new LoginCommand());
+        commands.put(Operation.LOGOUT.getPath(),            new LogoutCommand());
+        commands.put(Operation.NOT_FOUND_PAGE.getPath(),    new NotFoundPageCommand());
 
-        commands.put(Operation.SCHEDULE.getPath(), new ScheduleCommand());
-        commands.put(Operation.SHOW_SCHEDULE.getPath(), new ShowScheduleCommand());
+
+        commands.put(Operation.ADMIN_PAGE.getPath(),        new AdminPageCommand());
+        commands.put(Operation.ADMIN_MAIN_PAGE.getPath(),   new AdminPageCommand());
+        commands.put(Operation.ADMIN_ALL_CMS_USERS_PAGE.getPath(), new AdminAllUsersPageCommand());
+        commands.put(Operation.ADMIN_CALENDAR_PAGE.getPath(), new AdminCalendarCommand());
+        commands.put(Operation.ADMIN_ARCHIVE_PAGE.getPath(), new AdminArchiveCommand());
+
+
+//        commands.put(Operation.USER_MAIN_PAGE.getPath(), new UserMainPageCommand());
+//
+//        commands.put(Operation.SHOW_LOGIN_PAGE.getPath(), new ShowLoginCommand());
+//        commands.put(Operation.SHOW_MAIN_PAGE.getPath(), new ShowMainCommand());
+//
+//        commands.put(Operation.SCHEDULE.getPath(), new ScheduleCommand());
+//        commands.put(Operation.SHOW_SCHEDULE.getPath(), new ShowScheduleCommand());
 //
 //        commands.put(Operation.MATERIALS.getPath(), new MaterialsCommand());
 //        commands.put(Operation.SHOW_MATERIALS.getPath(), new ShowMaterialsCommand());
@@ -38,12 +48,13 @@ public class CommandFactory {
 //        commands.put(Operation.MY_CABINET.getPath(), new MyCabinetCommand());
 //        commands.put(Operation.SHOW_MY_CABINET.getPath(), new ShowMyCabinetCommand());
 
-//        commands.put(Operation.NOT_FOUND_PAGE.getPath(), new NotFoundPageCommand());
+//
     }
 
     public static Command getCommand(String url) throws NotFoundCommandException {
         System.out.println("CommandFactory.java -> inside getCommand");
         Command command = commands.get(url);
+        System.out.println("CommandFactory.java -> command = " + command);
         //logger.info(String.format("get command by url = %s", url));
 
         if (command == null) {

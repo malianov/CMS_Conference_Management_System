@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImpl extends Utils implements IUserDAO {
-    private static final String FIND_ALL_USERS_QUERY        = "SELECT * FROM LMS.users";
+    private static final String FIND_ALL_USERS_QUERY        = "SELECT * FROM CMS.users";
     private static final String FIND_USER_BY_LOGIN_QUERY    = "SELECT * FROM LMS.users WHERE u_login = ?";
     private static final String FIND_USER_BY_LOGIN_AND_PASSWORD_QUERY = "SELECT * FROM CMS.users WHERE u_login = ? AND u_password = ?";
     private static final String CHANGE_USER_ACTIVE_STATUS_BY_LOGIN_QUERY  = "UPDATE LMS.users SET u_is_active = ? WHERE l_login = ?";
@@ -21,33 +21,35 @@ public class UserDAOImpl extends Utils implements IUserDAO {
     private static final String MAX_USER_ID_QUERY           = "SELECT max(l_id) FROM LMS.users";
     private static final String CHANGE_USER_MANAGERIAL_STATUS_BY_LOGIN_QUERY = "UPDATE LMS.users SET u_is_manager = ? WHERE u_login = ?";
 
-//    @Override
-//    public List<User> findAllUsers() {
-//        List<User> list = new ArrayList<>();
-//        try (Connection conn = ConnectionPool.getConnection()) {
-//            PreparedStatement ps = conn.prepareStatement(FIND_ALL_USERS_QUERY);
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()) {
-//                do {
-//                    User user = new User();
-//                    user.setId(rs.getInt("u_id"));
-//                    user.setLogin(rs.getString("u_login"));
-//                    user.setName(rs.getString("u_name"));
-//                    user.setSurname(rs.getString("u_surname"));
-//                    user.setIsActive(rs.getInt("u_is_active"));
-//                    user.setIsManager(rs.getInt("u_is_manager"));
-//                    list.add(user);
-//                } while (rs.next());
-//            } else {
-//                //logger
-//            }
-//        } catch (SQLException e) {
-//            //logger
-//        }
-//        System.out.println(list);
-//        return list;
-//    }
-//
+    @Override
+    public List<User> findAllUsers() {
+        List<User> list = new ArrayList<>();
+        try (Connection conn = ConnectionPool.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(FIND_ALL_USERS_QUERY);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                do {
+                    User user = new User();
+                    user.setId(rs.getInt("u_id"));
+                    user.setLogin(rs.getString("u_login"));
+                    user.setName(rs.getString("u_name"));
+                    user.setSurname(rs.getString("u_surname"));
+                    user.setEmail(rs.getString("u_email"));
+                    user.setRole(rs.getInt("u_role"));
+                    user.setIsActive(rs.getInt("u_isActive"));
+
+                    list.add(user);
+                } while (rs.next());
+            } else {
+                //logger
+            }
+        } catch (SQLException e) {
+            //logger
+        }
+        System.out.println(list);
+        return list;
+    }
+
     @Override
     public User findUserByLoginAndPassword(String login, String password) {
 
@@ -69,7 +71,7 @@ public class UserDAOImpl extends Utils implements IUserDAO {
                     user.setName(rs.getString("u_name"));
                     user.setSurname(rs.getString("u_surname"));
                     user.setEmail(rs.getString("u_email"));
-                    user.setRole(rs.getString("u_role"));
+                    user.setRole(rs.getInt("u_role"));
                     user.setIsActive(rs.getInt("u_isActive"));
                     user.setPassword(rs.getString("u_password"));
                 } while (rs.next());

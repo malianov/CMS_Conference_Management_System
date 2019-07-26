@@ -4,13 +4,24 @@ public enum Operation {
 
     LOGIN(                  "/view/login"),
     LOGOUT(                 "/view/logout"),
-    NOT_FOUND_PAGE(         "/view/not_found_page"),
+    NOT_FOUND_PAGE(         "/view/common/not_found_page"),
+
+    ADMIN_PAGE(             "/view/admin_page"),
+    ADMIN_MAIN_PAGE(        "/view/admin_page"),
+    ADMIN_ALL_CMS_USERS_PAGE("/view/admin_all_users_page"),
+    ADMIN_CALENDAR_PAGE(    "/view/admin_calendar_page"),
+    ADMIN_ARCHIVE_PAGE(     "/view/admin_archive_page"),
+
+
+
+
+    USER_MAIN_PAGE(         "/view/user_page"),
 
     SHOW_LOGIN_PAGE(        "/view/show_login_page"),
     SHOW_MAIN_PAGE(         "/view/main_page"),
 
-    SCHEDULE(               "/view/schedule.jsp"),
-    SHOW_SCHEDULE(          "/view/schedule_page.jsp"),
+    SCHEDULE(               "/view/schedule"),
+    SHOW_SCHEDULE(          "/view/schedule_page"),
 
     SHOW_ADD_THE_BOOK(      "/view/main_page/add_book_page"),
     ADD_THE_BOOK(           "/view/main_page/add_book"),
@@ -44,10 +55,12 @@ public enum Operation {
     private String path;
 
     Operation(String path) {
+        System.out.println("Operation.java -> Operation()");
         this.path = path;
     }
 
     public String getPath() {
+        System.out.println("Operation.java -> getPath()");
         return path;
     }
 }

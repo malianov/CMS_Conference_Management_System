@@ -24,6 +24,7 @@ public class Servlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
 
         String path = req.getRequestURI();
+        System.out.println("Servlet.java -< path = " + path);
         try {
             System.out.println("Servlet.java -> inside try");
             if (path.contains("view")) {
@@ -39,7 +40,7 @@ public class Servlet extends HttpServlet {
             command.execute(req, resp);
         } catch (NotFoundCommandException ex) {
             System.out.println("Servlet.java -> inside catch");
-            CommandUtil.goToPage(req, resp, "/WEB-INF/view/not_found_page.jsp");
+            CommandUtil.goToPage(req, resp, "/WEB-INF/view/common/not_found_page.jsp");
         }
     }
 }

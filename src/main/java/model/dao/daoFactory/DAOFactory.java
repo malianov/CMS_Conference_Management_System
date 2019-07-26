@@ -3,6 +3,7 @@ package model.dao.daoFactory;
 import model.dao.impl.*;
 
 public class DAOFactory implements AbstractFactory {
+
 //    @Override
 //    public BookDAOImpl createBookDAO() {
 //        return new BookDAOImpl();
@@ -10,6 +11,7 @@ public class DAOFactory implements AbstractFactory {
 
     @Override
     public UserDAOImpl createUserDAO() {
+        System.out.println("DAOFactory.java -> inside createUserDAO()");
         return new UserDAOImpl();
     }
 

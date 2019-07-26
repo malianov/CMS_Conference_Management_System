@@ -1,4 +1,4 @@
-package controller.command.common.show;
+package controller.command.admin;
 
 import controller.command.Command;
 import controller.command.util.CommandUtil;
@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ShowScheduleCommand implements Command {
+public class AdminPageCommand implements Command {
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        CommandUtil.goToPage(request, response, "/WEB-INF/view/schedule.jsp");
+        System.out.println("AdminMainPageCommand.java -> inside execute");
+        CommandUtil.goToPage(request,response,"/WEB-INF/view/admin/admin_page.jsp");
     }
 }

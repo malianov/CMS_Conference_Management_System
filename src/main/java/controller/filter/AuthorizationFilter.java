@@ -23,7 +23,8 @@ public class AuthorizationFilter implements Filter {
         final HttpSession session       = req.getSession(false);
         String loginURI                 = req.getContextPath() + "/view/login";
 
-        String not_found_pageURI        = req.getContextPath() + "/view/not_found_page";
+
+        String not_found_pageURI        = req.getContextPath() + "/view/common/not_found_page";
         User user                       = (User) req.getSession().getAttribute("user");
 
         boolean loggedIn = session != null && user != null;
@@ -37,8 +38,8 @@ public class AuthorizationFilter implements Filter {
         System.out.println("AuthorizationFilter.java -> inside doFilter: user     = " + user);
 
         if (loggedIn || loginReq || notFPReq) {
-            System.out.println("AuthorizationFilter.java -> inside doFilter--if");
-            System.out.println("filterChain = " + filterChain);
+            System.out.println("AuthorizationFilter.java -> inside doFilter if");
+            System.out.println("AuthorizationFilter.java -> filterChain = " + filterChain);
             filterChain.doFilter(req, resp);
         } else {
             System.out.println("AuthorizationFilter.java -> inside doFilter--else");

@@ -9,8 +9,7 @@ import java.util.List;
 public interface IUserDAO {
     //User findUserByLogin(String login) throws DAOException;
 
-
-//    List<User> findAllUsers() throws DAOException, SQLException;
+    List<User> findAllUsers() throws DAOException, SQLException;
 //    void registerUser(User User) throws DAOException;
 //    void makeUserInactiveByLogin(String login) throws DAOException;
 //    void makeUserActiveByLogin(String login) throws DAOException;

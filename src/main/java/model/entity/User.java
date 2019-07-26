@@ -10,14 +10,14 @@ public class User {
     private String email;
     private String photo;
     private String password;
-    private String role;
+    private int role;
     private int isActive;
 
     public User() {
         System.out.println("User.java -> inside User()");
     }
 
-    public User(int id, String login, String name, String surname, String email, String role, int isActive, String password) {
+    public User(int id, String login, String name, String surname, String email, int role, int isActive, String password) {
 
         System.out.println("User.java -> inside User(......)");
         this.id = id;
@@ -86,11 +86,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(int role) {
         this.role = role;
     }
 

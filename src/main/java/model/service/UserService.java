@@ -14,6 +14,7 @@ public class UserService {
     private IUserDAO userDAO;
 
     public UserService() {
+        System.out.println("UserService.java -> inside UserService()");
         AbstractFactory factory = new DAOFactory();
         userDAO = factory.createUserDAO();
     }
@@ -68,15 +69,15 @@ public class UserService {
             throw new ServiceException(e.getMessage(), e);
         }
     }
-//
-//    public List<User> findAllUsers() throws ServiceException {
-//        try {
-//            return userDAO.findAllUsers();
-//        } catch (DAOException | SQLException e) {
-//            throw new ServiceException(e.getMessage(), e);
-//        }
-//    }
-//
+
+    public List<User> findAllUsers() throws ServiceException {
+        try {
+            return userDAO.findAllUsers();
+        } catch (DAOException | SQLException e) {
+            throw new ServiceException(e.getMessage(), e);
+        }
+    }
+
 //    public void registerUser(User user) throws ServiceException {
 //        try {
 //            userDAO.registerUser(user);

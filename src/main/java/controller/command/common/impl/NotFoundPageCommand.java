@@ -1,4 +1,4 @@
-package controller.command.common.show;
+package controller.command.common.impl;
 
 import controller.command.Command;
 import controller.command.util.CommandUtil;
@@ -6,10 +6,9 @@ import controller.command.util.CommandUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ShowLoginCommand implements Command {
+public class NotFoundPageCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("ShowLoginCommand.java -> inside execute");
-        CommandUtil.goToPage(request,response,"/login.jsp");
+        CommandUtil.goToPage(request, response, "/WEB-INF/view/common/not_found_page.jsp");
     }
 }
