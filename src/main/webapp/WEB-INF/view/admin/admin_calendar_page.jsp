@@ -23,9 +23,9 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-button"><fmt:message key="language"/></button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="${pageContext.request.contextPath}/view/language/admin_page?language=UA"
+                    <a href="${pageContext.request.contextPath}/view/language/admin_calendar_page?language=UA"
                        class="w3-bar-item w3-button"><fmt:message key="ukrainian"/></a>
-                    <a href="${pageContext.request.contextPath}/view/language/admin_page?language=EN"
+                    <a href="${pageContext.request.contextPath}/view/language/admin_calendar_page?language=EN"
                        class="w3-bar-item w3-button"><fmt:message key="english"/></a>
                 </div>
             </div>

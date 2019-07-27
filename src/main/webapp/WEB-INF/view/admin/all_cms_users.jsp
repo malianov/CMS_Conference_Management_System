@@ -60,12 +60,12 @@
 
         <div class="w3-center">
             <div class="w3-bar w3-border w3-round">
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">&laquo;</a>
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">1</a>
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">2</a>
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">3</a>
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">4</a>
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">&raquo;</a>
+                <a href="${pageContext.request.contextPath}/view/admin_all_users_page" class="w3-bar-item w3-button w3-hover-blue">&laquo;</a>
+                <a href="${pageContext.request.contextPath}/view/admin_all_users_page" class="w3-bar-item w3-button w3-hover-blue">1</a>
+                <a href="${pageContext.request.contextPath}/view/admin_all_users_page" class="w3-bar-item w3-button w3-hover-blue">2</a>
+                <a href="${pageContext.request.contextPath}/view/admin_all_users_page" class="w3-bar-item w3-button w3-hover-blue">3</a>
+                <a href="${pageContext.request.contextPath}/view/admin_all_users_page" class="w3-bar-item w3-button w3-hover-blue">4</a>
+                <a href="${pageContext.request.contextPath}/view/admin_all_users_page" class="w3-bar-item w3-button w3-hover-blue">&raquo;</a>
             </div>
         </div>
 

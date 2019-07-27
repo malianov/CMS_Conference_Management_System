@@ -14,7 +14,7 @@
             <a href="${pageContext.request.contextPath}/view/admin_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="main-admin-page"/></a>
             <a href="${pageContext.request.contextPath}/view/admin_all_users_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="all-cms-users"/></a>
             <a href="${pageContext.request.contextPath}/view/admin_calendar_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-calendar"/></a>
-            <a href="${pageContext.request.contextPath}/view/admin_archive" class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-archive"/></a>
+            <a href="${pageContext.request.contextPath}/view/admin_archive_page" class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-archive"/></a>
 
             <button class="w3-bar-item w3-button tablink w3-right"
                     onclick="location.href='${pageContext.request.contextPath}/view/logout'"><fmt:message
@@ -23,9 +23,9 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-button"><fmt:message key="language"/></button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="${pageContext.request.contextPath}/view/language/admin_page?language=UA"
+                    <a href="${pageContext.request.contextPath}/view/language/admin_archive_page?language=UA"
                        class="w3-bar-item w3-button"><fmt:message key="ukrainian"/></a>
-                    <a href="${pageContext.request.contextPath}/view/language/admin_page?language=EN"
+                    <a href="${pageContext.request.contextPath}/view/language/admin_archive_page?language=EN"
                        class="w3-bar-item w3-button"><fmt:message key="english"/></a>
                 </div>
             </div>
