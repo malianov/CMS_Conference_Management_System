@@ -6,8 +6,8 @@ package model.dao.impl.queries;
 public enum UserSQL {
     FIND_USER_BY_LOGIN_AND_PASSWORD_QUERY("SELECT * FROM CMS.users WHERE u_login = (?) AND u_password = (?);"),
     FIND_ALL_USERS_QUERY("SELECT * FROM CMS.users LIMIT 10 OFFSET 19;"),
-
-
+    GET_USERS_BY_PAGINATION("SELECT SQL_CALC_FOUND_ROWS * FROM CMS.users LIMIT ?, ?;"),
+    CALC_USERS_BY_WHOLE("SELECT COUNT(*) FROM CMS.users"),
 
 
     READ_ONE("select * from persons where id_person=(?)"),

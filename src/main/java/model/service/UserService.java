@@ -1,6 +1,7 @@
 package model.service;
 
 import model.dao.daoFactory.DaoFactory;
+import model.dao.daoFactory.UserDao;
 import model.entity.User;
 import model.exception.DAOException;
 import model.exception.ServiceException;
@@ -35,9 +36,31 @@ public class UserService {
         }
     }
 
+    public static class PaginationResult {
+        private int noOfRows;
+        private List<User> resultList;
 
+        public int getNoOfRows() {
+            return noOfRows;
+        }
 
+        public void setNoOfRows(int noOfRecords) {
+            this.noOfRows = noOfRows;
+        }
 
+        public List<User> getResultList() {
+            return resultList;
+        }
+
+        public void setResultList(List<User> resultList) {
+            this.resultList = resultList;
+        }
+    }
+
+    public PaginationResult getUsersByPagination(int lowerBound, int upperBound) {
+        UserDao dao = daoFactory.createUserDao();
+        return dao.findAllUsersByPagination(lowerBound, upperBound);
+    }
 
 
 

@@ -3,16 +3,20 @@ package model.dao.impl;
 import connection.ConnectionPool;
 import model.dao.daoFactory.UserDao;
 import model.dao.impl.queries.UserSQL;
+import model.dao.mapper.UserMapper;
 import model.entity.Role;
 import model.entity.User;
 import model.exception.DAOException;
+import model.service.UserService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class JdbcUserDAOImpl implements UserDao {
     @Override
@@ -30,7 +34,7 @@ public class JdbcUserDAOImpl implements UserDao {
             if (rs.next()) {
                 do {
                     user = new User();
-                    user.setId(rs.getInt("u_id"));
+                    user.setId_user(rs.getLong("u_id"));
                     user.setLogin(rs.getString("u_login"));
                     user.setName(rs.getString("u_name"));
                     user.setSurname(rs.getString("u_surname"));
@@ -58,7 +62,7 @@ public class JdbcUserDAOImpl implements UserDao {
             if (rs.next()) {
                 do {
                     User user = new User();
-                    user.setId(rs.getInt("u_id"));
+                    user.setId_user(rs.getInt("u_id"));
                     user.setLogin(rs.getString("u_login"));
                     user.setName(rs.getString("u_name"));
                     user.setSurname(rs.getString("u_surname"));
@@ -77,5 +81,42 @@ public class JdbcUserDAOImpl implements UserDao {
         return list;
     }
 
+//    @Override
+//    public UserService.PaginationResult findAllUsersByPagination(int offset, int noOfRows, long id_user) {
+//        return null;
+//    }
+
+    @Override
+    public UserService.PaginationResult findAllUsersByPagination(int lowerBound, int upperBound) {
+
+        UserService.PaginationResult paginationResult = new UserService.PaginationResult();
+
+        Map<Long, User> users = new HashMap<>();
+        UserMapper userMapper = new UserMapper();
+
+        try (Connection conn = ConnectionPool.getConnection();
+            PreparedStatement usersPS = conn.prepareStatement(UserSQL.GET_USERS_BY_PAGINATION.getQUERY());
+            PreparedStatement countRowsPS = conn.prepareStatement(UserSQL.CALC_USERS_BY_WHOLE.getQUERY())) {
+            usersPS.setInt(1, lowerBound);
+            usersPS.setInt(2, upperBound);
+
+            ResultSet rs = usersPS.executeQuery();
+            while (rs.next()) {
+                User user = userMapper.extractFromResultSet(rs);
+            }
+            rs.close();
+
+            rs = countRowsPS.executeQuery();
+            if (rs.next()) {
+                paginationResult.setNoOfRows(rs.getInt(1));
+            }
+            rs.close();
+        } catch (SQLException e) {
+           // logger.fatal("Caught SQLException exception", e);
+            e.printStackTrace();
+        }
+        paginationResult.setResultList(new ArrayList<>(users.values()));
+        return paginationResult;
+    }
 
 }

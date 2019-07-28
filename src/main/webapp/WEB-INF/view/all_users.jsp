@@ -23,7 +23,7 @@
                     </c:when>
                 </c:choose>
                 <td>
-                        ${all_users_list.getId()}
+                        ${all_users_list.getId_user()}
                 </td>
                 <td>
                         ${all_users_list.getLogin()}

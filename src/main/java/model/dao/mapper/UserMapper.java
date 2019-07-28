@@ -6,7 +6,6 @@ import model.service.UserService;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 import static model.entity.Role.getRoleById;
 
@@ -25,7 +24,7 @@ public class UserMapper implements ObjectMapper<User>{
         User user = new User();
         UserService userService = ServiceFactory.getInstance().getUserService();
 
-        user.setId(rs.getInt(ID));
+        user.setId_user(rs.getInt(ID));
         user.setLogin(rs.getString(LOGIN));
         user.setName(rs.getString(NAME));
         user.setSurname(rs.getString(SURNAME));
