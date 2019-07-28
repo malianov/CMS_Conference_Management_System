@@ -1,19 +1,15 @@
 package model.entity;
 
 public enum Role {
-    ADMIN(0),
-    MODERATOR(1),
-    SPEAKER(2),
-    USER(3);
+    ADMIN, MODERATOR, SPEAKER, PARTICIPANT;
 
-    private int id;
-
-    Role(int id) {
-        this.id = id;
+    public int getRoleID(){
+        return ordinal();
     }
 
-    public int getId() {
-        return id;
+    public static Role getRoleById(int id){
+
+        return values()[id];
     }
 
 }

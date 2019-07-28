@@ -2,6 +2,7 @@ package controller.command.common.impl;
 
 import controller.command.Command;
 import controller.command.util.CommandUtil;
+import model.entity.Role;
 import model.entity.User;
 import model.exception.ServiceException;
 import model.service.ServiceFactory;
@@ -10,40 +11,44 @@ import model.service.UserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static controller.command.TextConstants.Parameters.ROLE;
+
 public class LoginCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("LoginCommand.java -> inside execute");
 
-        String login    = request.getParameter("login").trim();
+        String login = request.getParameter("login").trim();
         String password = request.getParameter("password");
         //String desireToBeSpeaker = request.getParameter("desireToBeSpeaker");
 
-        ServiceFactory serviceFactory   = ServiceFactory.getInstance();
-        UserService userService         = serviceFactory.getUserService();
+        ServiceFactory serviceFactory = ServiceFactory.getInstance();
+        UserService userService = serviceFactory.getUserService();
 
         try {
             System.out.println("LoginCommand.java -> inside try");
             User user = userService.findUserByLoginAndPassword(login, password);
-            String path = CommandUtil.getPageBasedOnRole(user.getRole());
+            String path = "/WEB-INF/view/main_page.jsp";
 
             System.out.println("---------------->>>>>>> " + user.getRole());
 
             request.getSession().setAttribute("user", user);
-            CommandUtil.goToPage(request, response, path);
+            request.getSession().setAttribute("role", user.getRole());
+
+            //CommandUtil.goToPage(request, response, path);
 
         } catch (ServiceException e) {
             System.out.println("LoginCommand.java -> inside catch");
         }
 
-//        if (request.getSession().getAttribute("user") != null) {
-//            String path = "/WEB-INF/view/user_page.jsp";
-//            CommandUtil.goToPage(request, response, path);
-//        } else {
-//            request.setAttribute("wrongPassOrLogin", true);
-//            String path = "/";
-//            CommandUtil.goToPage(request, response, path);
-//        }
+        if (request.getSession().getAttribute("user") != null) {
+            String path = "/WEB-INF/view/main_page.jsp";
+            CommandUtil.goToPage(request, response, path);
+        } else {
+            request.setAttribute("wrongPassOrLogin", true);
+            String path = "/";
+            CommandUtil.goToPage(request, response, path);
+        }
     }
 }

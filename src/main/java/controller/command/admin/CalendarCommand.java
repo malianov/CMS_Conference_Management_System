@@ -1,4 +1,4 @@
-package controller.command.user;
+package controller.command.admin;
 
 import controller.command.Command;
 import controller.command.util.CommandUtil;
@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class UserMainPageCommand implements Command {
+public class CalendarCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("UserMainPageCommand.java -> inside execute");
-        CommandUtil.goToPage(request,response,"/WEB-INF/view/user/user_page.jsp");
+        System.out.println("AdminMainPageCommand.java -> inside execute");
+        CommandUtil.goToPage(request,response,"/WEB-INF/view/calendar_page.jsp");
     }
 }

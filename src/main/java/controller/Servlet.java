@@ -40,7 +40,7 @@ public class Servlet extends HttpServlet {
             command.execute(req, resp);
         } catch (NotFoundCommandException ex) {
             System.out.println("Servlet.java -> inside catch");
-            CommandUtil.goToPage(req, resp, "/WEB-INF/view/common/not_found_page.jsp");
+            CommandUtil.goToPage(req, resp, "/WEB-INF/view/not_found_page.jsp");
         }
     }
 }

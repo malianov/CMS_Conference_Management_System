@@ -24,11 +24,10 @@ public class CommandFactory {
         commands.put(Operation.NOT_FOUND_PAGE.getPath(),    new NotFoundPageCommand());
 
 
-        commands.put(Operation.ADMIN_PAGE.getPath(),        new AdminPageCommand());
-        commands.put(Operation.ADMIN_MAIN_PAGE.getPath(),   new AdminPageCommand());
-        commands.put(Operation.ADMIN_ALL_CMS_USERS_PAGE.getPath(), new AdminAllUsersPageCommand());
-        commands.put(Operation.ADMIN_CALENDAR_PAGE.getPath(), new AdminCalendarCommand());
-        commands.put(Operation.ADMIN_ARCHIVE_PAGE.getPath(), new AdminArchiveCommand());
+        commands.put(Operation.MAIN_PAGE.getPath(),         new MainPageCommand());
+        commands.put(Operation.ALL_USERS_PAGE.getPath(), new AllUsersPageCommand());
+        commands.put(Operation.CALENDAR_PAGE.getPath(),     new CalendarCommand());
+        commands.put(Operation.ARCHIVE_PAGE.getPath(),      new ArchiveCommand());
 
 
 //        commands.put(Operation.USER_MAIN_PAGE.getPath(), new UserMainPageCommand());

@@ -1,8 +1,9 @@
+/*
 package model.dao.impl;
 
 import connection.ConnectionPool;
-import model.dao.daoFactory.IUserDAO;
 import model.dao.daoFactory.Utils;
+import model.entity.Role;
 import model.entity.User;
 
 import java.sql.Connection;
@@ -13,16 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImpl extends Utils implements IUserDAO {
-    //private static final String FIND_ALL_USERS_QUERY        = "SELECT * FROM CMS.users";
-    private static final String FIND_ALL_USERS_QUERY        = "SELECT * FROM CMS.users LIMIT 10 OFFSET 19";
-    private static final String FIND_USER_BY_LOGIN_QUERY    = "SELECT * FROM LMS.users WHERE u_login = ?";
-    private static final String FIND_USER_BY_LOGIN_AND_PASSWORD_QUERY = "SELECT * FROM CMS.users WHERE u_login = ? AND u_password = ?";
-
-    //private static final String FIND_USER_BY_LOGIN_AND_PASSWORD_QUERY = "SELECT * FROM CMS.users WHERE u_login = ? AND u_password = ?";
-    private static final String CHANGE_USER_ACTIVE_STATUS_BY_LOGIN_QUERY  = "UPDATE LMS.users SET u_is_active = ? WHERE l_login = ?";
-    private static final String CREATE_USER_QUERY           = "INSERT INTO LMS.users (u_login, u_name, u_surname) VALUES (?, ?, ?)";
-    private static final String MAX_USER_ID_QUERY           = "SELECT max(l_id) FROM LMS.users";
-    private static final String CHANGE_USER_MANAGERIAL_STATUS_BY_LOGIN_QUERY = "UPDATE LMS.users SET u_is_manager = ? WHERE u_login = ?";
 
     @Override
     public List<User> findAllUsers() {
@@ -38,7 +29,7 @@ public class UserDAOImpl extends Utils implements IUserDAO {
                     user.setName(rs.getString("u_name"));
                     user.setSurname(rs.getString("u_surname"));
                     user.setEmail(rs.getString("u_email"));
-                    user.setRole(rs.getInt("u_role"));
+                    user.setRole(Role.getRoleById(rs.getInt("u_role")));
                     user.setIsActive(rs.getInt("u_isActive"));
 
                     list.add(user);
@@ -74,7 +65,7 @@ public class UserDAOImpl extends Utils implements IUserDAO {
                     user.setName(rs.getString("u_name"));
                     user.setSurname(rs.getString("u_surname"));
                     user.setEmail(rs.getString("u_email"));
-                    user.setRole(rs.getInt("u_role"));
+                    user.setRole(Role.getRoleById(rs.getInt("u_role")));
                     user.setIsActive(rs.getInt("u_isActive"));
                     user.setPassword(rs.getString("u_password"));
                 } while (rs.next());
@@ -191,3 +182,4 @@ public class UserDAOImpl extends Utils implements IUserDAO {
 //        }
 //    }
 }
+*/

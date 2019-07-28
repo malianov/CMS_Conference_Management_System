@@ -4,13 +4,12 @@ public enum Operation {
 
     LOGIN(                  "/view/login"),
     LOGOUT(                 "/view/logout"),
-    NOT_FOUND_PAGE(         "/view/common/not_found_page"),
+    NOT_FOUND_PAGE(         "/view/not_found_page"),
 
-    ADMIN_PAGE(             "/view/admin_page"),
-    ADMIN_MAIN_PAGE(        "/view/admin_page"),
-    ADMIN_ALL_CMS_USERS_PAGE("/view/admin_all_users_page"),
-    ADMIN_CALENDAR_PAGE(    "/view/admin_calendar_page"),
-    ADMIN_ARCHIVE_PAGE(     "/view/admin_archive_page"),
+    MAIN_PAGE(        "/view/main_page"),
+    ALL_USERS_PAGE("/view/all_users_page"),
+    CALENDAR_PAGE(    "/view/calendar_page"),
+    ARCHIVE_PAGE(     "/view/archive_page"),
 
 
 

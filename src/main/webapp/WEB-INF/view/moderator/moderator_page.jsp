@@ -1,4 +1,4 @@
-<%@ include file="../common/header.jsp" %>
+<%@ include file="../header.jsp" %>
 
 <div class="w3-container w3-padding w3-margin w3-display-container">
     <div class="w3-card-4">
@@ -33,7 +33,7 @@
         </div>
 
         <%@ include file="../moderator/moderator_registered_conferences.jsp" %>
-        <%@ include file="../moderator/all_cms_users.jsp" %>
+        <%@ include file="../moderator/all_users.jsp" %>
         <%@ include file="../common/calendar_conferences.jsp" %>
         <%@ include file="../common/archive_conferences.jsp" %>
 

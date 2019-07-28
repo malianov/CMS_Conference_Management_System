@@ -9,6 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 public class NotFoundPageCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
-        CommandUtil.goToPage(request, response, "/WEB-INF/view/common/not_found_page.jsp");
+        CommandUtil.goToPage(request, response, "/WEB-INF/view/not_found_page.jsp");
     }
 }

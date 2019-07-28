@@ -1,6 +1,7 @@
 package model.service;
 
 public class ServiceFactory {
+
     private static volatile ServiceFactory serviceFactory;
 
     private ServiceFactory() {
@@ -21,19 +22,15 @@ public class ServiceFactory {
         return new UserService();
     }
 
-//    public BookService getBookService() {
-//        return new BookService();
+//    public ConferenceService getUserService() {
+//        return new ConferenceService();
 //    }
 //
-//    public OrderService getOrderService() {
-//        return new OrderService();
+//    public SeminarService getUserService() {
+//        return new SeminarService();
 //    }
 //
-//    public ReaderService getReaderService() {
-//        return new ReaderService();
-//    }
-//
-//    public ReportService getReportService() {
-//        return new ReportService();
+//    public StatisticsService getStatisticsService() {
+//        return new StatisticService();
 //    }
 }

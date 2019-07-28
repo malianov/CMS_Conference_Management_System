@@ -17,7 +17,7 @@
     <title>l-m-s</title>
     <%--<link rel="stylesheet" href="../css/w3.css">--%>
     <style>
-        <%@include file="../../css/w3.css" %>
+        <%@include file="../css/w3.css" %>
     </style>
 
 </head>

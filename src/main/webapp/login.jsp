@@ -1,4 +1,4 @@
-<%@ include file="WEB-INF/view/common/header.jsp" %>
+<%@ include file="WEB-INF/view/header.jsp" %>
 
 <div class="w3-container w3-padding w3-margin w3-display-container">
     <div class="w3-card-4">
@@ -45,4 +45,4 @@
         </div>
     </div>
 </div>
-<%@ include file="WEB-INF/view/common/footer.jsp" %>
+<%@ include file="WEB-INF/view/footer.jsp" %>
