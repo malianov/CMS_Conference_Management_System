@@ -30,8 +30,8 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 do {
+                    System.out.println("JdbcConferenceDAOImpl.java -> inside findAllConferences////do");
                     Conference conference = new Conference();
-
                     conference.setId_conference(rs.getInt("c_id"));
                     conference.setStart_date(rs.getString("c_start_date"));
                     conference.setEnd_date(rs.getString("c_end_date"));

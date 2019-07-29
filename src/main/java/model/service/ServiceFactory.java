@@ -24,7 +24,7 @@ public class ServiceFactory {
         return new UserService();
     }
 
-    public ConferenceService getCalendarService() {
+    public ConferenceService getConferenceService() {
         return new ConferenceService();
     }
 

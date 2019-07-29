@@ -15,57 +15,21 @@
             </thead>
 
             <tbody>
-            <tr>
-                <td>1.</td>
-                <td>20.07.2019</td>
-                <td>23.07.2019</td>
-                <td>
-                    <button class="w3-button w3-round-xxlarge w3-light-green w3-hover-red w3-tiny">
-                        DEVOXX
-                    </button>
-                </td>
-                <td>Kyiv</td>
-                <td>Mercury</td>
-                <td>
-                    <button class="w3-button w3-round-xxlarge w3-light-green w3-hover-red w3-tiny">
-                        register
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>2.</td>
-                <td>15.08.2019</td>
-                <td>16.08.2019</td>
-                <td>
-                    <button class="w3-button w3-round-xxlarge w3-light-green w3-hover-red w3-tiny">
-                        JavaDay
-                    </button>
-                </td>
-                <td>Kharkiv</td>
-                <td>Ukraininan House</td>
-                <td>
-                    <button class="w3-button w3-round-xxlarge w3-light-green w3-hover-red w3-tiny">
-                        register
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>3.</td>
-                <td>19.09.2019</td>
-                <td>23.09.2019</td>
-                <td>
-                    <button class="w3-button w3-round-xxlarge w3-light-green w3-hover-red w3-tiny">
-                        JUG
-                    </button>
-                </td>
-                <td>Odessa</td>
-                <td>Hotel Odessa</td>
-                <td>
-                    <button class="w3-button w3-round-xxlarge w3-light-green w3-hover-red w3-tiny">
-                        register
-                    </button>
-                </td>
-            </tr>
+            <c:forEach items="${conferences}" var="all_conferences_list">
+
+                <tr>
+                    <td>${all_conferences_list.getId_conference()}</td>
+                    <td>${all_conferences_list.getStart_date()}</td>
+                    <td>${all_conferences_list.getEnd_date()}</td>
+                    <td>
+                        <button class="w3-button w3-round-xxlarge w3-light-green w3-hover-red w3-tiny">
+                                ${all_conferences_list.getConference_title()}
+                        </button>
+                    </td>
+                    <td>${all_conferences_list.getConference_city()}</td>
+                    <td>${all_conferences_list.getConference_place()}</td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>

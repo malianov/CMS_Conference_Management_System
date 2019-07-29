@@ -1,5 +1,4 @@
 <div id="all-users" class="w3-container w3-border menu w3-white">
-
     <h2>these-are-all-cms-users</h2>
     <div class="w3-container w3-margin">
         <table class="w3-table-all w3-centered w3-hoverable w3-card-4">
@@ -55,12 +54,18 @@
 
         <div class="w3-center">
             <div class="w3-bar w3-border w3-round">
-                <a href="${pageContext.request.contextPath}/view/all_users_page" class="w3-bar-item w3-button w3-hover-blue">&laquo;</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page" class="w3-bar-item w3-button w3-hover-blue">1</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page" class="w3-bar-item w3-button w3-hover-blue">2</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page" class="w3-bar-item w3-button w3-hover-blue">3</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page" class="w3-bar-item w3-button w3-hover-blue">4</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page" class="w3-bar-item w3-button w3-hover-blue">&raquo;</a>
+                <a href="${pageContext.request.contextPath}/view/all_users_page"
+                   class="w3-bar-item w3-button w3-hover-blue">&laquo;</a>
+                <a href="${pageContext.request.contextPath}/view/all_users_page"
+                   class="w3-bar-item w3-button w3-hover-blue">1</a>
+                <a href="${pageContext.request.contextPath}/view/all_users_page"
+                   class="w3-bar-item w3-button w3-hover-blue">2</a>
+                <a href="${pageContext.request.contextPath}/view/all_users_page"
+                   class="w3-bar-item w3-button w3-hover-blue">3</a>
+                <a href="${pageContext.request.contextPath}/view/all_users_page"
+                   class="w3-bar-item w3-button w3-hover-blue">4</a>
+                <a href="${pageContext.request.contextPath}/view/all_users_page"
+                   class="w3-bar-item w3-button w3-hover-blue">&raquo;</a>
             </div>
         </div>
 

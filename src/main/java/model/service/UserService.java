@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserService {
-
     private DaoFactory daoFactory;
 
     public UserService() {
@@ -30,6 +29,7 @@ public class UserService {
 
     public List<User> findAllUsers() throws ServiceException {
         try {
+            System.out.println("UserService.java -> findAllUsers// inside try" + daoFactory);
             return daoFactory.createUserDao().findAllUsers();
         } catch (DAOException | SQLException e) {
             throw new ServiceException(e.getMessage(), e);

@@ -10,14 +10,10 @@ public class JdbcDaoFactory extends DaoFactory {
 
     @Override
     public ConferenceDao createConferenceDao() {
-        return null;
+        return new JdbcConferenceDaoImpl();
     }
 
-//    @Override
-//    public ConferenceDao createConferenceDao() {
-//        return new JdbcConferenceDAOImpl();
-//    }
-//
+
 //    @Override
 //    public SeminarDao createSeminarDao() {
 //        return new JdbcSeminarDaoImpl();
