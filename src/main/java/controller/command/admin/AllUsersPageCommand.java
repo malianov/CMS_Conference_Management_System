@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import static controller.command.TextConstants.Parameters.*;
+import static controller.command.TextConstants.Routes.TO_SHOW_ALL_CONFERENCES;
+import static controller.command.TextConstants.Routes.TO_SHOW_ALL_USERS;
+
 public class AllUsersPageCommand implements Command {
 
     ServiceFactory serviceFactory = ServiceFactory.getInstance();
@@ -19,62 +23,47 @@ public class AllUsersPageCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("AdminAllUsersPageCommand.java -> inside execute");
-        try {
-            List<User> users = userService.findAllUsers();
-            request.setAttribute("users", users);
-            CommandUtil.goToPage(request,response,"/WEB-INF/view/all_users_page.jsp");
-            request.setAttribute("successful", true);
-        } catch (RuntimeException e) {
-            request.setAttribute("error", true);
-        } catch (ServiceException e) {
-            e.printStackTrace();
-       }
+        System.out.println("AllUsersPaginatedCommand.java -> inside execute");
 
-//    @Override
-//    public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        System.out.println("AdminAllUsersPageCommand.java -> inside execute");
-//
-//        ServiceFactory serviceFactory = ServiceFactory.getInstance();
-//        UserService userService = serviceFactory.getUserService();
-//
-//        int ROWS_PER_PAGE = 12;
-//        int currentPage = 1;
-//        if (request.getParameter(CURRENT_PAGE) != null) {
-//            currentPage = Integer.parseInt(request.getParameter(CURRENT_PAGE));
-//        }
-//
-//        performPagination(request, currentPage, ROWS_PER_PAGE);
-//        CommandUtil.goToPage(request,response,"/WEB-INF/view/all_users_page.jsp");
-//        //return TO_SHOW_ALL_USERS;
-//    }
-//
-//    private void performPagination(HttpServletRequest request, int currentPage, int rowsPerPage) {
-//        int lowerBound = calcLowerBound(currentPage, rowsPerPage);
-//
-//        //UserService.PaginationResult paginationResult = userService.getRowsByPagination(lowerBound, rowsPerPage, currentUserId);
-//    }
-//
-//    private int calcLowerBound(int currentPage, int rowsPerPage){
-//        return  (currentPage - 1) * rowsPerPage;
-//    }
-//
-//    private int calcNoOfPages(int noOfRecords, int rowsPerPage) {
-//        return (int) Math.ceil(noOfRecords * 1.0 / rowsPerPage);
-//    }
-//
+        int ROWS_PER_PAGE = 12;
+        int current_page = 1;
 
-//        try {
-//            List<User> users = userService.findAllUsers();
-//            request.setAttribute("users", users);
-//            CommandUtil.goToPage(request,response,"/WEB-INF/view/admin/all_users_page.jsp");
-//            request.setAttribute("successful", true);
-//        } catch (RuntimeException e) {
-//            request.setAttribute("error", true);
-//        } catch (ServiceException e) {
-//            e.printStackTrace();
-//       }
-//
-//
-//    }
-}}
+        if (request.getParameter(CURRENT_PAGE) != null) {
+            current_page = Integer.parseInt(request.getParameter(CURRENT_PAGE));
+        }
+
+        performPagination(request, current_page, ROWS_PER_PAGE);
+        CommandUtil.goToPage(request, response, TO_SHOW_ALL_USERS);
+    }
+
+    private void performPagination(HttpServletRequest request, int currentPage, int rowsPerPage) {
+
+        int lowerBound = calcLowerBound(currentPage, rowsPerPage);
+
+        UserService.PaginationResult paginationResult = userService.getUsersByPagination(lowerBound, rowsPerPage);
+
+        List<User> users = paginationResult.getResultList();
+        int noOfRows = paginationResult.getNoOfRows();
+        int noOfPages = calcNoOfPages(noOfRows, rowsPerPage);
+
+        request.setAttribute(USERS, users);
+        request.setAttribute(NO_OF_PAGES, noOfPages);
+        request.setAttribute(CURRENT_PAGE, currentPage);
+        System.out.println("AllUsersPageCommand.java -> performPagination");
+        System.out.println("AllUsersPageCommand.java -> users = " + users);
+        System.out.println("AllUsersPageCommand.java -> no of pages " + noOfPages);
+        System.out.println("AllUsersPageCommand.java -> current page " + currentPage);
+    }
+
+    private int calcLowerBound(int currentPage, int recordsPerPage) {
+
+        System.out.println("currentPage = " + currentPage);
+        System.out.println("recordsPerPage = " + recordsPerPage);
+
+        return (currentPage - 1) * recordsPerPage;
+    }
+
+    private int calcNoOfPages(int noOfRecords, int recordsPerPage) {
+        return (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+    }
+}

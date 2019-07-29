@@ -19,6 +19,7 @@ public interface TextConstants {
 
         String CONFERENCES = "conferences";
         String NO_OF_PAGES = "noOfPages";
+        String USERS = "users";
         String REPORTS = "reports";
         String REPORTS_TO_CHANGE = "reportsToChange";
         String ITEMS = "items";

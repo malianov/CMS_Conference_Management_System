@@ -36,42 +36,43 @@ public class CalendarCommand implements Command {
         System.out.println("CalendarCommand.java -> inside execute// currentPage = " + current_page);
 
         performPagination(request, current_page, ROWS_PER_PAGE);
-        CommandUtil.goToPage(request,response,TO_SHOW_ALL_CONFERENCES);
+        CommandUtil.goToPage(request, response, TO_SHOW_ALL_CONFERENCES);
     }
-        private void performPagination(HttpServletRequest request, int currentPage, int rowsPerPage){
-            //final Conference currentSessionConference = CommandUtility.getCurrentSessionUser(request);
-            //final long currentUserId = currentSessionConference.getId();
 
-            int lowerBound = calcLowerBound(currentPage, rowsPerPage);
+    private void performPagination(HttpServletRequest request, int currentPage, int rowsPerPage) {
+        //final Conference currentSessionConference = CommandUtility.getCurrentSessionUser(request);
+        //final long currentUserId = currentSessionConference.getId();
 
-            System.out.println("CalendarCommand.java -> inside performPagination// lowerBound = " + lowerBound);
+        int lowerBound = calcLowerBound(currentPage, rowsPerPage);
 
-            ConferenceService.PaginationResult paginationResult = conferenceService.getConferencesByPagination(lowerBound, rowsPerPage);
+        System.out.println("CalendarCommand.java -> inside performPagination// lowerBound = " + lowerBound);
 
-            List<Conference> conferences = paginationResult.getResultList();
-            int noOfRows = paginationResult.getNoOfRows();
-            int noOfPages = calcNoOfPages(noOfRows, rowsPerPage);
+        ConferenceService.PaginationResult paginationResult = conferenceService.getConferencesByPagination(lowerBound, rowsPerPage);
 
-            request.setAttribute(CONFERENCES, conferences);
-            request.setAttribute(NO_OF_PAGES, noOfPages);
-            request.setAttribute(CURRENT_PAGE, currentPage);
-            System.out.println("CalendarCommand.java -> performPagination");
-            System.out.println("CalendarCommand.java -> conferences = " + conferences);
-            System.out.println("CalendarCommand.java -> no of pages " + noOfPages);
-            System.out.println("CalendarCommand.java -> current page " + currentPage);
-        }
+        List<Conference> conferences = paginationResult.getResultList();
+        int noOfRows = paginationResult.getNoOfRows();
+        int noOfPages = calcNoOfPages(noOfRows, rowsPerPage);
 
-        private int calcLowerBound(int currentPage, int recordsPerPage){
+        request.setAttribute(CONFERENCES, conferences);
+        request.setAttribute(NO_OF_PAGES, noOfPages);
+        request.setAttribute(CURRENT_PAGE, currentPage);
+        System.out.println("CalendarCommand.java -> performPagination");
+        System.out.println("CalendarCommand.java -> conferences = " + conferences);
+        System.out.println("CalendarCommand.java -> no of pages " + noOfPages);
+        System.out.println("CalendarCommand.java -> current page " + currentPage);
+    }
 
-            System.out.println("currentPage = " + currentPage);
-            System.out.println("recordsPerPage = " + recordsPerPage);
+    private int calcLowerBound(int currentPage, int recordsPerPage) {
 
-            return  (currentPage - 1) * recordsPerPage;
-        }
+        System.out.println("currentPage = " + currentPage);
+        System.out.println("recordsPerPage = " + recordsPerPage);
 
-        private int calcNoOfPages(int noOfRecords, int recordsPerPage) {
-            return (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        }
+        return (currentPage - 1) * recordsPerPage;
+    }
+
+    private int calcNoOfPages(int noOfRecords, int recordsPerPage) {
+        return (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+    }
 
 
 

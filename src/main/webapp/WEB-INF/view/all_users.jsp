@@ -5,12 +5,29 @@
             <thead>
             <tr class="w3-light-blue">
                 <th>user-id</th>
-                <th>user-login</th>
-                <th>user-name</th>
-                <th>user-surname</th>
-                <th>user-email</th>
-                <th>user-status</th>
-                <th>user-activity-status</th>
+                <th> <%--class="w3-bar-item w3-button w3-hover-blue">--%>
+                    <div class="w3-dropdown-hover">
+                        <button class="w3-button w3-blue">user-login</button>
+
+                        <div class="w3-dropdown-content w3-bar-block w3-card w3-light-grey">
+                            <input class="w3-input w3-padding" type="text" placeholder="enter-text" id="myInput">
+                            <a class="w3-bar-item w3-button" href="#about">search</a>
+                        </div>
+                    </div>
+
+
+
+
+<%--                        <input class="w3-input w3-padding" type="text" placeholder="Search.." id="myInput">
+                        <a class="w3-bar-item w3-button" href="#about">user-login</a>--%>
+
+
+                </th>
+                <th class="w3-bar-item w3-button w3-hover-blue">user-name</th>
+                <th class="w3-bar-item w3-button w3-hover-blue">user-surname</th>
+                <th class="w3-bar-item w3-button w3-hover-blue">user-email</th>
+                <th class="w3-button w3-hover-blue">user-status</th>
+                <th class="w3-hover-blue">user-activity-status</th>
             </tr>
             </thead>
 
@@ -37,8 +54,7 @@
                         ${all_users_list.getEmail()}
                 </td>
                 <td>
-                        <%--${all_users_list.getRole()}--%>
-                    111111111111111111111111
+                        ${all_users_list.getRole()}
                 </td>
                 <td>
                     <c:choose>
@@ -51,23 +67,35 @@
             </c:forEach>
             </tbody>
         </table>
-
-        <div class="w3-center">
-            <div class="w3-bar w3-border w3-round">
-                <a href="${pageContext.request.contextPath}/view/all_users_page"
+    </div>
+    <div class="w3-center">
+        <div class="w3-bar w3-border w3-round w3-light-blue">
+            <c:if test="${currentPage != 1}">
+                <a href="${pageContext.request.contextPath}/view/all_users_page?currentPage=${currentPage - 1}"
                    class="w3-bar-item w3-button w3-hover-blue">&laquo;</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page"
-                   class="w3-bar-item w3-button w3-hover-blue">1</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page"
-                   class="w3-bar-item w3-button w3-hover-blue">2</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page"
-                   class="w3-bar-item w3-button w3-hover-blue">3</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page"
-                   class="w3-bar-item w3-button w3-hover-blue">4</a>
-                <a href="${pageContext.request.contextPath}/view/all_users_page"
+            </c:if>
+            <c:forEach begin="1" end="${noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${currentPage eq i}">
+                        <a href="${pageContext.request.contextPath}/view/all_users_page?currentPage=${i}"
+                           class="w3-bar-item w3-button w3-red">${i}</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${pageContext.request.contextPath}/view/all_users_page?currentPage=${i}"
+                           class="w3-bar-item w3-button w3-hover-blue">${i}</a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <c:if test="${currentPage lt noOfPages}">
+                <a href="${pageContext.request.contextPath}/view/all_users_page?currentPage=${currentPage + 1}"
                    class="w3-bar-item w3-button w3-hover-blue">&raquo;</a>
-            </div>
+            </c:if>
         </div>
-
     </div>
 </div>
+
+<%--<div class="w3-tag w3-round w3-green" style="padding:3px">
+    <div class="w3-tag w3-round w3-green w3-border w3-border-white">
+        Falcon Ridge Parkway
+    </div>
+</div>--%>

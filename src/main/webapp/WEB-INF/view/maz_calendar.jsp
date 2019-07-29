@@ -9,8 +9,8 @@
                 <th>conference-end-date</th>
                 <th>conference-title</th>
                 <th>conference-city</th>
-                <th>conference-hall ${noOfPages}</th>
-                <th>conference-register currentPage ${currentPage}</th>
+                <th>conference-hall</th>
+                <th>conference-register</th>
             </tr>
             </thead>
 
@@ -35,7 +35,7 @@
     </div>
 
     <div class="w3-center">
-        <div class="w3-bar w3-border w3-round">
+        <div class="w3-bar w3-border w3-round w3-light-blue">
             <c:if test="${currentPage != 1}">
                 <a href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${currentPage - 1}"
                    class="w3-bar-item w3-button w3-hover-blue">&laquo;</a>
