@@ -11,7 +11,6 @@
                 <th>conference-city</th>
                 <th>conference-hall</th>
                 <th>conference-register</th>
-
             </tr>
             </thead>
 

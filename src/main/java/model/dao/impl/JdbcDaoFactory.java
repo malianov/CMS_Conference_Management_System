@@ -8,6 +8,11 @@ public class JdbcDaoFactory extends DaoFactory {
         return new JdbcUserDAOImpl();
     }
 
+    @Override
+    public ConferenceDao createConferenceDao() {
+        return null;
+    }
+
 //    @Override
 //    public ConferenceDao createConferenceDao() {
 //        return new JdbcConferenceDAOImpl();

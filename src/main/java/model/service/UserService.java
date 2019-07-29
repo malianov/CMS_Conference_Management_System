@@ -44,7 +44,7 @@ public class UserService {
             return noOfRows;
         }
 
-        public void setNoOfRows(int noOfRecords) {
+        public void setNoOfRows(int noOfRows) {
             this.noOfRows = noOfRows;
         }
 

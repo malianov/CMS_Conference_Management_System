@@ -21,7 +21,7 @@ import java.util.Map;
 public class JdbcUserDAOImpl implements UserDao {
     @Override
     public User findUserByLoginAndPassword(String login, String password) throws DAOException {
-        System.out.println("UserDAOImpl.java -> inside findUserByLoginAndPassword");
+        System.out.println("JdbcUserDAOImpl.java -> inside findUserByLoginAndPassword");
 
         User user = null;
         try (Connection conn = ConnectionPool.getConnection()) {
@@ -55,6 +55,7 @@ public class JdbcUserDAOImpl implements UserDao {
 
     @Override
     public List<User> findAllUsers() throws DAOException, SQLException {
+        System.out.println("JdbcUserDAOImpl.java -> inside findAllUsers");
         List<User> list = new ArrayList<>();
         try (Connection conn = ConnectionPool.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(UserSQL.FIND_ALL_USERS_QUERY.getQUERY());
@@ -89,10 +90,11 @@ public class JdbcUserDAOImpl implements UserDao {
     @Override
     public UserService.PaginationResult findAllUsersByPagination(int lowerBound, int upperBound) {
 
+        System.out.println("JdbcUserDAOImpl.java -> inside findAllUsersByPagination");
         UserService.PaginationResult paginationResult = new UserService.PaginationResult();
 
-        Map<Long, User> users = new HashMap<>();
         UserMapper userMapper = new UserMapper();
+        List<User> users = new ArrayList<>();
 
         try (Connection conn = ConnectionPool.getConnection();
             PreparedStatement usersPS = conn.prepareStatement(UserSQL.GET_USERS_BY_PAGINATION.getQUERY());
@@ -103,6 +105,8 @@ public class JdbcUserDAOImpl implements UserDao {
             ResultSet rs = usersPS.executeQuery();
             while (rs.next()) {
                 User user = userMapper.extractFromResultSet(rs);
+                users.add(user);
+                System.out.println("JdbcUserDAOImpl.java -> user = " + user);
             }
             rs.close();
 
@@ -115,8 +119,13 @@ public class JdbcUserDAOImpl implements UserDao {
            // logger.fatal("Caught SQLException exception", e);
             e.printStackTrace();
         }
-        paginationResult.setResultList(new ArrayList<>(users.values()));
+        paginationResult.setResultList(new ArrayList<>(users));
+        System.out.println("JdbcUserDAOImpl.java -> paginationResult = " + paginationResult);
         return paginationResult;
     }
 
+    @Override
+    public void close() throws Exception {
+
+    }
 }
