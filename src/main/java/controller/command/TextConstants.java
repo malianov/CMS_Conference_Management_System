@@ -17,6 +17,7 @@ public interface TextConstants {
         String LAST_NAME = "lastName";
         String LOGGED_USERS = "loggedUsers";
 
+        String CONFERENCES = "conferences";
         String NO_OF_PAGES = "noOfPages";
         String REPORTS = "reports";
         String REPORTS_TO_CHANGE = "reportsToChange";
@@ -38,8 +39,8 @@ public interface TextConstants {
 
 
     interface Routes {
-        String TO_SHOW_ALL_USERS = "/WEB-INF/view/admin/all_users_page.jsp";
-
+        String TO_SHOW_ALL_USERS = "/WEB-INF/view/all_users_page.jsp";
+        String TO_SHOW_ALL_CONFERENCES = "/WEB-INF/view/calendar_page.jsp";
 
         String REDIRECT = "redirect@";
         String EMPTY_STRING = "";

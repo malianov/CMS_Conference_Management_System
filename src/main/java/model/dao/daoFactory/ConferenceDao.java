@@ -10,4 +10,5 @@ import java.util.List;
 public interface ConferenceDao extends GenericDao<Conference> {
     ConferenceService.PaginationResult findByPagination(int offset, int noOfRows);
     List<Conference> findAllConferences() throws DAOException, SQLException;
+    //ConferenceService findByPagination();
 }

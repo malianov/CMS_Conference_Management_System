@@ -2,8 +2,9 @@ package model.dao.impl.queries;
 
 public enum ConferenceSQL {
 
-    //FIND_ALL_CONFERENCES_QUERY("SELECT * FROM CMS.conferences LIMIT 10 OFFSET 19;");
-    FIND_ALL_CONFERENCES_QUERY("SELECT * FROM CMS.conferences;");
+    GET_CONFERENCES_BY_PAGINATION_QUERY("SELECT * FROM CMS.conferences LIMIT ?, ?;"),
+    FIND_ALL_CONFERENCES_QUERY("SELECT * FROM CMS.conferences;"),
+    CALC_CONFERENCES_ROWS("SELECT count(*) from CMS.conferences");
 
     String QUERY;
 

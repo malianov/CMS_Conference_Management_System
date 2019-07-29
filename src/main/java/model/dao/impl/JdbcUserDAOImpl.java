@@ -23,7 +23,9 @@ public class JdbcUserDAOImpl implements UserDao {
     public User findUserByLoginAndPassword(String login, String password) throws DAOException {
         System.out.println("JdbcUserDAOImpl.java -> inside findUserByLoginAndPassword");
 
-        User user = null;
+        UserMapper userMapper = new UserMapper();
+        User user = new User();
+
         try (Connection conn = ConnectionPool.getConnection()) {
             System.out.println("UserDAOImpl.java -> inside findUserByLoginAndPassword = inside try");
             PreparedStatement ps = conn.prepareStatement(UserSQL.FIND_USER_BY_LOGIN_AND_PASSWORD_QUERY.getQUERY());
@@ -31,18 +33,9 @@ public class JdbcUserDAOImpl implements UserDao {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             System.out.println("UserDAOImpl.java -> inside findUserByLoginAndPassword = after ResultSet rs = ps.executeQuery();");
+
             if (rs.next()) {
-                do {
-                    user = new User();
-                    user.setId_user(rs.getLong("u_id"));
-                    user.setLogin(rs.getString("u_login"));
-                    user.setName(rs.getString("u_name"));
-                    user.setSurname(rs.getString("u_surname"));
-                    user.setEmail(rs.getString("u_email"));
-                    user.setRole(Role.getRoleById(rs.getInt("u_role")));
-                    user.setIsActive(rs.getInt("u_isActive"));
-                    user.setPassword(rs.getString("u_password"));
-                } while (rs.next());
+                user = userMapper.extractFromResultSet(rs);
             } else {
                 //logger
             }

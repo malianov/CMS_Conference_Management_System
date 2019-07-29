@@ -9,8 +9,8 @@
                 <th>conference-end-date</th>
                 <th>conference-title</th>
                 <th>conference-city</th>
-                <th>conference-hall</th>
-                <th>conference-register</th>
+                <th>conference-hall ${noOfPages}</th>
+                <th>conference-register currentPage ${currentPage}</th>
             </tr>
             </thead>
 
@@ -33,4 +33,42 @@
             </tbody>
         </table>
     </div>
+
+    <%--<nav>
+        <ul>
+
+            <c:if test="${currentPage != 1}">
+                <li class="page-item">
+                    <a class="in-table-link"
+                       href="${pageContext.request.contextPath}/WEB-INF/view/calendar_page.jsp?currentPage=${currentPage - 1}">
+                        <fmt:message key="label.prev"/>
+                    </a>
+                </li>
+            </c:if>
+
+
+            <c:forEach begin="1" end="${noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${currentPage eq i}">
+                        <li class="page-item active">
+                            <a class="in-table-link" href="#"> ${i} </a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item">
+                            <a class="in-table-link" href="${pageContext.request.contextPath}/WEB-INF/view/calendar_page.jsp?currentPage=${i}">${i}</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+
+
+            <c:if test="${currentPage lt noOfPages}">
+                <li class="page-item"><a class="in-table-link" href="${pageContext.request.contextPath}/WEB-INF/view/calendar_page.jsp?currentPage=${currentPage + 1}">
+                    <fmt:message key="label.next"/></a>
+                </li>
+            </c:if>
+        </ul>
+    </nav>--%>
+
 </div>

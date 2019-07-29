@@ -20,20 +20,22 @@ public class ConferenceService {
     public List<Conference> findAllConferences() throws ServiceException {
         System.out.println("ConferenceService.java -> findAllConferences");
         try {
-            System.out.println("ConferenceService.java -> findAllConferences// inside try");
-            System.out.println("ConferenceService.java -> findAllConferences// inside try" + daoFactory);
             return daoFactory.createConferenceDao().findAllConferences();
+
         } catch (DAOException | SQLException e) {
             System.out.println("ConferenceService.java -> findAllConferences// inside cath" + e);
             throw new ServiceException(e.getMessage(), e);
         }
     }
-    public PaginationResult getConferenceByPagination(int lowerBound, int upperBound) {
-        ConferenceDao dao = daoFactory.createConferenceDao();
-        return dao.findByPagination(lowerBound, upperBound);
+
+    public PaginationResult getConferencesByPagination(int lowerBound, int upperBound) {
+        System.out.println("ConferenceService.java -> getConferencesByPaginatio");
+
+        return daoFactory.createConferenceDao().findByPagination(lowerBound, upperBound);
     }
 
     public static class PaginationResult {
+
         private int noOfRows;
         private List<Conference> resultList;
 
@@ -41,7 +43,7 @@ public class ConferenceService {
             return noOfRows;
         }
 
-        public void setNoOfRecords(int noOfRecords) {
+        public void setNoOfRecords(int noOfRows) {
             this.noOfRows = noOfRows;
         }
 

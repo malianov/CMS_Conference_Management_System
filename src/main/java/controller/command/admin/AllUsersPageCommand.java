@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static controller.command.TextConstants.Parameters.CURRENT_PAGE;
-import static controller.command.TextConstants.Routes.TO_SHOW_ALL_USERS;
-
 public class AllUsersPageCommand implements Command {
 
     ServiceFactory serviceFactory = ServiceFactory.getInstance();

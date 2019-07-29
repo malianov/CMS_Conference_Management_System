@@ -2,7 +2,6 @@ package controller.command.common.impl;
 
 import controller.command.Command;
 import controller.command.util.CommandUtil;
-import model.entity.Role;
 import model.entity.User;
 import model.exception.ServiceException;
 import model.service.ServiceFactory;
@@ -10,8 +9,6 @@ import model.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import static controller.command.TextConstants.Parameters.ROLE;
 
 public class LoginCommand implements Command {
 
