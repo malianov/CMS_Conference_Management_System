@@ -34,13 +34,13 @@
         </table>
     </div>
 
-    <%--<nav>
+    <nav>
         <ul>
 
             <c:if test="${currentPage != 1}">
                 <li class="page-item">
                     <a class="in-table-link"
-                       href="${pageContext.request.contextPath}/WEB-INF/view/calendar_page.jsp?currentPage=${currentPage - 1}">
+                       href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${currentPage - 1}">
                         <fmt:message key="label.prev"/>
                     </a>
                 </li>
@@ -56,7 +56,7 @@
                     </c:when>
                     <c:otherwise>
                         <li class="page-item">
-                            <a class="in-table-link" href="${pageContext.request.contextPath}/WEB-INF/view/calendar_page.jsp?currentPage=${i}">${i}</a>
+                            <a class="in-table-link" href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${i}">${i}</a>
                         </li>
                     </c:otherwise>
                 </c:choose>
@@ -64,11 +64,11 @@
 
 
             <c:if test="${currentPage lt noOfPages}">
-                <li class="page-item"><a class="in-table-link" href="${pageContext.request.contextPath}/WEB-INF/view/calendar_page.jsp?currentPage=${currentPage + 1}">
+                <li class="page-item"><a class="in-table-link" href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${currentPage + 1}">
                     <fmt:message key="label.next"/></a>
                 </li>
             </c:if>
         </ul>
-    </nav>--%>
+    </nav>
 
 </div>
