@@ -34,41 +34,28 @@
         </table>
     </div>
 
-    <nav>
-        <ul>
-
+    <div class="w3-center">
+        <div class="w3-bar w3-border w3-round">
             <c:if test="${currentPage != 1}">
-                <li class="page-item">
-                    <a class="in-table-link"
-                       href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${currentPage - 1}">
-                        <fmt:message key="label.prev"/>
-                    </a>
-                </li>
+                <a href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${currentPage - 1}"
+                   class="w3-bar-item w3-button w3-hover-blue">&laquo;</a>
             </c:if>
-
-
             <c:forEach begin="1" end="${noOfPages}" var="i">
                 <c:choose>
                     <c:when test="${currentPage eq i}">
-                        <li class="page-item active">
-                            <a class="in-table-link" href="#"> ${i} </a>
-                        </li>
+                        <a href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${i}"
+                           class="w3-bar-item w3-button w3-red">${i}</a>
                     </c:when>
                     <c:otherwise>
-                        <li class="page-item">
-                            <a class="in-table-link" href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${i}">${i}</a>
-                        </li>
+                        <a href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${i}"
+                           class="w3-bar-item w3-button w3-hover-blue">${i}</a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
-
-
             <c:if test="${currentPage lt noOfPages}">
-                <li class="page-item"><a class="in-table-link" href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${currentPage + 1}">
-                    <fmt:message key="label.next"/></a>
-                </li>
+                <a href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${currentPage + 1}"
+                   class="w3-bar-item w3-button w3-hover-blue">&raquo;</a>
             </c:if>
-        </ul>
-    </nav>
-
+        </div>
+    </div>
 </div>
