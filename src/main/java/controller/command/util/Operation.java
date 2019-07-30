@@ -6,11 +6,11 @@ public enum Operation {
     LOGOUT(                 "/view/logout"),
     NOT_FOUND_PAGE(         "/view/not_found_page"),
 
-    MAIN_PAGE(        "/view/main_page"),
-    ALL_USERS_PAGE("/view/all_users_page"),
-    CALENDAR_PAGE(    "/view/calendar_page"),
-    ARCHIVE_PAGE(     "/view/archive_page"),
-
+    MAIN_PAGE(              "/view/main_page"),
+    ALL_USERS_PAGE(         "/view/all_users_page"),
+    CALENDAR_PAGE(          "/view/calendar_page"),
+    ARCHIVE_PAGE(           "/view/archive_page"),
+    SEARCH_USERS(           "/view/search_users"),
 
 
 

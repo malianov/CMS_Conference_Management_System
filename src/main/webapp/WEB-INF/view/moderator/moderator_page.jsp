@@ -1,3 +1,4 @@
+<%--
 <%@ include file="../header.jsp" %>
 
 <div class="w3-container w3-padding w3-margin w3-display-container">
@@ -90,10 +91,11 @@
     }
 </script>
 
-<footer class="<%--w3-bottom--%> w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
+<footer class="&lt;%&ndash;w3-bottom&ndash;%&gt; w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
     <p>igor-malianov-2019</p>
 </footer>
 
 
 </body>
 </html>
+--%>

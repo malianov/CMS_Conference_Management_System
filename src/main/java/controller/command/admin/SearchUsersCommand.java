@@ -3,7 +3,6 @@ package controller.command.admin;
 import controller.command.Command;
 import controller.command.util.CommandUtil;
 import model.entity.User;
-import model.exception.ServiceException;
 import model.service.ServiceFactory;
 import model.service.UserService;
 
@@ -13,20 +12,17 @@ import java.io.IOException;
 import java.util.List;
 
 import static controller.command.TextConstants.Parameters.*;
-import static controller.command.TextConstants.Routes.TO_SHOW_ALL_CONFERENCES;
+import static controller.command.TextConstants.Parameters.CURRENT_PAGE;
 import static controller.command.TextConstants.Routes.TO_SHOW_ALL_USERS;
 
-public class AllUsersPageCommand implements Command {
+public class SearchUsersCommand implements Command {
 
     ServiceFactory serviceFactory = ServiceFactory.getInstance();
     UserService userService = serviceFactory.getUserService();
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("AllUsersPageCommand.java -> inside execute");
-
-/*        String login2 = request.getParameter("user_login").trim();
-        System.out.println(login2);*/
+        System.out.println("SearchUsersCommand.java -> inside execute");
 
         int ROWS_PER_PAGE = 12;
         int current_page = 1;
@@ -40,10 +36,30 @@ public class AllUsersPageCommand implements Command {
     }
 
     private void performPagination(HttpServletRequest request, int currentPage, int rowsPerPage) {
+        String searchUserId             = request.getParameter("search_user_id");
+        String search_user_login        = request.getParameter("search_user_login");
+        String searchUserName           = request.getParameter("search_user_name");
+        String searchUserSurname        = request.getParameter("search_user_surname");
+        String searchUserEmail          = request.getParameter("search_user_email");
+        String search_administrator     = request.getParameter("search_administrator");
+        String search_moderator         = request.getParameter("search_moderator");
+        String search_speaker           = request.getParameter("search_speaker");
+        String search_participant       = request.getParameter("search_participant");
+        String search_active            = request.getParameter("search_active");
+        String search_deactivated       = request.getParameter("search_deactivated");
+
+        System.out.println(searchUserId +"\n"+ search_user_login +"\n"+ searchUserName +"\n"+ searchUserSurname +"\n"+ searchUserEmail +"\n"+ search_administrator +"\n"+
+                search_moderator +"\n"+ search_speaker +"\n"+ search_participant +"\n"+ search_active +"\n"+ search_deactivated);
 
         int lowerBound = calcLowerBound(currentPage, rowsPerPage);
 
-        UserService.PaginationResult paginationResult = userService.getUsersByPagination(lowerBound, rowsPerPage);
+
+
+
+
+        UserService.PaginationResult paginationResult = userService.getSearchUsersByPagination(lowerBound, rowsPerPage, searchUserId, search_user_login,
+                searchUserName, searchUserSurname, searchUserEmail/*, search_administrator, search_moderator, search_speaker, search_participant,
+                search_active, search_deactivated*/);
 
         List<User> users = paginationResult.getResultList();
         int noOfRows = paginationResult.getNoOfRows();
@@ -61,7 +77,7 @@ public class AllUsersPageCommand implements Command {
     private int calcLowerBound(int currentPage, int rowsPerPage) {
 
         System.out.println("currentPage = " + currentPage);
-        System.out.println("recordsPerPage = " + rowsPerPage);
+        System.out.println("rowsPerPage = " + rowsPerPage);
 
         return (currentPage - 1) * rowsPerPage;
     }

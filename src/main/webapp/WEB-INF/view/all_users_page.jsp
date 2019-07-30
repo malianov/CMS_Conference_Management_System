@@ -39,6 +39,16 @@
 
         </div>
 
+
+
+
+
+
+
+
+
+
+
         <c:choose>
             <c:when test="${sessionScope.role == 'ADMIN'}">
                 <%@ include file="all_users.jsp" %>

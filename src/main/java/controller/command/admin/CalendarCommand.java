@@ -62,16 +62,16 @@ public class CalendarCommand implements Command {
         System.out.println("CalendarCommand.java -> current page " + currentPage);
     }
 
-    private int calcLowerBound(int currentPage, int recordsPerPage) {
+    private int calcLowerBound(int currentPage, int rowsPerPage) {
 
         System.out.println("currentPage = " + currentPage);
-        System.out.println("recordsPerPage = " + recordsPerPage);
+        System.out.println("rowsPerPage = " + rowsPerPage);
 
-        return (currentPage - 1) * recordsPerPage;
+        return (currentPage - 1) * rowsPerPage;
     }
 
-    private int calcNoOfPages(int noOfRecords, int recordsPerPage) {
-        return (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+    private int calcNoOfPages(int noOfRows, int rowsPerPage) {
+        return (int) Math.ceil(noOfRows * 1.0 / rowsPerPage);
     }
 
 

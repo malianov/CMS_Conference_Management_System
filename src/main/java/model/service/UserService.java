@@ -36,6 +36,17 @@ public class UserService {
         }
     }
 
+    public PaginationResult getSearchUsersByPagination(int lowerBound, int upperBound, String searchUserId, String search_user_login, String searchUserName, String searchUserSurname, String searchUserEmail/*, String search_administrator, String search_moderator, String search_speaker, String search_participant, String search_active, String search_deactivated*/) {
+        System.out.println("UserService.java => inside getSearchUsersByPagination");
+
+        UserDao dao = daoFactory.createUserDao();
+        System.out.println("UserService.java => inside getSearchUsersByPagination before return");
+
+        return dao.findSearchUsersByPagination(lowerBound, upperBound, searchUserId, search_user_login, searchUserName,
+                searchUserSurname, searchUserEmail/*, search_administrator, search_moderator, search_speaker,
+                search_participant, search_active, search_deactivated*/);
+    }
+
     public static class PaginationResult {
         private int noOfRows;
         private List<User> resultList;
@@ -61,7 +72,6 @@ public class UserService {
         UserDao dao = daoFactory.createUserDao();
         return dao.findAllUsersByPagination(lowerBound, upperBound);
     }
-
 
 
 //    public static class PaginationResult {
@@ -129,7 +139,6 @@ public class UserService {
 //            throw new ServiceException(e.getMessage(), e);
 //        }
 //    }
-
 
 
 //    public void registerUser(User user) throws ServiceException {
