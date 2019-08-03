@@ -41,29 +41,13 @@
 
 
             <c:forEach items="${users}" var="all_users_list">
-                <c:choose>
-                    <c:when test="${all_users_list.getIsActive() == 0}">
-                        <tr class="w3-black">
-                    </c:when>
-                </c:choose>
-                <td>
-                        ${all_users_list.getId_user()}
-                </td>
-                <td>
-                        ${all_users_list.getLogin()}
-                </td>
-                <td>
-                        ${all_users_list.getName()}
-                </td>
-                <td>
-                        ${all_users_list.getSurname()}
-                </td>
-                <td>
-                        ${all_users_list.getEmail()}
-                </td>
-                <td>
-                        ${all_users_list.getRole()}
-                </td>
+                <c:choose><c:when test="${all_users_list.getIsActive() == 0}"><tr class="w3-black"></c:when></c:choose>
+                <td>${all_users_list.getId_user()}</td>
+                <td>${all_users_list.getLogin()}</td>
+                <td>${all_users_list.getName()}</td>
+                <td>${all_users_list.getSurname()}</td>
+                <td>${all_users_list.getEmail()}</td>
+                <td>${all_users_list.getRole()}</td>
                 <td>
                     <c:choose>
                         <c:when test="${(all_users_list.getIsActive() == 1)}">active</c:when>
@@ -103,21 +87,17 @@
 
 
             <div class="w3-dropdown-hover tablink w3-right">
-                <button onclick="document.getElementById('id01').style.display='block'"
-                        class="w3-button w3-border w3-round w3-light-blue">
+                <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-border w3-round w3-light-blue">
                     <fmt:message key="search"/></button>
-
 
                 <div id="id01" class="w3-modal w3-large">
                     <div class="w3-modal-content">
                         <header class="w3-container w3-teal">
-                            <span onclick="document.getElementById('id01').style.display='none'"
-                                  class="w3-display-topright">&times;</span>
+                            <span onclick="document.getElementById('id01').style.display='none'" class="w3-display-topright">&times;</span>
                             <h2>search-panel</h2>
                         </header>
                         <div class="w3-container">
-                            <form class="w3-light-grey w3-padding"
-                                  action="${pageContext.request.contextPath}/view/search_users">
+                            <form class="w3-light-grey w3-padding" action="${pageContext.request.contextPath}/view/search_users">
                                 <p>you-can-find-a-list-users-based-on-any-criteria-or-its-combination</p>
                                 <div>
                                     <div class="w3-margin">
@@ -135,17 +115,11 @@
                                             <tbody>
 
                                             <tr>
-                                                <td><input class="w3-input w3-border" type="text" name="search_user_id">
-                                                </td>
-                                                <td><input class="w3-input w3-border" type="text" name="search_user_login">
-                                                </td>
-                                                <td><input class="w3-input w3-border" type="text"
-                                                           name="search_user_name">
-                                                </td>
-                                                <td><input class="w3-input w3-border" type="text"
-                                                           name="search_user_surname"></td>
-                                                <td><input class="w3-input w3-border" type="text"
-                                                           name="search_user_email">
+                                                <td><input class="w3-input w3-border" type="text" name="search_user_id"></td>
+                                                <td><input class="w3-input w3-border" type="text" name="search_user_login"></td>
+                                                <td><input class="w3-input w3-border" type="text" name="search_user_name"></td>
+                                                <td><input class="w3-input w3-border" type="text" name="search_user_surname"></td>
+                                                <td><input class="w3-input w3-border" type="text" name="search_user_email">
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -153,39 +127,25 @@
                                     </div>
                                     <div>
                                         <div class="w3-half w3-row-padding">
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_administrator">
-                                            <label>administrator</label>
-
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_moderator">
-                                            <label>moderator</label>
-
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_speaker">
-                                            <label>speaker</label>
-
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_participant">
-                                            <label>participant</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_administrator"><label>administrator</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_moderator"><label>moderator</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_speaker"><label>speaker</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_participant"><label>participant</label>
                                         </div>
                                         <div class="w3-half w3-row-padding">
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_active">
-                                            <label>active</label>
-
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_deactivated">
-                                            <label>deactivated</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_active"><label>active</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_deactivated"><label>deactivated</label>
                                         </div>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="w3-center">
-                                    <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom"/>
-                                    submit</button>
-                                    <input class="w3-btn w3-round-large w3-blue w3-hover-red w3-margin-bottom"
-                                           type="reset" value="reset">
+                                    <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom"/>submit</button>
+                                    <input class="w3-btn w3-round-large w3-blue w3-hover-red w3-margin-bottom" type="reset" value="reset">
                                 </div>
                             </form>
                         </div>
-                        <footer class="w3-container w3-teal">
-                            <p>igor-malianov-2019</p>
-                        </footer>
+                        <footer class="w3-container w3-teal"><p>igor-malianov-2019</p></footer>
                     </div>
                 </div>
             </div>
