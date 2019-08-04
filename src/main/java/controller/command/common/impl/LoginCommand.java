@@ -26,12 +26,12 @@ public class LoginCommand implements Command {
         request.getSession().setAttribute("search_user_surname", "");
         request.getSession().setAttribute("search_user_email", "");
 
-        request.getSession().setAttribute("search_administrator", "");
+/*        request.getSession().setAttribute("search_administrator", "");
         request.getSession().setAttribute("search_moderator", "");
         request.getSession().setAttribute("search_speaker", "");
         request.getSession().setAttribute("search_participant", "");
         request.getSession().setAttribute("search_active", "");
-        request.getSession().setAttribute("search_deactivated", "");
+        request.getSession().setAttribute("search_deactivated", "");*/
 
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         UserService userService = serviceFactory.getUserService();

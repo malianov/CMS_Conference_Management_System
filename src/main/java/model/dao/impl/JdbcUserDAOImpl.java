@@ -49,9 +49,7 @@ public class JdbcUserDAOImpl implements UserDao {
 
     @Override
     public UserService.PaginationResult findSearchUsersByPagination(int lowerBound, int upperBound, String searchUserId, String searchUserLogin,
-                                                                    String searchUserName, String searchUserSurname, String searchUserEmail,
-                                                                    String searchAdministrator, String searchModerator, String searchSpeaker,
-                                                                    String searchParticipant, String searchActive, String searchDeactivated) {
+                                                                    String searchUserName, String searchUserSurname, String searchUserEmail) {
 
         UserService.PaginationResult paginationResult = new UserService.PaginationResult();
 
@@ -61,27 +59,22 @@ public class JdbcUserDAOImpl implements UserDao {
         System.out.println("-_-_-_-_-_ users - " + users);
         FindQueryGenerator qg = new FindQueryGenerator();
         String findUsersByCriteriaRequests = String.valueOf(qg.findUsersByCriteriaRequests(searchUserId, searchUserLogin,
-                searchUserName, searchUserSurname, searchUserEmail, searchAdministrator,
-                searchModerator, searchSpeaker, searchParticipant, searchActive, searchDeactivated))  + "LIMIT ?, ?;";
+                searchUserName, searchUserSurname, searchUserEmail))  + "LIMIT ?, ?;";
 
         PreparedStatement usersPS = null;
         try(Connection conn = ConnectionPool.getConnection()) {
             usersPS = conn.prepareStatement(findUsersByCriteriaRequests);
             usersPS.setInt(1, lowerBound);
             usersPS.setInt(2, upperBound);
-            System.out.println("-_-_-_-_-_ findUsersByCriteriaRequests" + findUsersByCriteriaRequests);
             ResultSet rs = usersPS.executeQuery();
 
             while (rs.next()) {
                 User user = userMapper.extractFromResultSet(rs);
                 users.add(user);
-                System.out.println("-_-_-_-_-_ user = " + user);
             }
-            System.out.println("-_-_-_-_-_ users - " + users);
 
         String findCountUsersByCriteriaRequests = String.valueOf(qg.calculateUsersByCriteriaRequests(searchUserId, searchUserLogin,
-                searchUserName, searchUserSurname, searchUserEmail, searchAdministrator, searchModerator, searchSpeaker,
-                searchParticipant, searchActive, searchDeactivated));
+                searchUserName, searchUserSurname, searchUserEmail));
 
         PreparedStatement countRowsPS = null;
 

@@ -45,13 +45,6 @@ public class SearchUsersCommand implements Command {
         String searchUserSurname    = String.valueOf(request.getSession().getAttribute("search_user_surname"));
         String searchUserEmail      = String.valueOf(request.getSession().getAttribute("search_user_email"));
 
-        String searchAdministrator  = String.valueOf(request.getSession().getAttribute("search_administrator"));
-        String searchModerator      = String.valueOf(request.getSession().getAttribute("search_moderator"));
-        String searchSpeaker        = String.valueOf(request.getSession().getAttribute("search_speaker"));
-        String searchParticipant    = String.valueOf(request.getSession().getAttribute("search_participant"));
-        String searchActive         = String.valueOf(request.getSession().getAttribute("search_active"));
-        String searchDeactivated    = String.valueOf(request.getSession().getAttribute("search_deactivated"));
-
         if (request.getParameter("search_user_id") != null) {
             searchUserId = request.getParameter("search_user_id");
         }
@@ -67,42 +60,11 @@ public class SearchUsersCommand implements Command {
         if (request.getParameter("search_user_email") != null) {
             searchUserEmail = request.getParameter("search_user_email");
         }
-        if (request.getParameter("search_administrator") != null) {
-            searchAdministrator = "0";
-        }
-        if (request.getParameter("search_moderator") != null) {
-            searchModerator = "1";
-        }
-        if (request.getParameter("search_speaker") != null) {
-            searchSpeaker = "2";
-        }
-        if (request.getParameter("search_participant") != null) {
-            searchParticipant = "3";
-        }
-        if (request.getParameter("search_active") != null) {
-            searchActive = "1";
-        }
-        if (request.getParameter("search_deactivated") != null) {
-            searchDeactivated = "0";
-        }
-
-        System.out.println(searchUserId + "\n" +
-                search_user_login + "\n" +
-                searchUserName + "\n" +
-                searchUserSurname + "\n" +
-                searchUserEmail +"\n"+
-                searchAdministrator +"\n"+
-                searchModerator +"\n"+
-                searchSpeaker +"\n"+
-                searchParticipant +"\n"+
-                searchActive +"\n"+
-                searchDeactivated);
 
         int lowerBound = calcLowerBound(currentPage, rowsPerPage);
 
         UserService.PaginationResult paginationResult = userService.getSearchUsersByPagination(lowerBound, rowsPerPage, searchUserId, search_user_login,
-                searchUserName, searchUserSurname, searchUserEmail, String.valueOf(searchAdministrator), searchModerator, searchSpeaker, searchParticipant,
-                searchActive, searchDeactivated);
+                searchUserName, searchUserSurname, searchUserEmail);
 
         List<User> users    = paginationResult.getUsersList();
         System.out.println("SearchUsersCommand.java - > users = " + users);

@@ -104,14 +104,14 @@
                                     </div>
                                     <div>
                                         <div class="w3-half w3-row-padding">
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_administrator" value="search_administrator"><label>administrator</label>
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_moderator" value="search_moderator"><label>moderator</label>
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_speaker" value="search_speaker"><label>speaker</label>
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_participant" value="search_participant"><label>participant</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_role" value="0"><label>administrator</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_role" value="1"><label>moderator</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_role" value="2"><label>speaker</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_role" value="3"><label>participant</label>
                                         </div>
                                         <div class="w3-half w3-row-padding">
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_active" value="search_active"><label>active</label>
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_deactivated" value="search_deactivated"><label>deactivated</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_active_status" value="1"><label>active</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_active_status" value="0"><label>deactivated</label>
                                         </div>
                                     </div>
                                 </div>

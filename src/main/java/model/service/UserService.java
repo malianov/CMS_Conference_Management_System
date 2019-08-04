@@ -24,12 +24,11 @@ public class UserService {
         }
     }
 
-    public PaginationResult getSearchUsersByPagination(int lowerBound, int upperBound, String searchUserId, String search_user_login, String searchUserName, String searchUserSurname, String searchUserEmail, String searchAdministrator, String searchModerator, String searchSpeaker, String searchParticipant, String searchActive, String searchDeactivated) {
+    public PaginationResult getSearchUsersByPagination(int lowerBound, int upperBound, String searchUserId, String search_user_login, String searchUserName, String searchUserSurname, String searchUserEmail) {
 
         System.out.println("UserService.java =>> inside getSearchUsersByPagination");
         return daoFactory.createUserDao().findSearchUsersByPagination(lowerBound, upperBound, searchUserId, search_user_login, searchUserName,
-                searchUserSurname, searchUserEmail, searchAdministrator, searchModerator, searchSpeaker,
-                searchParticipant, searchActive, searchDeactivated);
+                searchUserSurname, searchUserEmail);
     }
 
     public static class PaginationResult {
