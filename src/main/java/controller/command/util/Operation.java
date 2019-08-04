@@ -8,9 +8,12 @@ public enum Operation {
 
     MAIN_PAGE(              "/view/main_page"),
     ALL_USERS_PAGE(         "/view/all_users_page"),
+    //ALL_USERS_PAGE(         "/view/search_users"),
     CALENDAR_PAGE(          "/view/calendar_page"),
     ARCHIVE_PAGE(           "/view/archive_page"),
-    SEARCH_USERS(           "/view/search_users"),
+
+    //SEARCH_USERS(           "/view/search_users"),
+    SEARCH_USERS(           "/view/all_users_page"),
 
 
 
@@ -54,12 +57,10 @@ public enum Operation {
     private String path;
 
     Operation(String path) {
-        System.out.println("Operation.java -> Operation()");
         this.path = path;
     }
 
     public String getPath() {
-        System.out.println("Operation.java -> getPath()");
         return path;
     }
 }

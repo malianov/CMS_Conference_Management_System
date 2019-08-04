@@ -15,7 +15,7 @@
             <a href="${pageContext.request.contextPath}/view/main_page"
                class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="main-page"/></a>
             <c:if test="${sessionScope.role != 'PARTICIPANT'}">
-                <a href="${pageContext.request.contextPath}/view/all_users_page"
+                <a href="${pageContext.request.contextPath}/view/all_users_page?currentPage=1"
                    class="w3-bar-item w3-button w3-hover-red"><fmt:message key="all-users"/></a>
             </c:if>
             <a href="${pageContext.request.contextPath}/view/calendar_page"
@@ -60,55 +60,6 @@
 
     </div>
 </div>
-
-<%--<script>--%>
-<%--    function tab(evt, topicName) {--%>
-<%--        var i, x, tablinks;--%>
-<%--        x = document.getElementsByClassName("topic");--%>
-<%--        for (i = 0; i < x.length; i++) {--%>
-<%--            x[i].style.display = "none";--%>
-<%--        }--%>
-<%--        tablinks = document.getElementsByClassName("tablink");--%>
-<%--        for (i = 0; i < x.length; i++) {--%>
-<%--            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");--%>
-<%--        }--%>
-<%--        document.getElementById(topicName).style.display = "block";--%>
-<%--        evt.currentTarget.className += " w3-red";--%>
-<%--    }--%>
-<%--</script>--%>
-
-<%--<script>--%>
-<%--    document.getElementsByClassName("tablink_day")[0].click();--%>
-
-<%--    function openDay(evt, dayName) {--%>
-<%--        var k, y, tablinks;--%>
-<%--        y = document.getElementsByClassName("day");--%>
-<%--        for (k = 0; k < y.length; k++) {--%>
-<%--            y[k].style.display = "none";--%>
-<%--        }--%>
-<%--        tablinks = document.getElementsByClassName("tablink_day");--%>
-<%--        for (k = 0; k < y.length; y++) {--%>
-<%--            tablinks[k].classList.remove("w3-light-grey");--%>
-<%--        }--%>
-<%--        document.getElementById(dayName).style.display = "block";--%>
-<%--        evt.currentTarget.classList.add("w3-light-grey");--%>
-<%--    }--%>
-<%--</script>--%>
-<%--<script>--%>
-<%--    function openMenu(evt, menuName) {--%>
-<%--        var i, x, tablinks;--%>
-<%--        x = document.getElementsByClassName("menu");--%>
-<%--        for (i = 0; i < x.length; i++) {--%>
-<%--            x[i].style.display = "none";--%>
-<%--        }--%>
-<%--        tablinks = document.getElementsByClassName("tablink");--%>
-<%--        for (i = 0; i < x.length; i++) {--%>
-<%--            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");--%>
-<%--        }--%>
-<%--        document.getElementById(menuName).style.display = "block";--%>
-<%--        evt.currentTarget.className += " w3-red";--%>
-<%--    }--%>
-<%--</script>--%>
 
 <footer class="<%--w3-bottom--%> w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
     <p>igor-malianov-2019</p>

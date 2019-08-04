@@ -37,6 +37,7 @@ public class Servlet extends HttpServlet {
                 throw new NotFoundCommandException();
             }
             Command command = CommandFactory.getCommand(path);
+            System.out.println("Servlet.java ---> command = " + command);
             command.execute(req, resp);
         } catch (NotFoundCommandException ex) {
             System.out.println("Servlet.java -> inside catch");

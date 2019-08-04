@@ -25,7 +25,7 @@ public class CommandFactory {
 
 
         commands.put(Operation.MAIN_PAGE.getPath(),         new MainPageCommand());
-        commands.put(Operation.ALL_USERS_PAGE.getPath(), new AllUsersPageCommand());
+        commands.put(Operation.ALL_USERS_PAGE.getPath(),    new SearchUsersCommand());
         commands.put(Operation.CALENDAR_PAGE.getPath(),     new CalendarCommand());
         commands.put(Operation.ARCHIVE_PAGE.getPath(),      new ArchiveCommand());
         commands.put(Operation.SEARCH_USERS.getPath(),      new SearchUsersCommand());

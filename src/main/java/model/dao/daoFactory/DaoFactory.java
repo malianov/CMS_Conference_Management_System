@@ -10,9 +10,6 @@ public abstract class DaoFactory {
     public abstract UserDao createUserDao();
     public abstract ConferenceDao createConferenceDao();
 
-//    public abstract SeminarDao createSeminarDao();
-//    public abstract StatisticsDao createStatisticsDao();
-
     public static DaoFactory getInstance() {
         if (daoFactory == null) {
             synchronized (DaoFactory.class) {

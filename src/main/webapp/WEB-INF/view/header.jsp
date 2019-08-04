@@ -5,8 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="language" value="${not empty sessionScope.language ? sessionScope.language : \"en\"}"
-       scope="session"/>
+<c:set var="language" value="${not empty sessionScope.language ? sessionScope.language : \"en\"}" scope="session"/>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="messages"/>
 

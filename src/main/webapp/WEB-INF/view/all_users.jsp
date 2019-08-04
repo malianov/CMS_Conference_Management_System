@@ -17,29 +17,6 @@
             </thead>
 
             <tbody>
-
-            <%-- <form class="w3-selection w3-light-grey w3-padding"
-                   action="${pageContext.request.contextPath}/view/main_page/find_book">
-                 <tr>
-                     <td><input class="w3-input w3-border" type="text" name="by_keyword1"></td>
-                     <td><input class="w3-input w3-border" type="text" name="by_keyword2"></td>
-                     <td><input class="w3-input w3-border" type="text" name="by_keyword3"></td>
-                     <td><input class="w3-input w3-border" type="text" name="by_keyword4"></td>
-                     <td><input class="w3-input w3-border" type="text" name="by_keyword5"></td>
-                     <td><input class="w3-input w3-border" type="text" name="by_keyword6"></td>
-                     <td><input class="w3-input w3-border" type="text" name="by_keyword7">
-
-                 <div class="w3-padding">
-                     <button class="w3-button w3-blue"/>
-                     <fmt:message key="submit"/>
-                     </button>
-                     <input type="reset" value="reset">
-                 </div>
-                     </td>
-                 </tr>
-             </form>--%>
-
-
             <c:forEach items="${users}" var="all_users_list">
                 <c:choose><c:when test="${all_users_list.getIsActive() == 0}"><tr class="w3-black"></c:when></c:choose>
                 <td>${all_users_list.getId_user()}</td>
@@ -97,7 +74,7 @@
                             <h2>search-panel</h2>
                         </header>
                         <div class="w3-container">
-                            <form class="w3-light-grey w3-padding" action="${pageContext.request.contextPath}/view/search_users">
+                            <form class="w3-light-grey w3-padding" action="${pageContext.request.contextPath}/view/all_users_page?currentPage=${currentPage}">
                                 <p>you-can-find-a-list-users-based-on-any-criteria-or-its-combination</p>
                                 <div>
                                     <div class="w3-margin">
@@ -127,14 +104,14 @@
                                     </div>
                                     <div>
                                         <div class="w3-half w3-row-padding">
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_administrator"><label>administrator</label>
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_moderator"><label>moderator</label>
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_speaker"><label>speaker</label>
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_participant"><label>participant</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_administrator" value="search_administrator"><label>administrator</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_moderator" value="search_moderator"><label>moderator</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_speaker" value="search_speaker"><label>speaker</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_participant" value="search_participant"><label>participant</label>
                                         </div>
                                         <div class="w3-half w3-row-padding">
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_active"><label>active</label>
-                                            <input class="w3-check" type="checkbox" checked="checked" name="search_deactivated"><label>deactivated</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_active" value="search_active"><label>active</label>
+                                            <input class="w3-check" type="checkbox" checked="checked" name="search_deactivated" value="search_deactivated"><label>deactivated</label>
                                         </div>
                                     </div>
                                 </div>
