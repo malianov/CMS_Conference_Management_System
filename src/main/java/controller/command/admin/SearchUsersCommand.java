@@ -4,6 +4,7 @@ import controller.command.Command;
 import controller.command.util.CommandUtil;
 import model.entity.Role;
 import model.entity.User;
+import model.exception.ServiceException;
 import model.service.ServiceFactory;
 import model.service.UserService;
 
@@ -39,11 +40,11 @@ public class SearchUsersCommand implements Command {
 
     private void performPagination(HttpServletRequest request, int currentPage, int rowsPerPage) {
 
-        String searchUserId         = String.valueOf(request.getSession().getAttribute("search_user_id"));
-        String search_user_login    = String.valueOf(request.getSession().getAttribute("search_user_login"));
-        String searchUserName       = String.valueOf(request.getSession().getAttribute("search_user_name"));
-        String searchUserSurname    = String.valueOf(request.getSession().getAttribute("search_user_surname"));
-        String searchUserEmail      = String.valueOf(request.getSession().getAttribute("search_user_email"));
+        String searchUserId = String.valueOf(request.getSession().getAttribute("search_user_id"));
+        String search_user_login = String.valueOf(request.getSession().getAttribute("search_user_login"));
+        String searchUserName = String.valueOf(request.getSession().getAttribute("search_user_name"));
+        String searchUserSurname = String.valueOf(request.getSession().getAttribute("search_user_surname"));
+        String searchUserEmail = String.valueOf(request.getSession().getAttribute("search_user_email"));
 
         if (request.getParameter("search_user_id") != null) {
             searchUserId = request.getParameter("search_user_id");
@@ -66,10 +67,10 @@ public class SearchUsersCommand implements Command {
         UserService.PaginationResult paginationResult = userService.getSearchUsersByPagination(lowerBound, rowsPerPage, searchUserId, search_user_login,
                 searchUserName, searchUserSurname, searchUserEmail);
 
-        List<User> users    = paginationResult.getUsersList();
+        List<User> users = paginationResult.getUsersList();
         System.out.println("SearchUsersCommand.java - > users = " + users);
-        int noOfRows        = paginationResult.getNoOfRows();
-        int noOfPages       = calcNoOfPages(noOfRows, rowsPerPage);
+        int noOfRows = paginationResult.getNoOfRows();
+        int noOfPages = calcNoOfPages(noOfRows, rowsPerPage);
 
         System.out.println("..........SearchUsersCommand.java -> users " + users);
         System.out.println("..........SearchUsersCommand.java -> noOfRows " + noOfRows);

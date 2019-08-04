@@ -28,11 +28,10 @@
                     <%@ include file="modal_change_role.jsp" %>
                 </td>
                 <td>
-                    <c:choose>
-                        <c:when test="${(all_users_list.getIsActive() == 1)}">active</c:when>
-                        <c:when test="${(all_users_list.getIsActive() == 0)}">not-activeee</c:when>
-                        <c:otherwise>status-incorrect</c:otherwise>
-                    </c:choose>
+
+                        <%@ include file="modal_change_activity_status.jsp" %>
+
+
                 </td>
                 </tr>
             </c:forEach>

@@ -22,6 +22,8 @@ public class CommandFactory {
         commands.put(Operation.LOGIN.getPath(),             new LoginCommand());
         commands.put(Operation.LOGOUT.getPath(),            new LogoutCommand());
         commands.put(Operation.NOT_FOUND_PAGE.getPath(),    new NotFoundPageCommand());
+        commands.put(Operation.CHANGE_USER_ROLE.getPath(),    new ChangeUserRoleCommand());
+        commands.put(Operation.CHANGE_USER_ACTIVITY_STATUS.getPath(),    new ChangeUserActivityStatus());
 
 
         commands.put(Operation.MAIN_PAGE.getPath(),         new MainPageCommand());

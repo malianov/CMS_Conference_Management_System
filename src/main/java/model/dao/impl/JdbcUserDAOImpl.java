@@ -5,7 +5,6 @@ import model.dao.daoFactory.UserDao;
 import model.dao.impl.queries.UserSQL;
 import model.dao.mapper.UserMapper;
 import model.dao.utility.FindQueryGenerator;
-import model.entity.Role;
 import model.entity.User;
 import model.exception.DAOException;
 import model.service.UserService;
@@ -15,9 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class JdbcUserDAOImpl implements UserDao {
     @Override
@@ -96,5 +93,41 @@ public class JdbcUserDAOImpl implements UserDao {
 
     @Override
     public void close() throws Exception {
+    }
+
+    @Override
+    public void changeUserRole(String userLogin, String newRole) {
+        System.out.println("jdbcUserDaoImpl.java ==>> changeUserRole");
+        try (Connection conn = ConnectionPool.getConnection()) {
+            System.out.println("UserDAOImpl.java -> changeUserRole = inside try");
+            PreparedStatement ps = conn.prepareStatement(UserSQL.CHANGE_USER_ROLE_BY_ID_AND_NEW_ROLE_QUERY.getQUERY());
+            ps.setString(1, newRole);
+            ps.setString(2, userLogin);
+            System.out.println("UserDAOImpl.java -> changeUserRole = ps = " + ps);
+
+            ps.execute();
+
+            System.out.println("JdbcUserDAOImpl.java -> inside changeUserRole = after ResultSet rs = ps.executeQuery();");
+        } catch (SQLException e) {
+            //logger
+        }
+    }
+
+    @Override
+    public void changeUserActivityStatus(String userLogin, String newActivityStatus) {
+        System.out.println("jdbcUserDaoImpl.java ==>> changeUserActivityStatus");
+        try (Connection conn = ConnectionPool.getConnection()) {
+            System.out.println("UserDAOImpl.java -> changeUserActivityStatus = inside try");
+            PreparedStatement ps = conn.prepareStatement(UserSQL.CHANGE_USER_ACTIVITY_STATUS_QUERY.getQUERY());
+            ps.setString(1, newActivityStatus);
+            ps.setString(2, userLogin);
+            System.out.println("UserDAOImpl.java -> changeUserActivityStatus = ps = " + ps);
+
+            ps.execute();
+
+            System.out.println("JdbcUserDAOImpl.java -> inside changeUserActivityStatus = after ResultSet rs = ps.executeQuery();");
+        } catch (SQLException e) {
+            //logger
+        }
     }
 }

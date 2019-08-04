@@ -15,8 +15,8 @@ public enum Operation {
     //SEARCH_USERS(           "/view/search_users"),
     SEARCH_USERS(           "/view/all_users_page"),
 
-
-
+    CHANGE_USER_ROLE(       "/view/change_user_role"),
+    CHANGE_USER_ACTIVITY_STATUS(       "/view/change_user_activity_status"),
     USER_MAIN_PAGE(         "/view/user_page"),
 
     SHOW_LOGIN_PAGE(        "/view/show_login_page"),

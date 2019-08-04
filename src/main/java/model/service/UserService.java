@@ -31,6 +31,16 @@ public class UserService {
                 searchUserSurname, searchUserEmail);
     }
 
+    public void changeUserRole(String userLogin, String newRole) throws ServiceException {
+        System.out.println("UserService.java ==>> changeUserRole");
+        daoFactory.createUserDao().changeUserRole(userLogin, newRole);
+    }
+
+    public void changeUserAcivityStatus(String userLogin, String newAcivityStatus) {
+        System.out.println("UserService.java ==>> changeUserAcivityStatus");
+        daoFactory.createUserDao().changeUserActivityStatus(userLogin, newAcivityStatus);
+    }
+
     public static class PaginationResult {
         private int noOfRows;
         private List<User> usersList;
