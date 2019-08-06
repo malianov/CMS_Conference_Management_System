@@ -48,6 +48,14 @@ public class ConferenceService {
         daoFactory.createConferenceDao().changeEndDate(idConference, newDate);
     }
 
+    public void changeCity(String cityEng, String cityUkr, String idConference) {
+        daoFactory.createConferenceDao().changeCity(cityEng, cityUkr, idConference);
+    }
+
+    public void changePlace(String placeEng, String placeUkr, String idConference) {
+        daoFactory.createConferenceDao().changePlace(placeEng, placeUkr, idConference);
+    }
+
     public static class PaginationResult {
 
         private int noOfRows;

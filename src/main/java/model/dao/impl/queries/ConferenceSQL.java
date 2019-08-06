@@ -10,7 +10,9 @@ public enum ConferenceSQL {
 
     //CHANGE_START_DATE_QUERY("UPDATE CMS.conferences SET c_start_date = (?) WHERE c_id = (?);");
     CHANGE_START_DATE_QUERY("UPDATE CMS.conferences SET c_start_date=(?) WHERE c_id= (?);"),
-    CHANGE_END_DATE_QUERY("UPDATE CMS.conferences SET c_end_date=(?) WHERE c_id= (?);");
+    CHANGE_END_DATE_QUERY("UPDATE CMS.conferences SET c_end_date=(?) WHERE c_id= (?);"),
+    CHANGE_CITY_QUERY("UPDATE CMS.conferences SET c_city_eng=(?), c_city_ukr=(?) WHERE c_id= (?);"),
+    CHANGE_PLACE_QUERY("UPDATE CMS.conferences SET c_place_eng=(?), c_place_ukr=(?) WHERE c_id= (?);");
     String QUERY;
 
     ConferenceSQL(String QUERY) {

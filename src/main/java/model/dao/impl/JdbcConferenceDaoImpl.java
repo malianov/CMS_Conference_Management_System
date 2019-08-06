@@ -145,6 +145,46 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
     }
 
     @Override
+    public void changeCity(String cityEng, String cityUkr, String idConference) {
+        try (Connection conn = ConnectionPool.getConnection()) {
+            System.out.println("JdbcConferenceDaoImpl.java -> inside changeCity TRY");
+
+            PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CHANGE_CITY_QUERY.getQUERY());
+            ps.setString(1, cityEng);
+            ps.setString(2, cityUkr);
+            ps.setString(3, idConference);
+
+            System.out.println("JdbcConferenceDaoImpl.java -> ps = " + ps);
+            int result = ps.executeUpdate();
+            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+    @Override
+    public void changePlace(String placeEng, String placeUkr, String idConference) {
+        try (Connection conn = ConnectionPool.getConnection()) {
+            System.out.println("JdbcConferenceDaoImpl.java -> inside changeCity TRY");
+
+            PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CHANGE_PLACE_QUERY.getQUERY());
+            ps.setString(1, placeEng);
+            ps.setString(2, placeUkr);
+            ps.setString(3, idConference);
+
+            System.out.println("JdbcConferenceDaoImpl.java -> ps = " + ps);
+            int result = ps.executeUpdate();
+            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+    @Override
         public void close () throws Exception {
         }
     }

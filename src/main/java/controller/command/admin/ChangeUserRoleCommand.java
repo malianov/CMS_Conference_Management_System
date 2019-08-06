@@ -2,7 +2,9 @@ package controller.command.admin;
 
 import controller.command.Command;
 import controller.command.util.CommandUtil;
+import model.entity.Conference;
 import model.exception.ServiceException;
+import model.service.ConferenceService;
 import model.service.ServiceFactory;
 import model.service.UserService;
 
@@ -23,15 +25,15 @@ public class ChangeUserRoleCommand implements Command {
         String userLogin = request.getParameter("userLogin");
         String page = request.getParameter("page");
 
-            System.out.println("============ hidden role ============" + newRole + " " + userLogin);
-            try {
-                userService.changeUserRole(userLogin, newRole);
-            } catch (ServiceException e) {
-                e.printStackTrace();
-            }
+        System.out.println("============ hidden role ============" + newRole + " " + userLogin);
+        try {
+            userService.changeUserRole(userLogin, newRole);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
 
-            String path = "/view/all_users_page?currentPage=" + page;
-            CommandUtil.goToPage(request, response, path);
+        String path = "/view/all_users_page?currentPage=" + page;
+        CommandUtil.goToPage(request, response, path);
 
     }
 }

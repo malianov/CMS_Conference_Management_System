@@ -22,6 +22,9 @@ public enum Operation {
     ADD_NEW_CONFERENCE(     "/view/create_conference"),
     CHANGE_START_DATE(      "/view/change_start_date"),
     CHANGE_END_DATE(        "/view/change_end_date"),
+
+    CHANGE_CITY(            "/view/change_conference_city"),
+    CHANGE_PLACE(           "/view/change_conference_place"),
     SHOW_LOGIN_PAGE(        "/view/show_login_page"),
     SHOW_MAIN_PAGE(         "/view/main_page"),
 

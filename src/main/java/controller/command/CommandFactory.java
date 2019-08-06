@@ -34,6 +34,8 @@ public class CommandFactory {
         commands.put(Operation.SEARCH_USERS.getPath(),      new SearchUsersCommand());
         commands.put(Operation.CHANGE_START_DATE.getPath(), new ChangeStartDateCommand());
         commands.put(Operation.CHANGE_END_DATE.getPath(),   new ChangeEndDateCommand());
+        commands.put(Operation.CHANGE_CITY.getPath(),       new ChangeCityCommand());
+        commands.put(Operation.CHANGE_PLACE.getPath(),      new ChangePlaceCommand());
 //        commands.put(Operation.USER_MAIN_PAGE.getPath(), new UserMainPageCommand());
 //
 //        commands.put(Operation.SHOW_LOGIN_PAGE.getPath(), new ShowLoginCommand());
