@@ -16,9 +16,12 @@ public enum Operation {
     SEARCH_USERS(           "/view/all_users_page"),
 
     CHANGE_USER_ROLE(       "/view/change_user_role"),
-    CHANGE_USER_ACTIVITY_STATUS(       "/view/change_user_activity_status"),
+    CHANGE_USER_ACTIVITY_STATUS("/view/change_user_activity_status"),
     USER_MAIN_PAGE(         "/view/user_page"),
 
+    ADD_NEW_CONFERENCE(     "/view/create_conference"),
+    CHANGE_START_DATE(      "/view/change_start_date"),
+    CHANGE_END_DATE(        "/view/change_end_date"),
     SHOW_LOGIN_PAGE(        "/view/show_login_page"),
     SHOW_MAIN_PAGE(         "/view/main_page"),
 

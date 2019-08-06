@@ -27,6 +27,14 @@ public class SearchUsersCommand implements Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("SearchUsersCommand.java -> inside execute");
 
+
+
+
+
+
+
+
+
         int ROWS_PER_PAGE = 12;
         int current_page = 1;
 
@@ -45,6 +53,13 @@ public class SearchUsersCommand implements Command {
         String searchUserName = String.valueOf(request.getSession().getAttribute("search_user_name"));
         String searchUserSurname = String.valueOf(request.getSession().getAttribute("search_user_surname"));
         String searchUserEmail = String.valueOf(request.getSession().getAttribute("search_user_email"));
+
+//        String searchUserId = request.getParameter("search_user_id");
+//        String search_user_login = request.getParameter("search_user_login");
+//        String searchUserName = request.getParameter("search_user_name");
+//        String searchUserSurname = request.getParameter("search_user_surname");
+//        String searchUserEmail = request.getParameter("search_user_email");
+//        String page = request.getParameter("page");
 
         if (request.getParameter("search_user_id") != null) {
             searchUserId = request.getParameter("search_user_id");

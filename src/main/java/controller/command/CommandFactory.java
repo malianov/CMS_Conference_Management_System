@@ -25,13 +25,15 @@ public class CommandFactory {
         commands.put(Operation.CHANGE_USER_ROLE.getPath(),    new ChangeUserRoleCommand());
         commands.put(Operation.CHANGE_USER_ACTIVITY_STATUS.getPath(),    new ChangeUserActivityStatus());
 
+        commands.put(Operation.ADD_NEW_CONFERENCE.getPath(), new AddNewConferenceCommand());
 
         commands.put(Operation.MAIN_PAGE.getPath(),         new MainPageCommand());
         commands.put(Operation.ALL_USERS_PAGE.getPath(),    new SearchUsersCommand());
         commands.put(Operation.CALENDAR_PAGE.getPath(),     new CalendarCommand());
         commands.put(Operation.ARCHIVE_PAGE.getPath(),      new ArchiveCommand());
         commands.put(Operation.SEARCH_USERS.getPath(),      new SearchUsersCommand());
-
+        commands.put(Operation.CHANGE_START_DATE.getPath(), new ChangeStartDateCommand());
+        commands.put(Operation.CHANGE_END_DATE.getPath(),   new ChangeEndDateCommand());
 //        commands.put(Operation.USER_MAIN_PAGE.getPath(), new UserMainPageCommand());
 //
 //        commands.put(Operation.SHOW_LOGIN_PAGE.getPath(), new ShowLoginCommand());

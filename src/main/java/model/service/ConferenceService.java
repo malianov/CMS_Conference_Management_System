@@ -7,6 +7,8 @@ import model.exception.DAOException;
 import model.exception.ServiceException;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class ConferenceService {
@@ -32,6 +34,18 @@ public class ConferenceService {
         System.out.println("ConferenceService.java -> getConferencesByPaginatio");
 
         return daoFactory.createConferenceDao().findByPagination(lowerBound, upperBound);
+    }
+
+    public void addNewConference(Conference conference) {
+        daoFactory.createConferenceDao().addNewConference(conference);
+    }
+
+    public void changeStartDate(String idConference, LocalDate newDate) {
+        daoFactory.createConferenceDao().changeStartDate(idConference, newDate);
+    }
+
+    public void changeEndDate(String idConference, LocalDate newDate) {
+        daoFactory.createConferenceDao().changeEndDate(idConference, newDate);
     }
 
     public static class PaginationResult {

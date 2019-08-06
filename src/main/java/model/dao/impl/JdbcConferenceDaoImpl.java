@@ -9,14 +9,12 @@ import model.exception.DAOException;
 import model.service.ConferenceService;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Predicate;
+import java.time.LocalDate;
+import java.util.*;
 
 public class JdbcConferenceDaoImpl implements ConferenceDao {
 
@@ -24,7 +22,7 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
     public ConferenceService.PaginationResult findByPagination(int lowerBound, int upperBound) {
         ConferenceService.PaginationResult paginationResult = new ConferenceService.PaginationResult();
 
-        Map<Integer, Conference> conferences = new HashMap<>();
+        List<Conference> conferences = new ArrayList<>();
         ConferenceMapper conferenceMapper = new ConferenceMapper();
 
         try (Connection conn = ConnectionPool.getConnection()) {
@@ -37,12 +35,13 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
             ResultSet rs = conferencesPS.executeQuery();
             while (rs.next()) {
                 Conference conference = conferenceMapper.extractFromResultSet(rs);
-                conference = conferenceMapper.makeUnique(conferences, conference);
+               // conference = conferenceMapper.makeUnique(conferences, conference);
+                conferences.add(conference);
             }
             rs.close();
 
             rs = countConferencesPS.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 paginationResult.setNoOfRecords(rs.getInt(1));
             }
             rs.close();
@@ -50,7 +49,7 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        paginationResult.setResultList(new ArrayList<>(conferences.values()));
+        paginationResult.setResultList(conferences);/////////////////////////////////
         return paginationResult;
     }
 
@@ -82,6 +81,70 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
     }
 
     @Override
-    public void close() throws Exception {
+    public void addNewConference(Conference conference) {
+        System.out.println("JdbcConferenceDaoImpl.java -> inside addNewConference");
+        try (Connection conn = ConnectionPool.getConnection()) {
+            System.out.println("JdbcConferenceDaoImpl.java -> inside addNewConference TRY");
+            PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CREATE_NEW_CONFERENCE_QUERY.getQUERY());
+            ps.setString(1, conference.getStartDate());
+            ps.setString(2, conference.getEndDate());
+            ps.setString(3, conference.getConferenceTitleEng());
+            ps.setString(4, conference.getConferenceTitleUkr());
+            ps.setString(5, conference.getConferenceCityEng());
+            ps.setString(6, conference.getConferenceCityUkr());
+            ps.setString(7, conference.getConferencePlaceEng());
+            ps.setString(8, conference.getConferencePlaceUkr());
+
+            int result = ps.executeUpdate();
+            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
     }
-}
+
+    @Override
+    public void changeStartDate(String idConference, LocalDate newDate) {
+        try (Connection conn = ConnectionPool.getConnection()) {
+            System.out.println("JdbcConferenceDaoImpl.java -> inside changDate TRY");
+
+            PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CHANGE_START_DATE_QUERY.getQUERY());
+            ps.setString(2, idConference);
+            ps.setDate(1, Date.valueOf(newDate));
+
+            System.out.println("JdbcConferenceDaoImpl.java -> newDate = " + newDate);
+            System.out.println("JdbcConferenceDaoImpl.java -> ps = " + ps);
+            int result = ps.executeUpdate();
+            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+    @Override
+    public void changeEndDate(String idConference, LocalDate newDate) {
+        try (Connection conn = ConnectionPool.getConnection()) {
+            System.out.println("JdbcConferenceDaoImpl.java -> inside changDate TRY");
+
+            PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CHANGE_END_DATE_QUERY.getQUERY());
+            ps.setString(2, idConference);
+            ps.setDate(1, Date.valueOf(newDate));
+
+            System.out.println("JdbcConferenceDaoImpl.java -> newDate = " + newDate);
+            System.out.println("JdbcConferenceDaoImpl.java -> ps = " + ps);
+            int result = ps.executeUpdate();
+            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+    @Override
+        public void close () throws Exception {
+        }
+    }

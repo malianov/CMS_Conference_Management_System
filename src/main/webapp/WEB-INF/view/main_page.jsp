@@ -15,7 +15,7 @@
             <a href="${pageContext.request.contextPath}/view/main_page"
                class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="main-page"/></a>
             <c:if test="${sessionScope.role != 'PARTICIPANT'}">
-                <a href="${pageContext.request.contextPath}/view/all_users_page?currentPage=1"
+                <a href="${pageContext.request.contextPath}/view/all_users_page"
                    class="w3-bar-item w3-button w3-hover-red"><fmt:message key="all-users"/></a>
             </c:if>
             <a href="${pageContext.request.contextPath}/view/calendar_page"
@@ -45,16 +45,16 @@
 
         <c:choose>
             <c:when test="${sessionScope.role == 'ADMIN'}">
-                <%@ include file="maz_page.jsp" %>
+                <%@ include file="main_admin_page.jsp" %>
             </c:when>
             <c:when test="${sessionScope.role == 'MODERATOR'}">
-                <%@ include file="maz_page.jsp" %>
+                <%@ include file="main_moderator_page.jsp" %>
             </c:when>
             <c:when test="${sessionScope.role == 'SPEAKER'}">
-                <%@ include file="maz_page.jsp" %>
+                <%@ include file="main_speaker_page.jsp" %>
             </c:when>
             <c:when test="${sessionScope.role == 'PARTICIPANT'}">
-                <%@ include file="maz_page.jsp" %>
+                <%@ include file="main_participant_page.jsp" %>
             </c:when>
         </c:choose>
 

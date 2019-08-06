@@ -2,6 +2,7 @@ package model.dao.daoFactory;
 
 import model.dao.impl.JdbcDaoFactory;
 import model.entity.Conference;
+import model.service.ConferenceService;
 
 public abstract class DaoFactory {
 
@@ -9,6 +10,7 @@ public abstract class DaoFactory {
 
     public abstract UserDao createUserDao();
     public abstract ConferenceDao createConferenceDao();
+    //public abstract ConferenceDao changeDateDao();
 
     public static DaoFactory getInstance() {
         if (daoFactory == null) {

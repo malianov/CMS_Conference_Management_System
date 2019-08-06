@@ -26,7 +26,6 @@ public class ChangeUserRoleCommand implements Command {
             System.out.println("============ hidden role ============" + newRole + " " + userLogin);
             try {
                 userService.changeUserRole(userLogin, newRole);
-
             } catch (ServiceException e) {
                 e.printStackTrace();
             }

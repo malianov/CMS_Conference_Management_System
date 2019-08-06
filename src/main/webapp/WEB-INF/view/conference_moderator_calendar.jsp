@@ -1,5 +1,5 @@
-<div id="conference-calendar" class="w3-container w3-border menu w3-white">
-    <h2>conference-calendar (show registered)</h2>
+<div id="conference-calendar-moderator" class="w3-container w3-border menu w3-white">
+    <h2>conference-calendar-moderator (show registered)</h2>
     <div class="w3-container w3-margin">
         <table class="w3-table-all w3-centered">
             <thead>
@@ -9,25 +9,27 @@
                 <th>conference-end-date</th>
                 <th>conference-title</th>
                 <th>conference-city</th>
-                <th>conference-hall</th>
-                <th>conference-register</th>
+                <th>conference-place</th>
             </tr>
             </thead>
-
             <tbody>
             <c:forEach items="${conferences}" var="all_conferences_list">
-
                 <tr>
-                    <td>${all_conferences_list.getId_conference()}</td>
-                    <td>${all_conferences_list.getStart_date()}</td>
-                    <td>${all_conferences_list.getEnd_date()}</td>
-                    <td>
-                        <button class="w3-button w3-round-xxlarge w3-light-green w3-hover-red w3-tiny">
-                                ${all_conferences_list.getConference_title()}
-                        </button>
-                    </td>
-                    <td>${all_conferences_list.getConference_city()}</td>
-                    <td>${all_conferences_list.getConference_place()}</td>
+                    <td>${all_conferences_list.getIdConference()}</td>
+
+                    <td><%@ include file="modal_change_start_date.jsp"%></td>
+                    <td><%@ include file="modal_change_end_date.jsp"%></td>
+
+                    <c:if test="${language == 'en' or 'en-EN'}">
+                        <td>${all_conferences_list.getConferenceTitleEng()}</td>
+                        <td>${all_conferences_list.getConferenceCityEng()}</td>
+                        <td>${all_conferences_list.getConferencePlaceEng()}</td>
+                    </c:if>
+                    <c:if test="${language == 'uk-UA'}">
+                        <td>${all_conferences_list.getConferenceTitleUkr()}</td>
+                        <td>${all_conferences_list.getConferenceCityUkr()}</td>
+                        <td>${all_conferences_list.getConferencePlaceUkr()}</td>
+                    </c:if>
                 </tr>
             </c:forEach>
             </tbody>
@@ -56,6 +58,8 @@
                 <a href="${pageContext.request.contextPath}/view/calendar_page?currentPage=${currentPage + 1}"
                    class="w3-bar-item w3-button w3-hover-blue">&raquo;</a>
             </c:if>
+
         </div>
+        <%@ include file="modal_create_conference.jsp" %>
     </div>
 </div>

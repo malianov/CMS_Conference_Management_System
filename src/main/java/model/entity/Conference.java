@@ -1,69 +1,128 @@
 package model.entity;
 
 public class Conference {
-    private int id_conference;
-    private String start_date;
-    private String end_date;
-    private String conference_title;
-    private String conference_city;
-    private String conference_place;
+    private int idConference;
+    private String startDate;
+    private String endDate;
+    private String conferenceTitleEng;
+    private String conferenceTitleUkr;
+    private String conferenceCityEng;
+    private String conferenceCityUkr;
+    private String conferencePlaceEng;
+    private String conferencePlaceUkr;
 
     public Conference() {}
 
-    public Conference(int id_conference, String start_date, String end_date, String conference_title, String conference_city, String conference_place) {
-        this.id_conference = id_conference;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.conference_title = conference_title;
-        this.conference_city = conference_city;
-        this.conference_place = conference_place;
+    public Conference(String startDate, String endDate, String conferenceTitleEng, String conferenceTitleUkr,
+                      String conferenceCityEng, String conferenceCityUkr, String conferencePlaceEng, String conferencePlaceUkr) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.conferenceTitleEng = conferenceTitleEng;
+        this.conferenceTitleUkr = conferenceTitleUkr;
+        this.conferenceCityEng = conferenceCityEng;
+        this.conferenceCityUkr = conferenceCityUkr;
+        this.conferencePlaceEng = conferencePlaceEng;
+        this.conferencePlaceUkr = conferencePlaceUkr;
     }
 
-    public int getId_conference() {
-        return id_conference;
+    public Conference(int idConference, String startDate, String endDate, String conferenceTitleEng, String conferenceTitleUkr,
+                      String conferenceCityEng, String conferenceCityUkr, String conferencePlaceEng, String conferencePlaceUkr) {
+        this.idConference = idConference;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.conferenceTitleEng = conferenceTitleEng;
+        this.conferenceTitleUkr = conferenceTitleUkr;
+        this.conferenceCityEng = conferenceCityEng;
+        this.conferenceCityUkr = conferenceCityUkr;
+        this.conferencePlaceEng = conferencePlaceEng;
+        this.conferencePlaceUkr = conferencePlaceUkr;
     }
 
-    public void setId_conference(int id_conference) {
-        this.id_conference = id_conference;
+    public int getIdConference() {
+        return idConference;
     }
 
-    public String getStart_date() {
-        return start_date;
+    public void setIdConference(int idConference) {
+        this.idConference = idConference;
     }
 
-    public void setStart_date(String start_date) {
-        this.start_date = start_date;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public String getEnd_date() {
-        return end_date;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public void setEnd_date(String end_date) {
-        this.end_date = end_date;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public String getConference_title() {
-        return conference_title;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
-    public void setConference_title(String conference_title) {
-        this.conference_title = conference_title;
+    public String getConferenceTitleEng() {
+        return conferenceTitleEng;
     }
 
-    public String getConference_city() {
-        return conference_city;
+    public void setConferenceTitleEng(String conferenceTitleEng) {
+        this.conferenceTitleEng = conferenceTitleEng;
     }
 
-    public void setConference_city(String conference_city) {
-        this.conference_city = conference_city;
+    public String getConferenceTitleUkr() {
+        return conferenceTitleUkr;
     }
 
-    public String getConference_place() {
-        return conference_place;
+    public void setConferenceTitleUkr(String conferenceTitleUkr) {
+        this.conferenceTitleUkr = conferenceTitleUkr;
     }
 
-    public void setConference_place(String conference_place) {
-        this.conference_place = conference_place;
+    public String getConferenceCityEng() {
+        return conferenceCityEng;
     }
+
+    public void setConferenceCityEng(String conferenceCityEng) {
+        this.conferenceCityEng = conferenceCityEng;
+    }
+
+    public String getConferenceCityUkr() {
+        return conferenceCityUkr;
+    }
+
+    public void setConferenceCityUkr(String conferenceCityUkr) {
+        this.conferenceCityUkr = conferenceCityUkr;
+    }
+
+    public String getConferencePlaceEng() {
+        return conferencePlaceEng;
+    }
+
+    public void setConferencePlaceEng(String conferencePlaceEng) {
+        this.conferencePlaceEng = conferencePlaceEng;
+    }
+
+    public String getConferencePlaceUkr() {
+        return conferencePlaceUkr;
+    }
+
+    public void setConferencePlaceUkr(String conferencePlaceUkr) {
+        this.conferencePlaceUkr = conferencePlaceUkr;
+    }
+
+    @Override
+    public String toString() {
+        return "Conference{" +
+                "idConference=" + idConference +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", conferenceTitleEng='" + conferenceTitleEng + '\'' +
+                ", conferenceTitleUkr='" + conferenceTitleUkr + '\'' +
+                ", conferenceCityEng='" + conferenceCityEng + '\'' +
+                ", conferenceCityUkr='" + conferenceCityUkr + '\'' +
+                ", conferencePlaceEng='" + conferencePlaceEng + '\'' +
+                ", conferencePlaceUkr='" + conferencePlaceUkr + '\'' +
+                '}';
+    }
+
 }

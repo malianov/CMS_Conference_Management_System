@@ -1,6 +1,7 @@
 package model.dao.impl;
 
 import model.dao.daoFactory.*;
+import model.service.ConferenceService;
 
 public class JdbcDaoFactory extends DaoFactory {
     @Override
@@ -12,7 +13,6 @@ public class JdbcDaoFactory extends DaoFactory {
     public ConferenceDao createConferenceDao() {
         return new JdbcConferenceDaoImpl();
     }
-
 
 //    @Override
 //    public SeminarDao createSeminarDao() {

@@ -7,7 +7,8 @@
                 <c:if test="${language == 'en'}"><c:out value=" ${user.getName()},"/></c:if>
                 <c:if test="${language == 'en-EN'}"><c:out value=" ${user.getName()},"/></c:if>
                 <c:if test="${language == 'uk-UA'}"><c:out value=" ${user.getName()},"/></c:if>
-                <fmt:message key="welcome-to-the-system-CMS_admin"/></h2>
+                <fmt:message key="welcome-to-the-system-CMS_admin"/>
+            </h2>
         </div>
 
         <div class="w3-bar w3-light-blue">
@@ -38,17 +39,6 @@
             </div>
 
         </div>
-
-
-
-
-
-
-
-
-
-
-
         <c:choose>
             <c:when test="${sessionScope.role == 'ADMIN'}">
                 <%@ include file="all_users.jsp" %>
@@ -66,55 +56,6 @@
 
     </div>
 </div>
-
-<%--<script>--%>
-<%--    function tab(evt, topicName) {--%>
-<%--        var i, x, tablinks;--%>
-<%--        x = document.getElementsByClassName("topic");--%>
-<%--        for (i = 0; i < x.length; i++) {--%>
-<%--            x[i].style.display = "none";--%>
-<%--        }--%>
-<%--        tablinks = document.getElementsByClassName("tablink");--%>
-<%--        for (i = 0; i < x.length; i++) {--%>
-<%--            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");--%>
-<%--        }--%>
-<%--        document.getElementById(topicName).style.display = "block";--%>
-<%--        evt.currentTarget.className += " w3-red";--%>
-<%--    }--%>
-<%--</script>--%>
-
-<%--<script>--%>
-<%--    document.getElementsByClassName("tablink_day")[0].click();--%>
-
-<%--    function openDay(evt, dayName) {--%>
-<%--        var k, y, tablinks;--%>
-<%--        y = document.getElementsByClassName("day");--%>
-<%--        for (k = 0; k < y.length; k++) {--%>
-<%--            y[k].style.display = "none";--%>
-<%--        }--%>
-<%--        tablinks = document.getElementsByClassName("tablink_day");--%>
-<%--        for (k = 0; k < y.length; y++) {--%>
-<%--            tablinks[k].classList.remove("w3-light-grey");--%>
-<%--        }--%>
-<%--        document.getElementById(dayName).style.display = "block";--%>
-<%--        evt.currentTarget.classList.add("w3-light-grey");--%>
-<%--    }--%>
-<%--</script>--%>
-<%--<script>--%>
-<%--    function openMenu(evt, menuName) {--%>
-<%--        var i, x, tablinks;--%>
-<%--        x = document.getElementsByClassName("menu");--%>
-<%--        for (i = 0; i < x.length; i++) {--%>
-<%--            x[i].style.display = "none";--%>
-<%--        }--%>
-<%--        tablinks = document.getElementsByClassName("tablink");--%>
-<%--        for (i = 0; i < x.length; i++) {--%>
-<%--            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");--%>
-<%--        }--%>
-<%--        document.getElementById(menuName).style.display = "block";--%>
-<%--        evt.currentTarget.className += " w3-red";--%>
-<%--    }--%>
-<%--</script>--%>
 
 <footer class="<%--w3-bottom--%> w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
     <p>igor-malianov-2019</p>

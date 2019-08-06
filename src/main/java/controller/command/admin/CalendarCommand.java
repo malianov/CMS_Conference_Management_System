@@ -53,11 +53,14 @@ public class CalendarCommand implements Command {
         int noOfRows = paginationResult.getNoOfRows();
         int noOfPages = calcNoOfPages(noOfRows, rowsPerPage);
 
+        System.out.println("CalendarCommand.java -> conferences = " + conferences);
+
         request.setAttribute(CONFERENCES, conferences);
         request.setAttribute(NO_OF_PAGES, noOfPages);
         request.setAttribute(CURRENT_PAGE, currentPage);
+
         System.out.println("CalendarCommand.java -> performPagination");
-        System.out.println("CalendarCommand.java -> conferences = " + conferences);
+
         System.out.println("CalendarCommand.java -> no of pages " + noOfPages);
         System.out.println("CalendarCommand.java -> current page " + currentPage);
     }
@@ -73,23 +76,5 @@ public class CalendarCommand implements Command {
     private int calcNoOfPages(int noOfRows, int rowsPerPage) {
         return (int) Math.ceil(noOfRows * 1.0 / rowsPerPage);
     }
-
-
-
-       /* try {
-            System.out.println("CalendarCommand.java -> inside try");
-            List<Conference> conferences = conferenceService.findAllConferences();
-
-           System.out.println("CalendarCommand.java -> inside try, conferences = " + conferences);
-            request.setAttribute("conferences", conferences);
-            CommandUtil.goToPage(request,response,"/WEB-INF/view/calendar_page.jsp");
-            request.setAttribute("successful", true);
-        } catch (RuntimeException e) {
-            System.out.println("CalendarCommand.java -> inside catch RuntimeException" + e);
-            request.setAttribute("error", true);
-        } catch (ServiceException e) {
-            System.out.println("CalendarCommand.java -> inside catch ServiceExceptio" + e);
-            e.printStackTrace();
-        }*/
 
 }

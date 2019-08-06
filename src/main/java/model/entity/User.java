@@ -3,7 +3,7 @@ package model.entity;
 import java.util.Objects;
 
 public class User {
-    private long id_user;
+    private long idUser;
     private String login;
     private String name;
     private String surname;
@@ -17,10 +17,10 @@ public class User {
         System.out.println("User.java -> inside User()");
     }
 
-    public User(long id_user, String login, String name, String surname, String email, Role role, int isActive, String password) {
+    public User(long idUser, String login, String name, String surname, String email, Role role, int isActive, String password) {
 
         System.out.println("User.java -> inside User(......)");
-        this.id_user = id_user;
+        this.idUser = idUser;
         this.login = login;
         this.name = name;
         this.surname = surname;
@@ -30,12 +30,12 @@ public class User {
         this.isActive = isActive;
     }
 
-    public long getId_user() {
-        return id_user;
+    public long getIdUser() {
+        return idUser;
     }
 
-    public void setId_user(long id_user) {
-        this.id_user = id_user;
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
     }
 
     public String getLogin() {
@@ -121,7 +121,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id_user +
+                "id=" + idUser +
                 ", login='" + login + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +

@@ -24,7 +24,7 @@ public class UserMapper implements ObjectMapper<User> {
         User user = new User();
         //UserService userService = ServiceFactory.getInstance().getUserService();
 
-        user.setId_user(rs.getLong(ID));
+        user.setIdUser(rs.getLong(ID));
         user.setLogin(rs.getString(LOGIN));
         user.setName(rs.getString(NAME));
         user.setSurname(rs.getString(SURNAME));
