@@ -19,7 +19,7 @@ public class Conference {
 
     public Conference() {}
 
-/*    public Conference(int idConference, String startDate, String endDate, String conferenceTitleEng, String conferenceTitleUkr,
+    public Conference(int idConference, String startDate, String endDate, String conferenceTitleEng, String conferenceTitleUkr,
                       String conferenceCityEng, String conferenceCityUkr, String conferencePlaceEng, String conferencePlaceUkr, List<String> speakers, List<LocalDate> dates, List<String> seminars) {
         this.idConference = idConference;
         this.startDate = startDate;
@@ -33,7 +33,7 @@ public class Conference {
         this.speakers = speakers;
         this.dates = dates;
         this.seminars = seminars;
-    }*/
+    }
 
     public Conference(String startDate, String endDate, String conferenceTitleEng, String conferenceTitleUkr,
                       String conferenceCityEng, String conferenceCityUkr, String conferencePlaceEng, String conferencePlaceUkr) {

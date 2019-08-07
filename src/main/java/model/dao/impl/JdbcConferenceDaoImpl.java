@@ -35,7 +35,6 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
             ResultSet rs = conferencesPS.executeQuery();
             while (rs.next()) {
                 Conference conference = conferenceMapper.extractFromResultSet(rs);
-               // conference = conferenceMapper.makeUnique(conferences, conference);
                 conferences.add(conference);
             }
             rs.close();
