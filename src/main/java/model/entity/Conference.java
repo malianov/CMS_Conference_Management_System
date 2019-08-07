@@ -1,5 +1,8 @@
 package model.entity;
 
+import java.time.LocalDate;
+import java.util.List;
+
 public class Conference {
     private int idConference;
     private String startDate;
@@ -10,8 +13,27 @@ public class Conference {
     private String conferenceCityUkr;
     private String conferencePlaceEng;
     private String conferencePlaceUkr;
+    private List<String> speakers;
+    private List<LocalDate> dates;
+    private List<String> seminars;
 
     public Conference() {}
+
+/*    public Conference(int idConference, String startDate, String endDate, String conferenceTitleEng, String conferenceTitleUkr,
+                      String conferenceCityEng, String conferenceCityUkr, String conferencePlaceEng, String conferencePlaceUkr, List<String> speakers, List<LocalDate> dates, List<String> seminars) {
+        this.idConference = idConference;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.conferenceTitleEng = conferenceTitleEng;
+        this.conferenceTitleUkr = conferenceTitleUkr;
+        this.conferenceCityEng = conferenceCityEng;
+        this.conferenceCityUkr = conferenceCityUkr;
+        this.conferencePlaceEng = conferencePlaceEng;
+        this.conferencePlaceUkr = conferencePlaceUkr;
+        this.speakers = speakers;
+        this.dates = dates;
+        this.seminars = seminars;
+    }*/
 
     public Conference(String startDate, String endDate, String conferenceTitleEng, String conferenceTitleUkr,
                       String conferenceCityEng, String conferenceCityUkr, String conferencePlaceEng, String conferencePlaceUkr) {
@@ -36,6 +58,30 @@ public class Conference {
         this.conferenceCityUkr = conferenceCityUkr;
         this.conferencePlaceEng = conferencePlaceEng;
         this.conferencePlaceUkr = conferencePlaceUkr;
+    }
+
+    public List<String> getSpeakers() {
+        return speakers;
+    }
+
+    public void setSpeakers(List<String> speakers) {
+        this.speakers = speakers;
+    }
+
+    public List<LocalDate> getDates() {
+        return dates;
+    }
+
+    public void setDates(List<LocalDate> dates) {
+        this.dates = dates;
+    }
+
+    public List<String> getSeminars() {
+        return seminars;
+    }
+
+    public void setSeminars(List<String> seminars) {
+        this.seminars = seminars;
     }
 
     public int getIdConference() {

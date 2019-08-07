@@ -20,8 +20,8 @@
             </c:if>
             <a href="${pageContext.request.contextPath}/view/calendar_page"
                class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-calendar"/></a>
-            <a href="${pageContext.request.contextPath}/view/archive_page"
-               class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-archive"/></a>
+<%--            <a href="${pageContext.request.contextPath}/view/archive_page"
+               class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-archive"/></a>--%>
 
             <button class="w3-bar-item w3-button tablink w3-right"
                     onclick="location.href='${pageContext.request.contextPath}/view/logout'"><fmt:message

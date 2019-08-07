@@ -20,17 +20,17 @@
                     <td><%@ include file="modal_change_end_date.jsp" %></td>
 
                     <c:if test="${language == 'en'}">
-                        <td>${all_conferences_list.getConferenceTitleEng()}</td>
+                        <td><%@ include file="conference_program.jsp"%></td>
                         <td><%@ include file="modal_change_conference_city.jsp"%></td>
                         <td><%@ include file="modal_change_conference_place.jsp"%></td>
                     </c:if>
                     <c:if test="${language == 'en-EN'}">
-                        <td>${all_conferences_list.getConferenceTitleEng()}</td>
+                        <td><%@ include file="conference_program.jsp"%></td>
                         <td><%@ include file="modal_change_conference_city.jsp"%></td>
                         <td><%@ include file="modal_change_conference_place.jsp"%></td>
                     </c:if>
                     <c:if test="${language == 'uk-UA'}">
-                        <td>${all_conferences_list.getConferenceTitleUkr()}</td>
+                        <td><%@ include file="conference_program.jsp"%></td>
                         <td><%@ include file="modal_change_conference_city.jsp"%></td>
                         <td><%@ include file="modal_change_conference_place.jsp"%></td>
                     </c:if>
@@ -64,6 +64,6 @@
             </c:if>
 
         </div>
-        <%@ include file="modal_create_conference.jsp" %>
+        <%--<%@ include file="modal_create_conference.jsp" %>--%>
     </div>
 </div>
