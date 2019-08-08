@@ -20,17 +20,35 @@
                     <td><%@ include file="modal_change_end_date.jsp" %></td>
 
                     <c:if test="${language == 'en'}">
-                        <td><%@ include file="conference_program.jsp"%></td>
+                        <td>
+                            <form>
+                            <button onclick="location.href='${pageContext.request.contextPath}/view/change_program'" class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleEng()}
+                                <input type="hidden" name="conferenceId" value="${all_conferences_list.getIdConference()}">
+                            </button>
+                            </form>
+                        </td>
                         <td><%@ include file="modal_change_conference_city.jsp"%></td>
                         <td><%@ include file="modal_change_conference_place.jsp"%></td>
                     </c:if>
                     <c:if test="${language == 'en-EN'}">
-                        <td><%@ include file="conference_program.jsp"%></td>
+                        <td>
+                            <form>
+                                <button onclick="location.href='${pageContext.request.contextPath}/view/change_program'" class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleEng()}
+                                <input type="hidden" name="conferenceId" value="${all_conferences_list.getIdConference()}">
+                                </button>
+                            </form>
+                        </td>
                         <td><%@ include file="modal_change_conference_city.jsp"%></td>
                         <td><%@ include file="modal_change_conference_place.jsp"%></td>
                     </c:if>
                     <c:if test="${language == 'uk-UA'}">
-                        <td><%@ include file="conference_program.jsp"%></td>
+                        <td>
+                            <form>
+                            <button onclick="location.href='${pageContext.request.contextPath}/view/change_program'" class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleEng()}
+                                <input type="hidden" name="conferenceId" value="${all_conferences_list.getIdConference()}">
+                            </button>
+                            </form>
+                        </td>
                         <td><%@ include file="modal_change_conference_city.jsp"%></td>
                         <td><%@ include file="modal_change_conference_place.jsp"%></td>
                     </c:if>
