@@ -23,7 +23,7 @@ public class SeminarMapper implements ObjectMapper<Seminar> {
         //seminar.setIdGlobalSeminar(rs.getInt(GLOBAL_SEMINAR_ID));
         seminar.setIdSeminar(rs.getInt(SEMINAR_ID));
         //seminar.setIdConference(rs.getInt(CONFERENCE_ID));
-        seminar.setDayConference(rs.getString(CONFERENCE_DAY));
+        //seminar.setDayConference(rs.getString(CONFERENCE_DAY));
         seminar.setSeminarTime(rs.getString(SEMINAR_TIME));
         seminar.setSeminarTopic(rs.getString(SEMINAR_TOPIC));
         seminar.setSeminarSpeaker(rs.getString(SEMINAR_SPEAKER));

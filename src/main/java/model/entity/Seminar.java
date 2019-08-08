@@ -19,6 +19,13 @@ public class Seminar {
         this.seminarSpeaker = seminarSpeaker;
     }
 
+    public Seminar(int idSeminar, String seminarTime, String seminarTopic, String seminarSpeaker) {
+        this.idSeminar = idSeminar;
+        this.seminarTime = seminarTime;
+        this.seminarTopic = seminarTopic;
+        this.seminarSpeaker = seminarSpeaker;
+    }
+
     public Seminar() {
     }
 

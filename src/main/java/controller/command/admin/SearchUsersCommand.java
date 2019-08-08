@@ -27,14 +27,6 @@ public class SearchUsersCommand implements Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("SearchUsersCommand.java -> inside execute");
 
-
-
-
-
-
-
-
-
         int ROWS_PER_PAGE = 12;
         int current_page = 1;
 

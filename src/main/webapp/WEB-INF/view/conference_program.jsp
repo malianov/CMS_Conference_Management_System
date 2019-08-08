@@ -1,12 +1,24 @@
 <div class="w3-container">
     <h2>conference-schedule-by-days</h2>
-    <p></p>
+
+    ${open_conference_plan_id}
+
+    <p>${conferenceDaysQty}</p>
 </div>
 
 <div class="w3-bar w3-light-green">
+
+
+
+
+
+
+
+    
     <button class="w3-bar-item w3-button w3-border-black" onclick="openDay('London')">London</button>
     <button class="w3-bar-item w3-button w3-border-black" onclick="openDay('Paris')">Paris</button>
     <button class="w3-bar-item w3-button w3-border-black" onclick="openDay('Tokyo')">Tokyo</button>
+
 </div>
 
 <div id="London" class="w3-container w3-display-container day">

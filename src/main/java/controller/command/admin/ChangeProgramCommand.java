@@ -27,13 +27,12 @@ public class ChangeProgramCommand implements Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String conference_id = request.getParameter("conference_change_id");
-        System.out.println("ChangeProgramCommand.java -> inside execute ================== " + conference_id);
-
         request.getSession().setAttribute("open_conference_plan_id", conference_id);
 
+       // seminarService.SeminarsByDays(conference_id);
 
-        seminarService.findSeminarProgram(conference_id);
-
+        request.getSession().setAttribute("open_conference_plan_id", seminarService.SeminarsByDays(conference_id));
+        request.getSession().setAttribute("conferenceDaysQty", seminarService.calculateConferenceDurationDays(conference_id));
 
         CommandUtil.goToPage(request, response, TO_CHANGE_PROGRAM);
     }
