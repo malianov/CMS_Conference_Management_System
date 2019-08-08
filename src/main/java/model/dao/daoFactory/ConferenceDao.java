@@ -18,5 +18,7 @@ public interface ConferenceDao extends GenericDao<Conference> {
     void changeCity(String cityEng, String cityUkr, String idConference);
 
     void changePlace(String placeEng, String placeUkr, String idConference);
+
+    //void findConferenceProgram(String conference_id);
     //ConferenceService findByPagination();
 }

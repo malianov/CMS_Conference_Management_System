@@ -10,6 +10,7 @@ public abstract class DaoFactory {
 
     public abstract UserDao createUserDao();
     public abstract ConferenceDao createConferenceDao();
+    public abstract SeminarDao createSeminarDao();
     //public abstract ConferenceDao changeDateDao();
 
     public static DaoFactory getInstance() {

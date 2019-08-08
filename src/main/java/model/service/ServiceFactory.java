@@ -23,20 +23,14 @@ public class ServiceFactory {
     public UserService getUserService() {
         return new UserService();
     }
-
     public ConferenceService getConferenceService() {
         return new ConferenceService();
     }
+    public SeminarService getSeminarService() {
+        return new SeminarService();
+    }
 
 
-//    public ConferenceService getUserService() {
-//        return new ConferenceService();
-//    }
-//
-//    public SeminarService getUserService() {
-//        return new SeminarService();
-//    }
-//
 //    public StatisticsService getStatisticsService() {
 //        return new StatisticService();
 //    }

@@ -56,6 +56,10 @@ public class ConferenceService {
         daoFactory.createConferenceDao().changePlace(placeEng, placeUkr, idConference);
     }
 
+    public void findProgram(String conference_id) {
+        daoFactory.createSeminarDao().findSeminarProgram(conference_id);
+    }
+
     public static class PaginationResult {
 
         private int noOfRows;

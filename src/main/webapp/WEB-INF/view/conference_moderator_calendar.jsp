@@ -21,9 +21,9 @@
 
                     <c:if test="${language == 'en'}">
                         <td>
-                            <form>
-                            <button onclick="location.href='${pageContext.request.contextPath}/view/change_program'" class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleEng()}
-                                <input type="hidden" name="conferenceId" value="${all_conferences_list.getIdConference()}">
+                            <form action="${pageContext.request.contextPath}/view/change_program">
+                                <button class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleEng()}
+                                <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
                             </button>
                             </form>
                         </td>
@@ -32,9 +32,9 @@
                     </c:if>
                     <c:if test="${language == 'en-EN'}">
                         <td>
-                            <form>
-                                <button onclick="location.href='${pageContext.request.contextPath}/view/change_program'" class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleEng()}
-                                <input type="hidden" name="conferenceId" value="${all_conferences_list.getIdConference()}">
+                            <form action="${pageContext.request.contextPath}/view/change_program">
+                                <button class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleEng()}
+                                <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
                                 </button>
                             </form>
                         </td>
@@ -43,9 +43,9 @@
                     </c:if>
                     <c:if test="${language == 'uk-UA'}">
                         <td>
-                            <form>
-                            <button onclick="location.href='${pageContext.request.contextPath}/view/change_program'" class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleEng()}
-                                <input type="hidden" name="conferenceId" value="${all_conferences_list.getIdConference()}">
+                            <form action="${pageContext.request.contextPath}/view/change_program">
+                            <button class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleUkr()}
+                                <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
                             </button>
                             </form>
                         </td>

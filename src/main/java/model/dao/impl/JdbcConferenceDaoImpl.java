@@ -183,6 +183,8 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
         }
     }
 
+
+
     @Override
         public void close () throws Exception {
         }

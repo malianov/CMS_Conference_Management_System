@@ -4,6 +4,7 @@ import controller.command.Command;
 import controller.command.util.CommandUtil;
 import model.entity.Conference;
 import model.service.ConferenceService;
+import model.service.SeminarService;
 import model.service.ServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,14 +21,18 @@ import static controller.command.TextConstants.Routes.TO_SHOW_ALL_CONFERENCES;
 public class ChangeProgramCommand implements Command {
 
     ServiceFactory serviceFactory = ServiceFactory.getInstance();
-    ConferenceService conferenceService = serviceFactory.getConferenceService();
+    SeminarService seminarService = serviceFactory.getSeminarService();
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-            String idConference = request.getParameter("conferenceId");
-        System.out.println("ChangeProgramCommand.java -> inside execute" + idConference);
+        String conference_id = request.getParameter("conference_change_id");
+        System.out.println("ChangeProgramCommand.java -> inside execute ================== " + conference_id);
 
+        request.getSession().setAttribute("open_conference_plan_id", conference_id);
+
+
+        seminarService.findSeminarProgram(conference_id);
 
 
         CommandUtil.goToPage(request, response, TO_CHANGE_PROGRAM);

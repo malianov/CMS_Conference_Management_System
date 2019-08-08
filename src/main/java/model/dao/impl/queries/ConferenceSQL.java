@@ -13,6 +13,7 @@ public enum ConferenceSQL {
     CHANGE_END_DATE_QUERY("UPDATE CMS.conferences SET c_end_date=(?) WHERE c_id= (?);"),
     CHANGE_CITY_QUERY("UPDATE CMS.conferences SET c_city_eng=(?), c_city_ukr=(?) WHERE c_id= (?);"),
     CHANGE_PLACE_QUERY("UPDATE CMS.conferences SET c_place_eng=(?), c_place_ukr=(?) WHERE c_id= (?);");
+
     String QUERY;
 
     ConferenceSQL(String QUERY) {
