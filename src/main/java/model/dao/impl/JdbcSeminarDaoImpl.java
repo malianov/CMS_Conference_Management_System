@@ -68,6 +68,48 @@ public class JdbcSeminarDaoImpl implements SeminarDao {
         return conferenceSeminarsByDays;
     }
 
+    @Override
+    public void changeSeminarTime(String seminar_time, String seminar_id) {
+            try (Connection conn = ConnectionPool.getConnection()) {
+
+                System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTime after Try");
+                PreparedStatement ps = conn.prepareStatement(SeminarSQL.CHANGE_SEMINAR_TIME_QUERY.getQUERY());
+                ps.setString(1, seminar_time);
+                ps.setString(2, seminar_id);
+
+                System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTime PS= " + ps);
+
+                int result = ps.executeUpdate();
+
+                System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTime result= " + result);
+                if (result != 0) {
+                    conn.commit();
+                }
+            } catch (SQLException e) {
+            }
+    }
+
+    @Override
+    public void changeSeminarTopic(String seminar_topic, String seminar_id) {
+        try (Connection conn = ConnectionPool.getConnection()) {
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic after Try");
+            PreparedStatement ps = conn.prepareStatement(SeminarSQL.CHANGE_SEMINAR_TOPIC_QUERY.getQUERY());
+            ps.setString(1, seminar_topic);
+            ps.setString(2, seminar_id);
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic PS= " + ps);
+
+            int result = ps.executeUpdate();
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic result= " + result);
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
+    }
+
     public List<Seminar> findSeminarProgramByDay(String conference_id, int day_id) {
         SeminarMapper seminarMapper = new SeminarMapper();
         List<Seminar> seminars = new ArrayList<>();
@@ -85,6 +127,48 @@ public class JdbcSeminarDaoImpl implements SeminarDao {
         } catch (SQLException e) {
         }
         return seminars;
+    }
+
+    @Override
+    public void changeSeminarSpeaker(String seminar_speaker, String seminar_id) {
+        try (Connection conn = ConnectionPool.getConnection()) {
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic after Try");
+            PreparedStatement ps = conn.prepareStatement(SeminarSQL.CHANGE_SEMINAR_SPEAKER_QUERY.getQUERY());
+            ps.setString(1, seminar_speaker);
+            ps.setString(2, seminar_id);
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic PS= " + ps);
+
+            int result = ps.executeUpdate();
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic result= " + result);
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+    @Override
+    public void changeSeminarRoom(String seminar_room, String seminar_id) {
+        try (Connection conn = ConnectionPool.getConnection()) {
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic after Try");
+            PreparedStatement ps = conn.prepareStatement(SeminarSQL.CHANGE_SEMINAR_ROOM_QUERY.getQUERY());
+            ps.setString(1, seminar_room);
+            ps.setString(2, seminar_id);
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic PS= " + ps);
+
+            int result = ps.executeUpdate();
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic result= " + result);
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
     }
 
     @Override

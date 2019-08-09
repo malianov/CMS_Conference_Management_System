@@ -37,4 +37,18 @@ public class SeminarService {
         return daoFactory.createSeminarDao().SeminarsByDays(conference_id);
     }
 
+    public void changeSeminarTime(String seminar_time, String seminar_id) {
+        daoFactory.createSeminarDao().changeSeminarTime(seminar_time, seminar_id);
+    }
+
+    public void changeSeminarTopic(String seminar_topic, String seminar_id) {
+        daoFactory.createSeminarDao().changeSeminarTopic(seminar_topic, seminar_id);
+    }
+
+    public void changeSeminarSpeaker(String seminar_speaker, String seminar_id){
+        daoFactory.createSeminarDao().changeSeminarSpeaker(seminar_speaker, seminar_id);
+    }
+    public void changeSeminarRoom(String seminar_room, String seminar_id){
+        daoFactory.createSeminarDao().changeSeminarRoom(seminar_room, seminar_id);
+    }
 }

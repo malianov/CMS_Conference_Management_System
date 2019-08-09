@@ -41,10 +41,20 @@
                 <tr>
                     <td>${seminar.getIdSeminar()}</td>
                     <td>${seminar.getDayConference()}</td>
-                    <td>${seminar.getSeminarTime()}</td>
-                    <td>${seminar.getSeminarTopic()}</td>
-                    <td>${seminar.getSeminarSpeaker()}</td>
-                    <td>${seminar.getSeminarRoom()}</td>
+                    <td>
+                        <%@ include file="modal_change_seminar_time.jsp"%>
+                    </td>
+                    <td>
+                        <%@ include file="modal_change_seminar_topic.jsp"%>
+                    </td>
+                    <td>
+                        <%@ include file="modal_change_seminar_speaker.jsp"%>
+                            <%--${seminar.getSeminarSpeaker()}--%>
+                    </td>
+                    <td>
+                        <%@ include file="modal_change_seminar_room.jsp"%>
+                            <%--${seminar.getSeminarRoom()}</td>--%>
+                    </td>
                 </tr>
         </c:forEach>
             </table>
