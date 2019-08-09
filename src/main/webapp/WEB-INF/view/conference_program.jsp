@@ -16,10 +16,10 @@
         </c:forEach>
     </div>
 
-<div class="w3-margin>
+<div class="w3-margin">
     <c:forEach var="day" items="${open_conference_plan_id}">
         <c:if test="${day.key ne 'Day-1'}">
-            <div id="${day.key} class="w3-container w3-display-container day" style="display:none">
+            <div id="${day.key}" class="w3-container w3-display-container day" style="display:none">
         </c:if>
         <c:if test="${day.key eq 'Day-1'}">
             <div id="${day.key}" class="w3-container w3-display-container day">
