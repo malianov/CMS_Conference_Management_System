@@ -52,10 +52,12 @@ public class SearchUsersCommand implements Command {
 //        String searchUserSurname = request.getParameter("search_user_surname");
 //        String searchUserEmail = request.getParameter("search_user_email");
 //        String page = request.getParameter("page");
-
+        System.out.println("=== === == == = = SearchUsrrsCommand.java - > request.getParameter(\"search_user_id\") " + request.getParameter("search_user_id"));
         if (request.getParameter("search_user_id") != null) {
             searchUserId = request.getParameter("search_user_id");
         }
+        System.out.println("=== === == == = = SearchUsrrsCommand.java - > request.getParameter(\"search_user_login\") " + request.getParameter("search_user_login"));
+
         if (request.getParameter("search_user_login") != null) {
             search_user_login = request.getParameter("search_user_login");
         }

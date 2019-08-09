@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class SeminarMapper implements ObjectMapper<Seminar> {
 
-    //private static final String GLOBAL_SEMINAR_ID = "id_global_seminar";
+    private static final String GLOBAL_SEMINAR_ID = "id_global_seminar";
     private static final String SEMINAR_ID = "id_seminar";
     //private static final String CONFERENCE_ID = "id_conference";
     private static final String CONFERENCE_DAY = "day_conference";
@@ -21,7 +21,7 @@ public class SeminarMapper implements ObjectMapper<Seminar> {
     public Seminar extractFromResultSet(ResultSet rs) throws SQLException {
         Seminar seminar = new Seminar();
 
-        //seminar.setIdGlobalSeminar(rs.getInt(GLOBAL_SEMINAR_ID));
+        seminar.setIdGlobalSeminar(rs.getInt(GLOBAL_SEMINAR_ID));
         seminar.setIdSeminar(rs.getInt(SEMINAR_ID));
         //seminar.setIdConference(rs.getInt(CONFERENCE_ID));
         seminar.setDayConference(rs.getString(CONFERENCE_DAY));

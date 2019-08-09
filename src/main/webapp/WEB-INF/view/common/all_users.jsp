@@ -25,10 +25,28 @@
                 <td>${all_users_list.getSurname()}</td>
                 <td>${all_users_list.getEmail()}</td>
                 <td>
-                    <%@ include file="modal_change_role.jsp" %>
+                    <c:choose>
+                        <c:when test="${sessionScope.role == 'ADMIN'}">
+                            <%@ include file="../admin/modal_change_role.jsp" %>
+                        </c:when>
+                        <c:when test="${sessionScope.role == 'MODERATOR'||sessionScope.role == 'SPEAKER'||sessionScope.role == 'PARTICIPANT'}">
+                            ${all_users_list.getRole()}
+                        </c:when>
+                    </c:choose>
                 </td>
                 <td>
-                    <%@ include file="modal_change_activity_status.jsp" %>
+                    <c:choose>
+                        <c:when test="${sessionScope.role == 'ADMIN'||sessionScope.role == 'MODERATOR'}">
+                            <%@ include file="modal_change_activity_status.jsp" %>
+                        </c:when>
+                        <c:when test="${sessionScope.role == 'SPEAKER'}">
+                            <c:choose>
+                                <c:when test="${(all_users_list.getIsActive() == 1)}">active</c:when>
+                                <c:when test="${(all_users_list.getIsActive() == 0)}">not-active</c:when>
+                                <c:otherwise>status-incorrect</c:otherwise>
+                            </c:choose>
+                        </c:when>
+                    </c:choose>
                 </td>
                 </tr>
             </c:forEach>

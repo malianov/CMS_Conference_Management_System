@@ -53,7 +53,7 @@ public class LoginCommand implements Command {
         }
 
         if (request.getSession().getAttribute("user") != null) {
-            String path = "/WEB-INF/view/main_page.jsp";
+            String path = "/WEB-INF/view/common/main_page.jsp";
             CommandUtil.goToPage(request, response, path);
         } else {
             request.setAttribute("wrongPassOrLogin", true);

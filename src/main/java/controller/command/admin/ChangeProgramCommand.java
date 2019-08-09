@@ -15,8 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static controller.command.TextConstants.Parameters.*;
-import static controller.command.TextConstants.Routes.TO_CHANGE_PROGRAM;
-import static controller.command.TextConstants.Routes.TO_SHOW_ALL_CONFERENCES;
+import static controller.command.TextConstants.Routes.*;
 
 public class ChangeProgramCommand implements Command {
 
@@ -34,6 +33,10 @@ public class ChangeProgramCommand implements Command {
         request.getSession().setAttribute("open_conference_plan_id", seminarService.SeminarsByDays(conference_id));
         request.getSession().setAttribute("conferenceDaysQty", seminarService.calculateConferenceDurationDays(conference_id));
 
-        CommandUtil.goToPage(request, response, TO_CHANGE_PROGRAM);
+        System.out.println("& & & & & & & & & request.getSession().getAttribute(\"role\"); = " + request.getSession().getAttribute("role"));
+
+
+            CommandUtil.goToPage(request, response, TO_CHANGE_PROGRAM);
+
     }
 }

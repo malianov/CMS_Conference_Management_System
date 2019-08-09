@@ -16,8 +16,8 @@
             <c:forEach items="${conferences}" var="all_conferences_list">
                 <tr>
                     <td>${all_conferences_list.getIdConference()}</td>
-                    <td><%@ include file="modal_change_start_date.jsp" %></td>
-                    <td><%@ include file="modal_change_end_date.jsp" %></td>
+                    <td><%@ include file="../moderator/modal_change_start_date.jsp" %></td>
+                    <td><%@ include file="../moderator/modal_change_end_date.jsp" %></td>
 
                     <c:if test="${language == 'en'}">
                         <td>
@@ -27,8 +27,8 @@
                             </button>
                             </form>
                         </td>
-                        <td><%@ include file="modal_change_conference_city.jsp"%></td>
-                        <td><%@ include file="modal_change_conference_place.jsp"%></td>
+                        <td><%@ include file="../moderator/modal_change_conference_city.jsp"%></td>
+                        <td><%@ include file="../moderator/modal_change_conference_place.jsp"%></td>
                     </c:if>
                     <c:if test="${language == 'en-EN'}">
                         <td>
@@ -38,8 +38,8 @@
                                 </button>
                             </form>
                         </td>
-                        <td><%@ include file="modal_change_conference_city.jsp"%></td>
-                        <td><%@ include file="modal_change_conference_place.jsp"%></td>
+                        <td><%@ include file="../moderator/modal_change_conference_city.jsp"%></td>
+                        <td><%@ include file="../moderator/modal_change_conference_place.jsp"%></td>
                     </c:if>
                     <c:if test="${language == 'uk-UA'}">
                         <td>
@@ -49,8 +49,8 @@
                             </button>
                             </form>
                         </td>
-                        <td><%@ include file="modal_change_conference_city.jsp"%></td>
-                        <td><%@ include file="modal_change_conference_place.jsp"%></td>
+                        <td><%@ include file="../moderator/modal_change_conference_city.jsp"%></td>
+                        <td><%@ include file="../moderator/modal_change_conference_place.jsp"%></td>
                     </c:if>
                 </tr>
             </c:forEach>

@@ -48,6 +48,12 @@ public class JdbcUserDAOImpl implements UserDao {
     public UserService.PaginationResult findSearchUsersByPagination(int lowerBound, int upperBound, String searchUserId, String searchUserLogin,
                                                                     String searchUserName, String searchUserSurname, String searchUserEmail) {
 
+        System.out.println("=== === === JdbcUserDAOImpl.java - > searchUserId = " + searchUserId);
+        System.out.println("=== === === JdbcUserDAOImpl.java - > searchUserLogin = " + searchUserLogin);
+        System.out.println("=== === === JdbcUserDAOImpl.java - > searchUserName = " + searchUserName);
+        System.out.println("=== === === JdbcUserDAOImpl.java - > searchUserSurname = " + searchUserSurname);
+        System.out.println("=== === === JdbcUserDAOImpl.java - > searchUserEmail = " + searchUserEmail);
+
         UserService.PaginationResult paginationResult = new UserService.PaginationResult();
 
         UserMapper userMapper = new UserMapper();

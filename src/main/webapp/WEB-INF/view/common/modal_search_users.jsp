@@ -1,12 +1,12 @@
 <div class="w3-dropdown-hover tablink w3-right">
-    <button onclick="document.getElementById('id01').style.display='block'"
+    <button onclick="document.getElementById('id0125').style.display='block'"
             class="w3-button w3-border w3-round w3-light-blue">
         <fmt:message key="search"/></button>
 
-    <div id="id01" class="w3-modal w3-large">
+    <div id="id0125" class="w3-modal w3-large">
         <div class="w3-modal-content">
             <header class="w3-container w3-teal">
-                            <span onclick="document.getElementById('id01').style.display='none'"
+                            <span onclick="document.getElementById('id0125').style.display='none'"
                                   class="w3-display-topright">&times;</span>
                 <h2>search-panel</h2>
             </header>
@@ -32,42 +32,23 @@
                                 <tr>
                                     <input type="hidden" name="page" value="${currentPage}">
                                     <td>
-                                        <input class="w3-input w3-border" type="text">
-                                        <input type="hidden" name="search_user_id">
+                                        <input class="w3-input w3-border" type="text" name="search_user_id">
                                     </td>
                                     <td>
-                                        <input class="w3-input w3-border" type="text">
-                                        <input type="hidden" name="search_user_login">
+                                        <input class="w3-input w3-border" type="text" name="search_user_login">
                                     </td>
                                     <td>
-                                        <input class="w3-input w3-border" type="text">
-                                        <input type="hidden" name="search_user_name">
+                                        <input class="w3-input w3-border" type="text" name="search_user_name">
                                     </td>
                                     <td>
-                                        <input class="w3-input w3-border" type="text">
-                                        <input type="hidden" name="search_user_surname">
+                                        <input class="w3-input w3-border" type="text" name="search_user_surname">
                                     </td>
                                     <td>
-                                        <input class="w3-input w3-border" type="text">
-                                        <input type="hidden" name="search_user_email">
+                                        <input class="w3-input w3-border" type="text" name="search_user_email">
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div>
-                            <div class="w3-half w3-row-padding">
-                                <input class="w3-check" type="checkbox" checked="checked" name="search_role" value="0"><label>administrator</label>
-                                <input class="w3-check" type="checkbox" checked="checked" name="search_role" value="1"><label>moderator</label>
-                                <input class="w3-check" type="checkbox" checked="checked" name="search_role" value="2"><label>speaker</label>
-                                <input class="w3-check" type="checkbox" checked="checked" name="search_role" value="3"><label>participant</label>
-                            </div>
-                            <div class="w3-half w3-row-padding">
-                                <input class="w3-check" type="checkbox" checked="checked"
-                                       name="search_active_status" value="1"><label>active</label>
-                                <input class="w3-check" type="checkbox" checked="checked"
-                                       name="search_active_status" value="0"><label>deactivated</label>
-                            </div>
                         </div>
                     </div>
                     <br>

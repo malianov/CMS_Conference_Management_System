@@ -1,4 +1,4 @@
-<%@ include file="header.jsp" %>
+<%@ include file="common/header.jsp" %>
 
 <div class="w3-container w3-padding w3-margin w3-display-container">
     <div class="w3-card-4">
