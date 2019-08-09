@@ -15,6 +15,7 @@ public class SeminarMapper implements ObjectMapper<Seminar> {
     private static final String SEMINAR_TIME = "seminar_time";
     private static final String SEMINAR_TOPIC = "seminar_topic";
     private static final String SEMINAR_SPEAKER = "seminar_speaker";
+    private static final String SEMINAR_ROOM = "seminar_room";
 
     @Override
     public Seminar extractFromResultSet(ResultSet rs) throws SQLException {
@@ -27,6 +28,7 @@ public class SeminarMapper implements ObjectMapper<Seminar> {
         seminar.setSeminarTime(rs.getString(SEMINAR_TIME));
         seminar.setSeminarTopic(rs.getString(SEMINAR_TOPIC));
         seminar.setSeminarSpeaker(rs.getString(SEMINAR_SPEAKER));
+        seminar.setSeminarRoom(rs.getString(SEMINAR_ROOM));
         return seminar;
     }
 

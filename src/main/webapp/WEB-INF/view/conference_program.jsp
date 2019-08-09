@@ -17,6 +17,7 @@
     </div>
 
 <div class="w3-margin">
+
     <c:forEach var="day" items="${open_conference_plan_id}">
         <c:if test="${day.key ne 'Day-1'}">
             <div id="${day.key}" class="w3-container w3-display-container day" style="display:none">
@@ -24,7 +25,6 @@
         <c:if test="${day.key eq 'Day-1'}">
             <div id="${day.key}" class="w3-container w3-display-container day">
         </c:if>
-
             <table class="w3-table-all w3-hoverable">
                 <thead>
                 <tr class="w3-light-grey">
@@ -33,6 +33,7 @@
                     <th>seminar-time</th>
                     <th>seminar-topic</th>
                     <th>seminar-speaker</th>
+                    <th>seminar-room</th>
                  </tr>
                 </thead>
 
@@ -43,6 +44,7 @@
                     <td>${seminar.getSeminarTime()}</td>
                     <td>${seminar.getSeminarTopic()}</td>
                     <td>${seminar.getSeminarSpeaker()}</td>
+                    <td>${seminar.getSeminarRoom()}</td>
                 </tr>
         </c:forEach>
             </table>

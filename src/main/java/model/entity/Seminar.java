@@ -8,8 +8,9 @@ public class Seminar {
     private String seminarTime;
     private String seminarTopic;
     private String seminarSpeaker;
+    private String seminarRoom;
 
-    public Seminar(int idGlobalSeminar, int idSeminar, int idConference, String dayConference, String seminarTime, String seminarTopic, String seminarSpeaker) {
+    public Seminar(int idGlobalSeminar, int idSeminar, int idConference, String dayConference, String seminarTime, String seminarTopic, String seminarSpeaker, String seminarRoom) {
         this.idGlobalSeminar = idGlobalSeminar;
         this.idSeminar = idSeminar;
         this.idConference = idConference;
@@ -17,6 +18,7 @@ public class Seminar {
         this.seminarTime = seminarTime;
         this.seminarTopic = seminarTopic;
         this.seminarSpeaker = seminarSpeaker;
+        this.seminarRoom = seminarRoom;
     }
 
     public Seminar(int idSeminar, String seminarTime, String seminarTopic, String seminarSpeaker) {
@@ -27,6 +29,14 @@ public class Seminar {
     }
 
     public Seminar() {
+    }
+
+    public String getSeminarRoom() {
+        return seminarRoom;
+    }
+
+    public void setSeminarRoom(String seminarRoom) {
+        this.seminarRoom = seminarRoom;
     }
 
     public int getIdGlobalSeminar() {
