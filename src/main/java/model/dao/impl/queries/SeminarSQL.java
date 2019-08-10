@@ -10,7 +10,7 @@ public enum SeminarSQL {
 
     CHANGE_SEMINAR_TIME_QUERY("UPDATE CMS.conference_days SET seminar_time=(?) WHERE id_global_seminar= (?);"),
 
-    CHANGE_SEMINAR_TOPIC_QUERY("UPDATE CMS.conference_days SET seminar_topic=(?) WHERE id_global_seminar= (?);"),
+    CHANGE_SEMINAR_TITLE_QUERY("UPDATE CMS.conference_days SET seminar_title_eng=(?), seminar_title_ukr=(?) WHERE id_global_seminar= (?);"),
 
     CHANGE_SEMINAR_SPEAKER_QUERY("UPDATE CMS.conference_days SET seminar_speaker=(?) WHERE id_global_seminar= (?);"),
     CHANGE_SEMINAR_ROOM_QUERY("UPDATE CMS.conference_days SET seminar_room=(?) WHERE id_global_seminar= (?);");

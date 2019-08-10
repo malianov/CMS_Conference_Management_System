@@ -29,9 +29,10 @@ public enum Operation {
 
     CHANGE_PROGRAM("/view/change_program"),
     CHANGE_SEMINAR_TIME("/view/change_seminar_time"),
-    CHANGE_SEMINAR_TOPIC("/view/change_seminar_topic"),
+    CHANGE_SEMINAR_TITLE("/view/change_seminar_title"),
     CHANGE_SEMINAR_SPEAKER("/view/change_seminar_speaker"),
-    CHANGE_SEMINAR_ROOM("/view/change_seminar_room");
+    CHANGE_SEMINAR_ROOM("/view/change_seminar_room"),
+    CHANGE_CONFERENCE_TITLE("/view/change_conference_title");
 
     private String path;
 

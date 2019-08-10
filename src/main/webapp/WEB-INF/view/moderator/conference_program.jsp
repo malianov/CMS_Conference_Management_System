@@ -52,7 +52,7 @@
 <%--                                ${seminar.getSeminarTime()}--%>
                         </td>
                         <td>
-                            <%@ include file="modal_change_seminar_topic.jsp"%>
+                            <%@ include file="modal_change_seminar_title.jsp"%>
                         </td>
                         <td>
                             <%@ include file="modal_change_seminar_speaker.jsp" %>

@@ -90,13 +90,14 @@ public class JdbcSeminarDaoImpl implements SeminarDao {
     }
 
     @Override
-    public void changeSeminarTopic(String seminar_topic, String seminar_id) {
+    public void changeSeminarTopic(String seminarTitleEng, String seminarTitleUkr, String seminarGlobalId) {
         try (Connection conn = ConnectionPool.getConnection()) {
 
             System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic after Try");
-            PreparedStatement ps = conn.prepareStatement(SeminarSQL.CHANGE_SEMINAR_TOPIC_QUERY.getQUERY());
-            ps.setString(1, seminar_topic);
-            ps.setString(2, seminar_id);
+            PreparedStatement ps = conn.prepareStatement(SeminarSQL.CHANGE_SEMINAR_TITLE_QUERY.getQUERY());
+            ps.setString(1, seminarTitleEng);
+            ps.setString(2, seminarTitleUkr);
+            ps.setString(3, seminarGlobalId);
 
             System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic PS= " + ps);
 

@@ -41,8 +41,8 @@ public class SeminarService {
         daoFactory.createSeminarDao().changeSeminarTime(seminar_time, seminar_id);
     }
 
-    public void changeSeminarTopic(String seminar_topic, String seminar_id) {
-        daoFactory.createSeminarDao().changeSeminarTopic(seminar_topic, seminar_id);
+    public void changeSeminarTopic(String seminarTitleEng, String seminarTitleUkr, String seminarGlobalId) {
+        daoFactory.createSeminarDao().changeSeminarTopic(seminarTitleEng, seminarTitleUkr, seminarGlobalId);
     }
 
     public void changeSeminarSpeaker(String seminar_speaker, String seminar_id){

@@ -183,6 +183,23 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
         }
     }
 
+    @Override
+    public void changeConferenceTitle(String conferenceTitleEng, String conferenceTitleUkr, String conferenceId) {
+        try (Connection conn = ConnectionPool.getConnection()) {
+
+            PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CHANGE_CONFERENCE_TITLE_QUERY.getQUERY());
+            ps.setString(1, conferenceTitleEng);
+            ps.setString(2, conferenceTitleUkr);
+            ps.setString(3, conferenceId);
+
+            int result = ps.executeUpdate();
+
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
+    }
 
 
     @Override

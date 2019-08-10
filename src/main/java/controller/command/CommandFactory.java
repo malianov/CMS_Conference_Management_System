@@ -38,10 +38,10 @@ public class CommandFactory {
         commands.put(Operation.CHANGE_PLACE.getPath(),      new ChangePlaceCommand());
         commands.put(Operation.CHANGE_PROGRAM.getPath(),    new ChangeProgramCommand());
         commands.put(Operation.CHANGE_SEMINAR_TIME.getPath(),    new ChangeSeminarTimeCommand());
-        commands.put(Operation.CHANGE_SEMINAR_TOPIC.getPath(),    new ChangeSeminarTopicCommand());
+        commands.put(Operation.CHANGE_SEMINAR_TITLE.getPath(),    new ChangeSeminarTitleCommand());
         commands.put(Operation.CHANGE_SEMINAR_SPEAKER.getPath(),    new ChangeSeminarSpeakerCommand());
         commands.put(Operation.CHANGE_SEMINAR_ROOM.getPath(),    new ChangeSeminarRoomCommand());
-
+        commands.put(Operation.CHANGE_CONFERENCE_TITLE.getPath(),    new ChangeConferenceTitleCommand());
 //        commands.put(Operation.USER_MAIN_PAGE.getPath(), new UserMainPageCommand());
 //
 //        commands.put(Operation.SHOW_LOGIN_PAGE.getPath(), new ShowLoginCommand());

@@ -21,19 +21,13 @@ public class CalendarCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("CalendarCommand.java -> inside execute");
-
 
         int ROWS_PER_PAGE = 12;
         int current_page = 1;
 
-        System.out.println("CalendarCommand.java -> inside execute// CURRENT_PAGE = " + CURRENT_PAGE);
-
         if (request.getParameter(CURRENT_PAGE) != null) {
             current_page = Integer.parseInt(request.getParameter(CURRENT_PAGE));
         }
-
-        System.out.println("CalendarCommand.java -> inside execute// currentPage = " + current_page);
 
         performPagination(request, current_page, ROWS_PER_PAGE);
         CommandUtil.goToPage(request, response, TO_SHOW_ALL_CONFERENCES);
@@ -45,31 +39,18 @@ public class CalendarCommand implements Command {
 
         int lowerBound = calcLowerBound(currentPage, rowsPerPage);
 
-        System.out.println("CalendarCommand.java -> inside performPagination// lowerBound = " + lowerBound);
-
         ConferenceService.PaginationResult paginationResult = conferenceService.getConferencesByPagination(lowerBound, rowsPerPage);
 
         List<Conference> conferences = paginationResult.getResultList();
         int noOfRows = paginationResult.getNoOfRows();
         int noOfPages = calcNoOfPages(noOfRows, rowsPerPage);
 
-        System.out.println("CalendarCommand.java -> conferences = " + conferences);
-
         request.setAttribute(CONFERENCES, conferences);
         request.setAttribute(NO_OF_PAGES, noOfPages);
         request.setAttribute(CURRENT_PAGE, currentPage);
-
-        System.out.println("CalendarCommand.java -> performPagination");
-
-        System.out.println("CalendarCommand.java -> no of pages " + noOfPages);
-        System.out.println("CalendarCommand.java -> current page " + currentPage);
     }
 
     private int calcLowerBound(int currentPage, int rowsPerPage) {
-
-        System.out.println("currentPage = " + currentPage);
-        System.out.println("rowsPerPage = " + rowsPerPage);
-
         return (currentPage - 1) * rowsPerPage;
     }
 

@@ -50,7 +50,7 @@
                         <%@ include file="../moderator/modal_change_seminar_time.jsp"%>
                     </td>
                     <td>
-                        <%@ include file="../moderator/modal_change_seminar_topic.jsp"%>
+                        <%@ include file="../moderator/modal_change_seminar_title.jsp"%>
                     </td>
                     <td>
                         <%@ include file="../moderator/modal_change_seminar_speaker.jsp"%>

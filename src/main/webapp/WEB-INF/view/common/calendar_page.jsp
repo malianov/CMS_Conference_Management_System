@@ -38,7 +38,16 @@
             </div>
 
         </div>
-                <%@ include file="../common/conference_calendar.jsp"%>
+
+        <%@ include file="conference_calendar.jsp"%>
+       <%-- <c:choose>
+            <c:when test="${sessionScope.role == 'ADMIN'}">
+                <%@ include file="../admin/conference_calendar.jsp"%>
+            </c:when>
+            <c:when test="${sessionScope.role == 'MODERATOR'}">
+                <%@ include file="../moderator/moderator_conference_calendar.jsp"%>
+            </c:when>
+        </c:choose>--%>
      </div>
 </div>
 

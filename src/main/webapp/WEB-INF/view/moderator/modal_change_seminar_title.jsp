@@ -25,7 +25,7 @@
 
 
             <h3>make-your-choice-here:</h3>
-            <form action="${pageContext.request.contextPath}/view/change_seminar_topic">
+            <form action="${pageContext.request.contextPath}/view/change_seminar_title">
                 <label class="w3-text-grey"><b>seminar-topice</b></label>
                 <input class="w3-input w3-border w3-margin-bottom" type="text" name="seminar_topic">
                 <input type="hidden" name="seminar_id" value="${seminar.getIdGlobalSeminar()}">
