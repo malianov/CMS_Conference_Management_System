@@ -22,26 +22,23 @@ public class JdbcUserDAOImpl implements UserDao {
         System.out.println("JdbcUserDAOImpl.java -> inside findUserByLoginAndPassword");
 
         UserMapper userMapper = new UserMapper();
-        User user = new User();
+//        User user = new User();
+//        user = null;
 
-        try (Connection conn = ConnectionPool.getConnection()) {
-            System.out.println("UserDAOImpl.java -> inside findUserByLoginAndPassword = inside try");
-            PreparedStatement ps = conn.prepareStatement(UserSQL.FIND_USER_BY_LOGIN_AND_PASSWORD_QUERY.getQUERY());
+        try (Connection conn = ConnectionPool.getConnection();
+            PreparedStatement ps = conn.prepareStatement(UserSQL.FIND_USER_BY_LOGIN_AND_PASSWORD_QUERY.getQUERY())) {
             ps.setString(1, login);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             System.out.println("JdbcUserDAOImpl.java -> inside findUserByLoginAndPassword = after ResultSet rs = ps.executeQuery();");
 
-            if (rs.next()) {
-                user = userMapper.extractFromResultSet(rs);
-            } else {
-                //logger
-            }
+            rs.next();
+            return userMapper.extractFromResultSet(rs);
         } catch (SQLException e) {
             //logger
+            throw new DAOException();
         }
-        System.out.println("JdbcUserDaoImpl.java -> user - " + user);
-        return user;
+
     }
 
     @Override
@@ -62,10 +59,10 @@ public class JdbcUserDAOImpl implements UserDao {
         System.out.println("-_-_-_-_-_ users - " + users);
         FindQueryGenerator qg = new FindQueryGenerator();
         String findUsersByCriteriaRequests = String.valueOf(qg.findUsersByCriteriaRequests(searchUserId, searchUserLogin,
-                searchUserName, searchUserSurname, searchUserEmail))  + "LIMIT ?, ?;";
+                searchUserName, searchUserSurname, searchUserEmail)) + "LIMIT ?, ?;";
 
         PreparedStatement usersPS = null;
-        try(Connection conn = ConnectionPool.getConnection()) {
+        try (Connection conn = ConnectionPool.getConnection()) {
             usersPS = conn.prepareStatement(findUsersByCriteriaRequests);
             usersPS.setInt(1, lowerBound);
             usersPS.setInt(2, upperBound);
@@ -76,10 +73,10 @@ public class JdbcUserDAOImpl implements UserDao {
                 users.add(user);
             }
 
-        String findCountUsersByCriteriaRequests = String.valueOf(qg.calculateUsersByCriteriaRequests(searchUserId, searchUserLogin,
-                searchUserName, searchUserSurname, searchUserEmail));
+            String findCountUsersByCriteriaRequests = String.valueOf(qg.calculateUsersByCriteriaRequests(searchUserId, searchUserLogin,
+                    searchUserName, searchUserSurname, searchUserEmail));
 
-        PreparedStatement countRowsPS = null;
+            PreparedStatement countRowsPS = null;
 
             countRowsPS = conn.prepareStatement(findCountUsersByCriteriaRequests);
             rs = countRowsPS.executeQuery();
@@ -136,4 +133,46 @@ public class JdbcUserDAOImpl implements UserDao {
             //logger
         }
     }
+
+    @Override
+    public User findByLogin(String login) throws DAOException {
+
+        try (Connection conn = ConnectionPool.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(UserSQL.FIND_USER_BY_LOGIN_QUERY.getQUERY());
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
+            System.out.println("UserDAOImpl.java -> findByLogin - rs = " + rs);
+
+            rs.next();
+
+            User user = new UserMapper().extractFromResultSet(rs);
+            System.out.println("UserDAOImpl.java -> findByLogin - user = " + user);
+            return user;
+
+        } catch (SQLException ex) {
+            System.out.println("jdbcUserDAOImpl.java -> findByLogin - cathed exception");
+            throw new DAOException();
+        }
+    }
+
+    @Override
+    public boolean ifLoginExists(String login) {
+        System.out.println("UserDAOImpl.java -> inside ifLoginExists ");
+        try (Connection conn = ConnectionPool.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(UserSQL.CHECK_LOGIN_EXISTS.getQUERY());
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
+            System.out.println("UserDAOImpl.java -> ifLoginExists - rs = " + rs);
+
+            if (rs.next()) {
+                return true;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("jdbcUserDAOImpl.java -> findByName - cathed exception");
+        }
+        return false;
+    }
 }
+
+

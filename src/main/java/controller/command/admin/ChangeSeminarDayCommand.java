@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ChangeSeminarTitleCommand implements Command {
+public class ChangeSeminarDayCommand implements Command {
 
     ServiceFactory serviceFactory = ServiceFactory.getInstance();
     SeminarService seminarService = serviceFactory.getSeminarService();
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String seminarTitleEng = request.getParameter("seminar_title_eng");
-        String seminarTitleUkr = request.getParameter("seminar_title_ukr");
-        String seminarGlobalId = request.getParameter("seminar_global_id");
+        String seminar_day = request.getParameter("seminar_day");
+        String seminar_id = request.getParameter("seminar_id");
 
-        seminarService.changeSeminarTitle(seminarTitleEng, seminarTitleUkr, seminarGlobalId);
+        seminarService.changeSeminarDay(seminar_day, seminar_id);
         String path = "/view/calendar_page";
-            CommandUtil.goToPage(request, response, path);
+        CommandUtil.goToPage(request, response, path);
 
     }
 }
+

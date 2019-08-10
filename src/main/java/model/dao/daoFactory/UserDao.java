@@ -12,4 +12,7 @@ public interface UserDao extends GenericDao {
     //UserService.PaginationResult findAllUsersByPagination(int lowerBound, int upperBound);
     void changeUserRole(String userLogin, String newRole);
     void changeUserActivityStatus(String userLogin, String newActivityStatus);
+
+    User findByLogin(String login) throws DAOException;
+    boolean ifLoginExists(String login);
 }

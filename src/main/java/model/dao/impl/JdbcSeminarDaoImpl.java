@@ -90,7 +90,7 @@ public class JdbcSeminarDaoImpl implements SeminarDao {
     }
 
     @Override
-    public void changeSeminarTopic(String seminarTitleEng, String seminarTitleUkr, String seminarGlobalId) {
+    public void changeSeminarTitle(String seminarTitleEng, String seminarTitleUkr, String seminarGlobalId) {
         try (Connection conn = ConnectionPool.getConnection()) {
 
             System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic after Try");
@@ -165,6 +165,27 @@ public class JdbcSeminarDaoImpl implements SeminarDao {
             int result = ps.executeUpdate();
 
             System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarTopic result= " + result);
+            if (result != 0) {
+                conn.commit();
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+    @Override
+    public void changeSeminarDay(String seminar_day, String seminar_id) {
+        try (Connection conn = ConnectionPool.getConnection()) {
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside cchangeSeminarDay after Try");
+            PreparedStatement ps = conn.prepareStatement(SeminarSQL.CHANGE_SEMINAR_DAY_QUERY.getQUERY());
+            ps.setString(1, seminar_day);
+            ps.setString(2, seminar_id);
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarDay PS= " + ps);
+
+            int result = ps.executeUpdate();
+
+            System.out.println("JdbcSeminarDaoImpl.java => inside changeSeminarday result= " + result);
             if (result != 0) {
                 conn.commit();
             }

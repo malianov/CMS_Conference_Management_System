@@ -29,15 +29,21 @@
                         <c:when test="${sessionScope.role == 'ADMIN'}">
                             <%@ include file="../admin/modal_change_role.jsp" %>
                         </c:when>
-                        <c:when test="${sessionScope.role == 'MODERATOR'||sessionScope.role == 'SPEAKER'||sessionScope.role == 'PARTICIPANT'}">
+                        <c:when test="${sessionScope.role == 'MODERATOR'}">
+                            <%@ include file="../moderator/modal_change_role.jsp" %>
+                        </c:when>
+                        <c:when test="${sessionScope.role == 'SPEAKER'||sessionScope.role == 'PARTICIPANT'}">
                             ${all_users_list.getRole()}
                         </c:when>
                     </c:choose>
                 </td>
                 <td>
                     <c:choose>
-                        <c:when test="${sessionScope.role == 'ADMIN'||sessionScope.role == 'MODERATOR'}">
+                        <c:when test="${sessionScope.role == 'ADMIN'}">
                             <%@ include file="modal_change_activity_status.jsp" %>
+                        </c:when>
+                        <c:when test="${sessionScope.role == 'MODERATOR'}">
+                            <%@ include file="../moderator/modal_change_activity_status.jsp" %>
                         </c:when>
                         <c:when test="${sessionScope.role == 'SPEAKER'}">
                             <c:choose>

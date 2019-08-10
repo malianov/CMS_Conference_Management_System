@@ -21,7 +21,7 @@ public class ChangeConferenceTitleCommand implements Command {
         String conferenceTitleUkr = request.getParameter("conference_title_ukr");
         String conferenceId = request.getParameter("conferenceId");
 
-        conferenceService.changeConferenceTopic(conferenceTitleEng, conferenceTitleUkr, conferenceId);
+        conferenceService.changeConferenceTitle(conferenceTitleEng, conferenceTitleUkr, conferenceId);
         String path = "/view/calendar_page";
             CommandUtil.goToPage(request, response, path);
     }

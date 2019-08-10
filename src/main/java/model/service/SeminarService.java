@@ -15,7 +15,7 @@ public class SeminarService {
     private DaoFactory daoFactory;
 
     public SeminarService() {
-        System.out.println("SeminarService.java -> inside UserService()");
+        System.out.println("SeminarService.java -> inside SeminarService()");
         daoFactory = DaoFactory.getInstance();
     }
 
@@ -41,8 +41,8 @@ public class SeminarService {
         daoFactory.createSeminarDao().changeSeminarTime(seminar_time, seminar_id);
     }
 
-    public void changeSeminarTopic(String seminarTitleEng, String seminarTitleUkr, String seminarGlobalId) {
-        daoFactory.createSeminarDao().changeSeminarTopic(seminarTitleEng, seminarTitleUkr, seminarGlobalId);
+    public void changeSeminarTitle(String seminarTitleEng, String seminarTitleUkr, String seminarGlobalId) {
+        daoFactory.createSeminarDao().changeSeminarTitle(seminarTitleEng, seminarTitleUkr, seminarGlobalId);
     }
 
     public void changeSeminarSpeaker(String seminar_speaker, String seminar_id){
@@ -50,5 +50,9 @@ public class SeminarService {
     }
     public void changeSeminarRoom(String seminar_room, String seminar_id){
         daoFactory.createSeminarDao().changeSeminarRoom(seminar_room, seminar_id);
+    }
+
+    public void changeSeminarDay(String seminar_day, String seminar_id) {
+        daoFactory.createSeminarDao().changeSeminarDay(seminar_day, seminar_id);
     }
 }

@@ -22,8 +22,6 @@ public class AuthorizationFilter implements Filter {
         final HttpServletResponse resp  = (HttpServletResponse) servletResponse;
         final HttpSession session       = req.getSession(false);
         String loginURI                 = req.getContextPath() + "/view/login";
-
-
         String not_found_pageURI        = req.getContextPath() + "/view/common/not_found_page";
         User user                       = (User) req.getSession().getAttribute("user");
 

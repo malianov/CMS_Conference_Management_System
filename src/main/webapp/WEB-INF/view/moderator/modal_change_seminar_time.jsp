@@ -20,7 +20,8 @@
                 ${seminar.getSeminarTime()}
             </p>
             <p>for-seminar:
-                ${seminar.getSeminarTopic()}
+                <c:if test="${language == 'en'|| language == 'en-EN'}">${seminar.getSeminarTitle_eng()}></c:if>
+                <c:if test="${language == 'uk-UA'}">${seminar.getSeminarTitle_ukr()}</c:if>
             </p>
 
 

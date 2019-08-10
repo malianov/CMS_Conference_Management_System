@@ -14,8 +14,10 @@ public interface SeminarDao extends GenericDao {
 
     void changeSeminarTime(String seminar_time, String seminar_id);
 
-    public void changeSeminarTopic(String seminarTitleEng, String seminarTitleUkr, String seminarGlobalId);
+    public void changeSeminarTitle(String seminarTitleEng, String seminarTitleUkr, String seminarGlobalId);
 
     public void changeSeminarSpeaker(String seminar_speaker, String seminar_id);
     public void changeSeminarRoom(String seminar_room, String seminar_id);
+
+    void changeSeminarDay(String seminar_day, String seminar_id);
 }

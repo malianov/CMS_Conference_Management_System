@@ -6,25 +6,28 @@ public class Seminar {
     private int idConference;
     private String dayConference;
     private String seminarTime;
-    private String seminarTopic;
+    private String seminarTitle_eng;
+    private String seminarTitle_ukr;
     private String seminarSpeaker;
     private String seminarRoom;
 
-    public Seminar(int idGlobalSeminar, int idSeminar, int idConference, String dayConference, String seminarTime, String seminarTopic, String seminarSpeaker, String seminarRoom) {
+    public Seminar(int idGlobalSeminar, int idSeminar, int idConference, String dayConference, String seminarTime, String seminarTitle_eng, String seminarTitle_ukr, String seminarSpeaker, String seminarRoom) {
         this.idGlobalSeminar = idGlobalSeminar;
         this.idSeminar = idSeminar;
         this.idConference = idConference;
         this.dayConference = dayConference;
         this.seminarTime = seminarTime;
-        this.seminarTopic = seminarTopic;
+        this.seminarTitle_eng = seminarTitle_eng;
+        this.seminarTitle_ukr = seminarTitle_ukr;
         this.seminarSpeaker = seminarSpeaker;
         this.seminarRoom = seminarRoom;
     }
 
-    public Seminar(int idSeminar, String seminarTime, String seminarTopic, String seminarSpeaker) {
+    public Seminar(int idSeminar, String seminarTime, String seminarTitle_eng, String seminarTitle_ukr, String seminarSpeaker) {
         this.idSeminar = idSeminar;
         this.seminarTime = seminarTime;
-        this.seminarTopic = seminarTopic;
+        this.seminarTitle_eng = seminarTitle_eng;
+        this.seminarTitle_ukr = seminarTitle_ukr;
         this.seminarSpeaker = seminarSpeaker;
     }
 
@@ -79,20 +82,28 @@ public class Seminar {
         this.seminarTime = seminarTime;
     }
 
-    public String getSeminarTopic() {
-        return seminarTopic;
-    }
-
-    public void setSeminarTopic(String seminarTopic) {
-        this.seminarTopic = seminarTopic;
-    }
-
     public String getSeminarSpeaker() {
         return seminarSpeaker;
     }
 
     public void setSeminarSpeaker(String seminarSpeaker) {
         this.seminarSpeaker = seminarSpeaker;
+    }
+
+    public String getSeminarTitle_eng() {
+        return seminarTitle_eng;
+    }
+
+    public void setSeminarTitle_eng(String seminarTitle_eng) {
+        this.seminarTitle_eng = seminarTitle_eng;
+    }
+
+    public String getSeminarTitle_ukr() {
+        return seminarTitle_ukr;
+    }
+
+    public void setSeminarTitle_ukr(String seminarTitle_ukr) {
+        this.seminarTitle_ukr = seminarTitle_ukr;
     }
 
     @Override
@@ -103,8 +114,10 @@ public class Seminar {
                 ", idConference=" + idConference +
                 ", dayConference='" + dayConference + '\'' +
                 ", seminarTime='" + seminarTime + '\'' +
-                ", seminarTopic='" + seminarTopic + '\'' +
+                ", seminarTitle_eng='" + seminarTitle_eng + '\'' +
+                ", seminarTitle_ukr='" + seminarTitle_ukr + '\'' +
                 ", seminarSpeaker='" + seminarSpeaker + '\'' +
+                ", seminarRoom='" + seminarRoom + '\'' +
                 '}';
     }
 }

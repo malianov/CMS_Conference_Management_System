@@ -3,6 +3,7 @@ package controller;
 import controller.command.Command;
 import controller.command.CommandFactory;
 import controller.command.util.CommandUtil;
+import model.exception.DAOException;
 import model.exception.NotFoundCommandException;
 
 import javax.servlet.http.HttpServlet;
@@ -39,7 +40,7 @@ public class Servlet extends HttpServlet {
             Command command = CommandFactory.getCommand(path);
             System.out.println("Servlet.java ---> command = " + command);
             command.execute(req, resp);
-        } catch (NotFoundCommandException ex) {
+        } catch (NotFoundCommandException | DAOException ex) {
             System.out.println("Servlet.java -> inside catch");
             CommandUtil.goToPage(req, resp, "/WEB-INF/view/not_found_page.jsp");
         }

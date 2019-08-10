@@ -37,7 +37,7 @@
                     <th>seminar-id</th>
                     <th>conference-day</th>
                     <th>seminar-time</th>
-                    <th>seminar-topic</th>
+                    <th>seminar-title</th>
                     <th>seminar-speaker</th>
                     <th>seminar-room</th>
                 </tr>
@@ -46,7 +46,10 @@
                 <c:forEach items="${day.value}" var="seminar">
                     <tr>
                         <td>${seminar.getIdSeminar()}</td>
-                        <td>${seminar.getDayConference()}</td>
+                        <td>
+                            <%@ include file="../moderator/modal_change_seminar_day.jsp"%>
+                                <%--${seminar.getDayConference()}--%>
+                        </td>
                         <td>
                             <%@ include file="modal_change_seminar_time.jsp"%>
 <%--                                ${seminar.getSeminarTime()}--%>

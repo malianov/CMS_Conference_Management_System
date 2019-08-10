@@ -1,12 +1,11 @@
 package model.service;
 
 import model.dao.daoFactory.DaoFactory;
-import model.dao.daoFactory.UserDao;
 import model.entity.User;
 import model.exception.DAOException;
 import model.exception.ServiceException;
+import model.validation.Validation;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class UserService {
@@ -15,6 +14,20 @@ public class UserService {
     public UserService() {
         daoFactory = DaoFactory.getInstance();
     }
+
+
+    public User login(String login) throws DAOException {
+        return daoFactory.createUserDao().findByLogin(login);
+    }
+
+    public boolean ifLoginExists(String login) {
+        if (Validation.isStringValid(login)) {
+            return daoFactory.createUserDao().ifLoginExists(login);
+        } else {
+            return false;
+        }
+    }
+
 
     public User findUserByLoginAndPassword(String login, String password) throws ServiceException {
         try {
@@ -44,15 +57,19 @@ public class UserService {
     public static class PaginationResult {
         private int noOfRows;
         private List<User> usersList;
+
         public int getNoOfRows() {
             return noOfRows;
         }
+
         public void setNoOfRows(int noOfRows) {
             this.noOfRows = noOfRows;
         }
+
         public List<User> getUsersList() {
             return usersList;
         }
+
         public void setUsersList(List<User> resultList) {
             this.usersList = resultList;
         }
