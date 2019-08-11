@@ -3,7 +3,6 @@ package controller.command.admin;
 import controller.command.Command;
 import controller.command.util.CommandUtil;
 import model.service.ConferenceService;
-import model.service.SeminarService;
 import model.service.ServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;

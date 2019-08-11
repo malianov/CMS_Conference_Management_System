@@ -20,11 +20,10 @@ public class ChangePlaceCommand implements Command {
         String placeUkr = request.getParameter("place_ukr");
         String idConference = request.getParameter("conferenceId");
 
-            System.out.println("============ hidden role ============" + placeEng + " " + placeUkr);
         conferenceService.changePlace(placeEng, placeUkr, idConference);
 
         String path = "/view/calendar_page";
-            CommandUtil.goToPage(request, response, path);
+        CommandUtil.goToPage(request, response, path);
 
     }
 }

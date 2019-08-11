@@ -5,7 +5,6 @@ import controller.command.util.CommandUtil;
 import model.entity.Conference;
 import model.service.ConferenceService;
 import model.service.ServiceFactory;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -34,9 +33,6 @@ public class CalendarCommand implements Command {
     }
 
     private void performPagination(HttpServletRequest request, int currentPage, int rowsPerPage) {
-        //final Conference currentSessionConference = CommandUtility.getCurrentSessionUser(request);
-        //final long currentUserId = currentSessionConference.getId();
-
         int lowerBound = calcLowerBound(currentPage, rowsPerPage);
 
         ConferenceService.PaginationResult paginationResult = conferenceService.getConferencesByPagination(lowerBound, rowsPerPage);
@@ -57,5 +53,4 @@ public class CalendarCommand implements Command {
     private int calcNoOfPages(int noOfRows, int rowsPerPage) {
         return (int) Math.ceil(noOfRows * 1.0 / rowsPerPage);
     }
-
 }

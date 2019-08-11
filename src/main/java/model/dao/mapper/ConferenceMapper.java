@@ -1,12 +1,8 @@
 package model.dao.mapper;
 
 import model.entity.Conference;
-import model.service.ConferenceService;
-import model.service.ServiceFactory;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 public class ConferenceMapper implements ObjectMapper<Conference> {
 
@@ -35,11 +31,4 @@ public class ConferenceMapper implements ObjectMapper<Conference> {
         conference.setConferencePlaceUkr(rs.getString(PLACE_UKR));
         return conference;
     }
-
-    //@Override
-/*    public Conference makeUnique(Map<Integer, Conference> existing, Conference entity) {
-        existing.putIfAbsent(entity.getIdConference(), entity);
-
-        return existing.get(entity.getIdConference());
-    }*/
 }

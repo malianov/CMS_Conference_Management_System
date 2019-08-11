@@ -22,7 +22,6 @@ public class ChangeSeminarTitleCommand implements Command {
 
         seminarService.changeSeminarTitle(seminarTitleEng, seminarTitleUkr, seminarGlobalId);
         String path = "/view/calendar_page";
-            CommandUtil.goToPage(request, response, path);
-
+        CommandUtil.goToPage(request, response, path);
     }
 }

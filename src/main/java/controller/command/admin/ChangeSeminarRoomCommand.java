@@ -21,7 +21,7 @@ public class ChangeSeminarRoomCommand implements Command {
 
         seminarService.changeSeminarRoom(seminar_room, seminar_id);
         String path = "/view/calendar_page";
-            CommandUtil.goToPage(request, response, path);
+        CommandUtil.goToPage(request, response, path);
 
     }
 }

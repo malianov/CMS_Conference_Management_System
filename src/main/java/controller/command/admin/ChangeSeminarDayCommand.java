@@ -4,7 +4,6 @@ import controller.command.Command;
 import controller.command.util.CommandUtil;
 import model.service.SeminarService;
 import model.service.ServiceFactory;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

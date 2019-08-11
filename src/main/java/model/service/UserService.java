@@ -15,7 +15,6 @@ public class UserService {
         daoFactory = DaoFactory.getInstance();
     }
 
-
     public User login(String login) throws DAOException {
         return daoFactory.createUserDao().findByLogin(login);
     }
@@ -28,7 +27,6 @@ public class UserService {
         }
     }
 
-
     public User findUserByLoginAndPassword(String login, String password) throws ServiceException {
         try {
             return daoFactory.createUserDao().findUserByLoginAndPassword(login, password);
@@ -39,18 +37,15 @@ public class UserService {
 
     public PaginationResult getSearchUsersByPagination(int lowerBound, int upperBound, String searchUserId, String search_user_login, String searchUserName, String searchUserSurname, String searchUserEmail) {
 
-        System.out.println("UserService.java =>> inside getSearchUsersByPagination");
         return daoFactory.createUserDao().findSearchUsersByPagination(lowerBound, upperBound, searchUserId, search_user_login, searchUserName,
                 searchUserSurname, searchUserEmail);
     }
 
     public void changeUserRole(String userLogin, String newRole) throws ServiceException {
-        System.out.println("UserService.java ==>> changeUserRole");
         daoFactory.createUserDao().changeUserRole(userLogin, newRole);
     }
 
     public void changeUserAcivityStatus(String userLogin, String newAcivityStatus) {
-        System.out.println("UserService.java ==>> changeUserAcivityStatus");
         daoFactory.createUserDao().changeUserActivityStatus(userLogin, newAcivityStatus);
     }
 

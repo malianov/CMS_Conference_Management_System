@@ -21,7 +21,6 @@ public class ChangeSeminarSpeakerCommand implements Command {
 
         seminarService.changeSeminarSpeaker(seminar_speaker, seminar_id);
         String path = "/view/calendar_page";
-            CommandUtil.goToPage(request, response, path);
-
+        CommandUtil.goToPage(request, response, path);
     }
 }

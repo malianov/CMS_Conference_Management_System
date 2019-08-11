@@ -1,15 +1,12 @@
 package model.dao.daoFactory;
 
 import connection.ConnectionPool;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class Utils {
-
-    //private static final Logger logger = Logger.getLogger(UserDAOImpl.class.getName());
 
     public static int getMaxId(String query) {
         int result = 0;
@@ -19,7 +16,6 @@ public abstract class Utils {
             rs.next();
             result = rs.getInt(1);
         } catch (SQLException e) {
-            //logger.log(Level.SEVERE, e.toString());
         }
         return result;
     }

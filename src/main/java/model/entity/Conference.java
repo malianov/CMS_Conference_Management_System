@@ -1,8 +1,5 @@
 package model.entity;
 
-import java.time.LocalDate;
-import java.util.List;
-
 public class Conference {
     private int idConference;
     private String startDate;

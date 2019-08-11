@@ -7,7 +7,6 @@ import model.dao.mapper.ConferenceMapper;
 import model.entity.Conference;
 import model.exception.DAOException;
 import model.service.ConferenceService;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -48,13 +47,12 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        paginationResult.setResultList(conferences);/////////////////////////////////
+        paginationResult.setResultList(conferences);
         return paginationResult;
     }
 
     @Override
     public List<Conference> findAllConferences() throws DAOException, SQLException {
-        System.out.println("JdbcConferenceDAOImpl.java -> inside findAllConferences");
 
         ConferenceMapper conferenceMapper = new ConferenceMapper();
         Conference conference;
@@ -65,25 +63,19 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 do {
-                    System.out.println("JdbcConferenceDAOImpl.java -> inside findAllConferences////do");
                     conference = conferenceMapper.extractFromResultSet(rs);
                     list.add(conference);
                 } while (rs.next());
             } else {
-                //logger
             }
         } catch (SQLException e) {
-            //logger
         }
-        System.out.println(list);
         return list;
     }
 
     @Override
     public void addNewConference(Conference conference) {
-        System.out.println("JdbcConferenceDaoImpl.java -> inside addNewConference");
         try (Connection conn = ConnectionPool.getConnection()) {
-            System.out.println("JdbcConferenceDaoImpl.java -> inside addNewConference TRY");
             PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CREATE_NEW_CONFERENCE_QUERY.getQUERY());
             ps.setString(1, conference.getStartDate());
             ps.setString(2, conference.getEndDate());
@@ -95,7 +87,6 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
             ps.setString(8, conference.getConferencePlaceUkr());
 
             int result = ps.executeUpdate();
-            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
             if (result != 0) {
                 conn.commit();
             }
@@ -106,16 +97,12 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
     @Override
     public void changeStartDate(String idConference, LocalDate newDate) {
         try (Connection conn = ConnectionPool.getConnection()) {
-            System.out.println("JdbcConferenceDaoImpl.java -> inside changDate TRY");
 
             PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CHANGE_START_DATE_QUERY.getQUERY());
             ps.setString(2, idConference);
             ps.setDate(1, Date.valueOf(newDate));
 
-            System.out.println("JdbcConferenceDaoImpl.java -> newDate = " + newDate);
-            System.out.println("JdbcConferenceDaoImpl.java -> ps = " + ps);
             int result = ps.executeUpdate();
-            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
             if (result != 0) {
                 conn.commit();
             }
@@ -126,16 +113,12 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
     @Override
     public void changeEndDate(String idConference, LocalDate newDate) {
         try (Connection conn = ConnectionPool.getConnection()) {
-            System.out.println("JdbcConferenceDaoImpl.java -> inside changDate TRY");
 
             PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CHANGE_END_DATE_QUERY.getQUERY());
             ps.setString(2, idConference);
             ps.setDate(1, Date.valueOf(newDate));
 
-            System.out.println("JdbcConferenceDaoImpl.java -> newDate = " + newDate);
-            System.out.println("JdbcConferenceDaoImpl.java -> ps = " + ps);
             int result = ps.executeUpdate();
-            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
             if (result != 0) {
                 conn.commit();
             }
@@ -146,16 +129,13 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
     @Override
     public void changeCity(String cityEng, String cityUkr, String idConference) {
         try (Connection conn = ConnectionPool.getConnection()) {
-            System.out.println("JdbcConferenceDaoImpl.java -> inside changeCity TRY");
 
             PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CHANGE_CITY_QUERY.getQUERY());
             ps.setString(1, cityEng);
             ps.setString(2, cityUkr);
             ps.setString(3, idConference);
 
-            System.out.println("JdbcConferenceDaoImpl.java -> ps = " + ps);
             int result = ps.executeUpdate();
-            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
             if (result != 0) {
                 conn.commit();
             }
@@ -166,16 +146,13 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
     @Override
     public void changePlace(String placeEng, String placeUkr, String idConference) {
         try (Connection conn = ConnectionPool.getConnection()) {
-            System.out.println("JdbcConferenceDaoImpl.java -> inside changeCity TRY");
 
             PreparedStatement ps = conn.prepareStatement(ConferenceSQL.CHANGE_PLACE_QUERY.getQUERY());
             ps.setString(1, placeEng);
             ps.setString(2, placeUkr);
             ps.setString(3, idConference);
 
-            System.out.println("JdbcConferenceDaoImpl.java -> ps = " + ps);
             int result = ps.executeUpdate();
-            System.out.println("JdbcConferenceDaoImpl.java -> result = " + result);
             if (result != 0) {
                 conn.commit();
             }
@@ -203,6 +180,6 @@ public class JdbcConferenceDaoImpl implements ConferenceDao {
 
 
     @Override
-        public void close () throws Exception {
-        }
+    public void close() throws Exception {
     }
+}

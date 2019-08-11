@@ -11,7 +11,6 @@ public class ArchiveCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("AdminMainPageCommand.java -> inside execute");
         CommandUtil.goToPage(request,response,"/WEB-INF/view/archive_page.jsp");
     }
 }

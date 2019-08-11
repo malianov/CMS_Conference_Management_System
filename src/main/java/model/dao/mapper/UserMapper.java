@@ -1,11 +1,7 @@
 package model.dao.mapper;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import model.entity.Role;
 import model.entity.User;
-import model.service.ServiceFactory;
-import model.service.UserService;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -23,8 +19,6 @@ public class UserMapper implements ObjectMapper<User> {
     @Override
     public User extractFromResultSet(ResultSet rs) throws SQLException {
         User user = new User();
-        //UserService userService = ServiceFactory.getInstance().getUserService();
-
         user.setIdUser(rs.getLong(ID));
         user.setLogin(rs.getString(LOGIN));
         user.setName(rs.getString(NAME));
@@ -37,11 +31,4 @@ public class UserMapper implements ObjectMapper<User> {
         System.out.println("UserMapper.java -> USER = " + user);
         return user;
     }
-
-//    @Override
-//    public User makeUnique(Map<Long, User> existing, User entity) {
-//        existing.putIfAbsent(entity.getId(), entity);
-//
-//        return existing.get(entity.getId());
-//    }
 }

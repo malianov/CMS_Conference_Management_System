@@ -17,10 +17,6 @@ public class User {
     }
 
     public User(long idUser, String login, String name, String surname, String email, Role role, int isActive, String password) {
-
-        System.out.println("User.java -> inside User(......)");
-        System.out.println("idUser idUser idUser = " + idUser);
-
         this.idUser = idUser;
         this.login = login;
         this.name = name;

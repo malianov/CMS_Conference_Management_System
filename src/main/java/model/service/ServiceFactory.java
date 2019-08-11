@@ -1,7 +1,5 @@
 package model.service;
 
-import model.entity.Conference;
-
 public class ServiceFactory {
 
     private static volatile ServiceFactory serviceFactory;
@@ -29,9 +27,4 @@ public class ServiceFactory {
     public SeminarService getSeminarService() {
         return new SeminarService();
     }
-
-
-//    public StatisticsService getStatisticsService() {
-//        return new StatisticService();
-//    }
 }

@@ -2,12 +2,9 @@ package controller.command.admin;
 
 import controller.command.Command;
 import controller.command.util.CommandUtil;
-import model.entity.Conference;
 import model.exception.ServiceException;
-import model.service.ConferenceService;
 import model.service.ServiceFactory;
 import model.service.UserService;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -25,7 +22,6 @@ public class ChangeUserRoleCommand implements Command {
         String userLogin = request.getParameter("userLogin");
         String page = request.getParameter("page");
 
-        System.out.println("============ hidden role ============" + newRole + " " + userLogin);
         try {
             userService.changeUserRole(userLogin, newRole);
         } catch (ServiceException e) {

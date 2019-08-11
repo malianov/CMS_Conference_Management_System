@@ -8,14 +8,10 @@ import java.io.IOException;
 public class LocaleFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("LocaleFilter.java -> inside init()");
-
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("LocaleFilter.java -> inside doFilter");
-        //System.out.println("LocaleFilter.java -> inside doFilter  ==<< " + servletRequest.getPathInfo());
         final HttpServletRequest request   = (HttpServletRequest) servletRequest;
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
 
