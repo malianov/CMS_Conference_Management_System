@@ -1,15 +1,15 @@
 <div id="conference-calendar-moderator" class="w3-container w3-border menu w3-white">
-    <h2>conference-calendar-moderator (show registered)</h2>
+    <h2><fmt:message key="conference-catalog"/></h2>
     <div class="w3-container w3-margin">
         <table class="w3-table-all w3-centered">
             <thead>
             <tr class="w3-light-blue">
-                <th>conference-id</th>
-                <th>conference-start-date</th>
-                <th>conference-end-date</th>
-                <th>conference-title</th>
-                <th>conference-city</th>
-                <th>conference-place</th>
+                <th><fmt:message key="conference-id"/></th>
+                <th><fmt:message key="start-conference-date"/></th>
+                <th><fmt:message key="end-conference-date"/></th>
+                <th><fmt:message key="conference-title"/></th>
+                <th><fmt:message key="conference-city"/></th>
+                <th><fmt:message key="conference-place"/></th>
             </tr>
             </thead>
             <tbody>

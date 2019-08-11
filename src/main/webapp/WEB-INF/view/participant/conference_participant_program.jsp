@@ -33,12 +33,12 @@
             <table class="w3-table-all w3-hoverable">
                 <thead>
                 <tr class="w3-light-grey">
-                    <th>seminar-id</th>
-                    <th>conference-day</th>
-                    <th>seminar-time</th>
-                    <th>seminar-topic</th>
-                    <th>seminar-speaker</th>
-                    <th>seminar-room</th>
+                    <th><fmt:message key="seminar-id"/></th>
+                    <th><fmt:message key="conference-day"/></th>
+                    <th><fmt:message key="seminar-time"/></th>
+                    <th><fmt:message key="seminar-topic"/></th>
+                    <th><fmt:message key="seminar-speaker"/></th>
+                    <th><fmt:message key="seminar-room"/></th>
                  </tr>
                 </thead>
 
@@ -63,28 +63,10 @@
                 </tr>
         </c:forEach>
             </table>
-
-
         </div>
         </c:forEach>
-
-    <%--<div id="Paris" class="w3-container w3-display-container day" style="display:none">
-        <h2>Paris</h2>
-        <p>Paris is the capital of France.</p>
-    </div>--%>
 </div>
 <br>
-<%--    <script>
-        function openDay(dayName) {
-            var i;
-            var x = document.getElementsByClassName("day");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            document.getElementById(dayName).style.display = "block";
-        }
-    </script>--%>
-
         <script>
             function openDay(evt, dayName) {
                 var i, x, tablings;

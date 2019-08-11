@@ -9,20 +9,20 @@
         <header class="w3-container w3-red">
             <span onclick="document.getElementById('${seminar.getIdGlobalSeminar()}day').style.display='none'"
                   class="w3-button w3-large w3-red w3-display-topright">&times;</span>
-            <h2>change-seminar-day</h2>
+            <h2><fmt:message key="change-seminar-day"/></h2>
         </header>
 
         <div class="w3-container w3-left-align">
-            <p>dear-moderator!</p>
-            <p>be-sure-you-are-doing-the-right-thing.</p>
+            <p><fmt:message key="dear-moderator"/></p>
+            <p><fmt:message key="be-sure-you-are-doing-the-right-thing"/></p>
             <p>
-                you-are-going-to-chang-the-current-seminar-day:
+                <fmt:message key="you-are-going-to-change-the-current-seminar-day"/>
                 ${seminar.getDayConference()}
             </p>
 
-            <h3>make-your-choice-here:</h3>
+            <h3><fmt:message key="make-your-choice-here"/></h3>
             <form action="${pageContext.request.contextPath}/view/change_seminar_day">
-                <label class="w3-text-grey"><b>seminar-day</b></label>
+                <label class="w3-text-grey"><b><fmt:message key="seminar-day"/></b></label>
                 <%--<input class="w3-input w3-border w3-margin-bottom" type="text" name="seminar_day">--%>
 
                 <select name="seminar_day">
@@ -41,15 +41,9 @@
                 <input type="hidden" name="seminar_id" value="${seminar.getIdGlobalSeminar()}">
 
                 <div class="w3-center">
-                    <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom">submit</button>
+                    <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom"><fmt:message key="submit"/></button>
                 </div>
             </form>
         </div>
-
-<%--        <div class="w3-bar">
-
-
-        </div>--%>
-
     </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="w3-container">
-    <h2>conference-schedule-by-days</h2>
+    <h2><fmt:message key="conference-schedule-by-days"/></h2>
 
     <%--    ${open_conference_plan_id}
 
@@ -34,12 +34,12 @@
             <table class="w3-table-all w3-hoverable">
                 <thead>
                 <tr class="w3-light-grey">
-                    <th>seminar-id</th>
-                    <th>conference-day</th>
-                    <th>seminar-time</th>
-                    <th>seminar-title</th>
-                    <th>seminar-speaker</th>
-                    <th>seminar-room</th>
+                    <th><fmt:message key="seminar-id"/></th>
+                    <th><fmt:message key="conference-day"/></th>
+                    <th><fmt:message key="seminar-time"/></th>
+                    <th><fmt:message key="seminar-title"/></th>
+                    <th><fmt:message key="seminar-speaker"/></th>
+                    <th><fmt:message key="seminar-room"/></th>
                 </tr>
                 </thead>
 

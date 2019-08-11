@@ -1,5 +1,5 @@
 <footer class="<%--w3-bottom--%> w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
-    <p>igor-malianov-2019</p>
+    <p><fmt:message key="igor-malianov-2019"/></p>
 </footer>
 
 <script>

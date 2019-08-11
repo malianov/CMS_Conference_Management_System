@@ -1,18 +1,18 @@
 <div id="all-users" class="w3-container w3-border menu w3-white">
-    <h2>these-are-all-cms-users</h2>
+    <h2><fmt:message key="all-cms-users-list"/></h2>
 
 
     <div class="w3-container w3-margin">
         <table class="w3-table-all w3-centered w3-hoverable w3-card-4">
             <thead>
             <tr class="w3-light-blue">
-                <th>user-id</th>
-                <th>user-login</th>
-                <th>user-name</th>
-                <th>user-surname</th>
-                <th>user-email</th>
-                <th>user-status</th>
-                <th>user-activity-status</th>
+                <th><fmt:message key="user-id"/></th>
+                <th><fmt:message key="user-login"/></th>
+                <th><fmt:message key="user-name"/></th>
+                <th><fmt:message key="user-surname"/></th>
+                <th><fmt:message key="user-email"/></th>
+                <th><fmt:message key="user-status"/></th>
+                <th><fmt:message key="user-activity-status"/></th>
             </tr>
             </thead>
 
@@ -47,9 +47,9 @@
                         </c:when>
                         <c:when test="${sessionScope.role == 'SPEAKER'}">
                             <c:choose>
-                                <c:when test="${(all_users_list.getIsActive() == 1)}">active</c:when>
-                                <c:when test="${(all_users_list.getIsActive() == 0)}">not-active</c:when>
-                                <c:otherwise>status-incorrect</c:otherwise>
+                                <c:when test="${(all_users_list.getIsActive() == 1)}"><fmt:message key="active"/></c:when>
+                                <c:when test="${(all_users_list.getIsActive() == 0)}"><fmt:message key="not-active"/></c:when>
+                                <c:otherwise><fmt:message key="status-incorrect"/></c:otherwise>
                             </c:choose>
                         </c:when>
                     </c:choose>

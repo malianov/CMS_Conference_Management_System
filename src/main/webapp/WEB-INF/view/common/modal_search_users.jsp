@@ -8,22 +8,22 @@
             <header class="w3-container w3-teal">
                             <span onclick="document.getElementById('id0125').style.display='none'"
                                   class="w3-display-topright">&times;</span>
-                <h2>search-panel</h2>
+                <h2><fmt:message key="search-panel"/></h2>
             </header>
             <div class="w3-container">
                 <form class="w3-light-grey w3-padding"
                       action="${pageContext.request.contextPath}/view/all_users_page">
-                    <p>you-can-find-a-list-users-based-on-any-criteria-or-its-combination</p>
+                    <p><fmt:message key="you-can-find-a-list-users-based-on-any-criteria-or-its-combination"/></p>
                     <div>
                         <div class="w3-margin">
                             <table class="w3-table-all w3-centered w3-card-4">
                                 <thead>
                                 <tr class="w3-light-blue">
-                                    <th>user-id</th>
-                                    <th>login</th>
-                                    <th>user-name</th>
-                                    <th>user-surname</th>
-                                    <th>user-email</th>
+                                    <th><fmt:message key="user-id"/></th>
+                                    <th><fmt:message key="user-login"/></th>
+                                    <th><fmt:message key="user-name"/></th>
+                                    <th><fmt:message key="user-surname"/></th>
+                                    <th><fmt:message key="user-email"/></th>
                                 </tr>
                                 </thead>
 
@@ -53,12 +53,12 @@
                     </div>
                     <br>
                     <div class="w3-center">
-                        <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom"/>submit</button>
+                        <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom"><fmt:message key="submit"/></button>
                         <input class="w3-btn w3-round-large w3-blue w3-hover-red w3-margin-bottom" type="reset" value="reset">
                     </div>
                 </form>
             </div>
-            <footer class="w3-container w3-teal"><p>igor-malianov-2019</p></footer>
+            <footer class="w3-container w3-teal"><p><fmt:message key="igor-malianov-2019"/></p></footer>
         </div>
     </div>
 </div>

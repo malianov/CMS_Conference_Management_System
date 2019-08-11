@@ -11,11 +11,8 @@ public final class ConnectionPool {
     private static volatile DataSource dataSource;
 
     private static DataSource getDataSource() {
-        System.out.println("ConnectionPool.java -> inside DataSource");
         if (dataSource == null) {
-            System.out.println("ConnectionPool.java -> inside DataSource/ dataSource == null dataSource = " + dataSource);
             synchronized (ConnectionPool.class) {
-                System.out.println("ConnectionPool.java -> inside DataSource/ dataSource synchronized == null dataSource = " + dataSource);
                 if (dataSource == null) {
                     BasicDataSource ds = new BasicDataSource();
                     ResourceBundle resource = ResourceBundle.getBundle("db");
@@ -36,9 +33,7 @@ public final class ConnectionPool {
     }
 
     public static Connection getConnection()  {
-        System.out.println("ConnectionPool.java -> inside getConnection");
         try {
-            System.out.println("ConnectionPool.java -> inside try getConnection");
             return getDataSource().getConnection();
         } catch (SQLException e) {
             throw new RuntimeException("Thare is no connection with database");

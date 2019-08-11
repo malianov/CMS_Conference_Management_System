@@ -8,21 +8,22 @@
             <header class="w3-container w3-teal">
                             <span onclick="document.getElementById('id71').style.display='none'"
                                   class="w3-display-topright">&times;</span>
-                <h2>create-panel</h2>
+                <h2><fmt:message key="create-conference-panel"/></h2>
             </header>
             <div class="w3-container">
                 <form class="w3-light-grey w3-padding"
                       action="${pageContext.request.contextPath}/view/create_conference">
-                    <p>you-can-create-a-new-conference</p>
+                    <p><fmt:message key="dear-administrator"/></p>
+                    <p><fmt:message key="here-you-can-create-a-new-conference"/></p>
                     <div>
                         <div class="w3-margin">
                             <table class="w3-table-all w3-centered w3-card-4">
                                 <thead>
                                 <tr class="w3-light-blue">
-                                    <th>start-date</th>
-                                    <th>end-date</th>
-                                    <th>title-eng</th>
-                                    <th>title-ukr</th>
+                                    <th><fmt:message key="start-conference-date"/></th>
+                                    <th><fmt:message key="end-conference-date"/></th>
+                                    <th><fmt:message key="conference-title-eng"/></th>
+                                    <th><fmt:message key="conference-title-ukr"/></th>
                                 </tr>
                                 </thead>
 
@@ -49,10 +50,10 @@
                             <table class="w3-table-all w3-centered w3-card-4">
                                 <thead>
                                 <tr class="w3-light-blue">
-                                    <th>city-eng</th>
-                                    <th>city-ukr</th>
-                                    <th>place-eng</th>
-                                    <th>place-ukr</th>
+                                    <th><fmt:message key="conference-city-eng"/></th>
+                                    <th><fmt:message key="conference-city-ukr"/></th>
+                                    <th><fmt:message key="conference-place-eng"/></th>
+                                    <th><fmt:message key="conference-place-ukr"/></th>
                                 </tr>
                                 </thead>
 
@@ -79,12 +80,12 @@
                     </div>
                     <br>
                     <div class="w3-center">
-                        <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom">submit</button>
+                        <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom"><fmt:message key="confirm"/></button>
                         <input class="w3-btn w3-round-large w3-blue w3-hover-red w3-margin-bottom" type="reset" value="reset">
                     </div>
                 </form>
             </div>
-            <footer class="w3-container w3-teal"><p>igor-malianov-2019</p></footer>
+            <footer class="w3-container w3-teal"><p><fmt:message key="igor-malianov-2019"/></p></footer>
         </div>
     </div>
 </div>

@@ -13,7 +13,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>l-m-s</title>
+    <title><fmt:message key="l-m-s"/></title>
     <%--<link rel="stylesheet" href="../css/w3.css">--%>
     <style>
         <%@include file="../../css/w3.css" %>

@@ -7,16 +7,16 @@
                 <c:if test="${language == 'en'}"><c:out value=" ${user.getName()},"/></c:if>
                 <c:if test="${language == 'en-EN'}"><c:out value=" ${user.getName()},"/></c:if>
                 <c:if test="${language == 'uk-UA'}"><c:out value=" ${user.getName()},"/></c:if>
-                <fmt:message key="welcome-to-the-system-CMS_admin"/></h2>
+                <fmt:message key="welcome-to-the-system-cms"/></h2>
         </div>
 
         <div class="w3-bar w3-light-blue">
-            <a href="${pageContext.request.contextPath}/view/main_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="main-admin-page"/></a>
+            <a href="${pageContext.request.contextPath}/view/main_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="main-page"/></a>
             <c:if test="${sessionScope.role != 'PARTICIPANT'}">
                 <a href="${pageContext.request.contextPath}/view/all_users_page"
-                   class="w3-bar-item w3-button w3-hover-red"><fmt:message key="all-users"/></a>
+                   class="w3-bar-item w3-button w3-hover-red"><fmt:message key="all-cms-users-list"/></a>
             </c:if>
-            <a href="${pageContext.request.contextPath}/view/calendar_page" class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-calendar"/></a>
+            <a href="${pageContext.request.contextPath}/view/calendar_page" class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-catalog"/></a>
             <%--<a href="${pageContext.request.contextPath}/view/archive_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-archive"/></a>
 --%>
             <button class="w3-bar-item w3-button tablink w3-right"
@@ -49,7 +49,7 @@
 
 
 <footer class="<%--w3-bottom--%> w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
-    <p>igor-malianov-2019</p>
+    <p><fmt:message key="igor-malianov-2019"/></p>
 </footer>
 
 

@@ -3,7 +3,7 @@
 <div class="w3-container w3-padding w3-margin w3-display-container">
     <div class="w3-card-4">
         <div class="w3-center w3-green">
-            <h2><fmt:message key="welcome-to-the-system-CMS"/></h2>
+            <h2><fmt:message key="welcome-to-the-system-cms"/></h2>
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-button w3-blue"><fmt:message key="language"/></button>
                 <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
