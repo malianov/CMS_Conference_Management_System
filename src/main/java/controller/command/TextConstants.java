@@ -18,7 +18,7 @@ public interface TextConstants {
         String TO_CHANGE_PROGRAM = "/WEB-INF/view/common/change_program_page.jsp";
         String TO_ACT_PROGRAM = "/WEB-INF/view/speaker/act_program_page.jsp";
         String TO_VIEW_PROGRAM = "/WEB-INF/view/participant/view_program_page.jsp";
-        String TO_VIEW_CONFERENCE_PROGRAM = ("/WEB-INF/view/view_program");
+        String TO_VIEW_CONFERENCE_PROGRAM = ("/WEB-INF/view/common/view_conference_program.jsp");
     }
 
     interface CommandPaths {

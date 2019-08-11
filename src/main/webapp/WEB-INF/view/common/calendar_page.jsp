@@ -33,11 +33,14 @@
                 </div>
             </div>
 
-            <div class="w3-dropdown-hover tablink w3-right">
-                <button class="w3-button"><fmt:message key="my-box(4)"/></button>
-            </div>
-
-        </div>
+            <c:choose>
+                <c:when test="${sessionScope.role == 'MODERATOR'}">
+                    <%@ include file="../moderator/moderator_inbox.jsp" %>
+                </c:when>
+                <c:when test="${sessionScope.role == 'SPEAKER'}">
+                    <%@ include file="../speaker/speaker_inbox.jsp" %>
+                </c:when>
+            </c:choose>
 
         <%@ include file="conference_calendar.jsp"%>
        <%-- <c:choose>
@@ -48,6 +51,7 @@
                 <%@ include file="../moderator/moderator_conference_calendar.jsp"%>
             </c:when>
         </c:choose>--%>
+        </div>
      </div>
 </div>
 
