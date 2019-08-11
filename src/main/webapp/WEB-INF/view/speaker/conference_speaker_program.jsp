@@ -74,16 +74,6 @@
     </div>--%>
 </div>
 <br>
-<%--    <script>
-        function openDay(dayName) {
-            var i;
-            var x = document.getElementsByClassName("day");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            document.getElementById(dayName).style.display = "block";
-        }
-    </script>--%>
 
         <script>
             function openDay(evt, dayName) {

@@ -72,10 +72,22 @@
                                 </td>
                             </c:when>
                             <c:when test="${sessionScope.role == 'SPEAKER'}">
-
+                                <td>
+                                    <form action="${pageContext.request.contextPath}/view/view_program">
+                                        <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleUkr()}
+                                            <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
+                                        </button>
+                                    </form>
+                                </td>
                             </c:when>
                             <c:when test="${sessionScope.role == 'PARTICIPANT'}">
-
+                                <td>
+                                    <form action="${pageContext.request.contextPath}/view/view_program">
+                                        <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleUkr()}
+                                            <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
+                                        </button>
+                                    </form>
+                                </td>
                             </c:when>
                         </c:choose>
                         <td><%@ include file="../moderator/modal_change_conference_city.jsp"%></td>
