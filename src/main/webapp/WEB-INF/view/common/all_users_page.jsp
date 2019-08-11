@@ -11,12 +11,14 @@
         </div>
 
         <div class="w3-bar w3-light-blue">
-            <a href="${pageContext.request.contextPath}/view/main_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="main-admin-page"/></a>
+            <a href="${pageContext.request.contextPath}/view/main_page"
+               class="w3-bar-item w3-button w3-hover-red"><fmt:message key="main-admin-page"/></a>
             <c:if test="${sessionScope.role != 'PARTICIPANT'}">
                 <a href="${pageContext.request.contextPath}/view/all_users_page?currentPage=${currentPage}"
                    class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="all-users"/></a>
             </c:if>
-            <a href="${pageContext.request.contextPath}/view/calendar_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-calendar"/></a>
+            <a href="${pageContext.request.contextPath}/view/calendar_page"
+               class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-calendar"/></a>
 
             <button class="w3-bar-item w3-button tablink w3-right"
                     onclick="location.href='${pageContext.request.contextPath}/view/logout'"><fmt:message
@@ -41,20 +43,20 @@
                 </c:when>
             </c:choose>
         </div>
-        <c:choose>
-            <c:when test="${sessionScope.role == 'ADMIN'}">
-                <%@ include file="all_users.jsp" %>
-            </c:when>
-            <c:when test="${sessionScope.role == 'MODERATOR'}">
-                <%@ include file="all_users.jsp" %>
-            </c:when>
-            <c:when test="${sessionScope.role == 'SPEAKER'}">
-                <%@ include file="all_users.jsp" %>
-            </c:when>
-        </c:choose>
-        </div>
     </div>
+    <c:choose>
+        <c:when test="${sessionScope.role == 'ADMIN'}">
+            <%@ include file="all_users.jsp" %>
+        </c:when>
+        <c:when test="${sessionScope.role == 'MODERATOR'}">
+            <%@ include file="all_users.jsp" %>
+        </c:when>
+        <c:when test="${sessionScope.role == 'SPEAKER'}">
+            <%@ include file="all_users.jsp" %>
+        </c:when>
+    </c:choose>
 </div>
+
 
 <footer class="<%--w3-bottom--%> w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
     <p>igor-malianov-2019</p>

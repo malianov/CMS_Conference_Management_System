@@ -41,7 +41,7 @@ public class AuthorizationFilter implements Filter {
             filterChain.doFilter(req, resp);
         } else {
             System.out.println("AuthorizationFilter.java -> inside doFilter--else");
-            resp.sendRedirect("/");
+            resp.sendRedirect("/cms");
         }
     }
 

@@ -6,7 +6,8 @@
             <h2>
                 <c:if test="${language == 'en' || language == 'en-EN'}"><c:out value=" ${user.getName()},"/></c:if>
                 <c:if test="${language == 'uk-UA'}"><c:out value=" ${user.getName()},"/></c:if>
-                <fmt:message key="welcome-to-the-system-CMS_admin"/></h2>
+                <fmt:message key="welcome-to-the-system-CMS_admin"/>
+            </h2>
         </div>
 
         <div class="w3-bar w3-light-blue">
@@ -32,20 +33,20 @@
                        class="w3-bar-item w3-button"><fmt:message key="english"/></a>
                 </div>
             </div>
+
+            <c:choose>
+                <c:when test="${sessionScope.role == 'MODERATOR'}">
+                    <%@ include file="../moderator/moderator_inbox.jsp" %>
+                </c:when>
+                <c:when test="${sessionScope.role == 'SPEAKER'}">
+                    <%@ include file="../speaker/speaker_inbox.jsp" %>
+                </c:when>
+            </c:choose>
         </div>
-        <c:choose>
-            <c:when test="${sessionScope.role == 'MODERATOR'}">
-                <%@ include file="../moderator/moderator_inbox.jsp" %>
-            </c:when>
-            <c:when test="${sessionScope.role == 'SPEAKER'}">
-                <%@ include file="../speaker/speaker_inbox.jsp" %>
-            </c:when>
-        </c:choose>
-
-        <%@ include file="conference_calendar.jsp" %>
     </div>
-</div>
+    <%@ include file="conference_calendar.jsp" %>
 
+</div>
 
 
 <footer class="w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
