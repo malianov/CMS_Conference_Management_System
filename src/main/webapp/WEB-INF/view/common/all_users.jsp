@@ -98,8 +98,3 @@
         }
     }
 </script>
-<%--<div class="w3-tag w3-round w3-green" style="padding:3px">
-    <div class="w3-tag w3-round w3-green w3-border w3-border-white">
-        Falcon Ridge Parkway
-    </div>
-</div>--%>

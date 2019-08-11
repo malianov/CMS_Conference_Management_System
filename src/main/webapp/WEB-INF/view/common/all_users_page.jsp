@@ -4,8 +4,7 @@
     <div class="w3-card-4">
         <div class="w3-container w3-center w3-green">
             <h2>
-                <c:if test="${language == 'en'}"><c:out value=" ${user.getName()},"/></c:if>
-                <c:if test="${language == 'en-EN'}"><c:out value=" ${user.getName()},"/></c:if>
+                <c:if test="${language == 'en' || language == 'en-EN'}"><c:out value=" ${user.getName()},"/></c:if>
                 <c:if test="${language == 'uk-UA'}"><c:out value=" ${user.getName()},"/></c:if>
                 <fmt:message key="welcome-to-the-system-CMS_admin"/>
             </h2>
@@ -18,8 +17,7 @@
                    class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="all-users"/></a>
             </c:if>
             <a href="${pageContext.request.contextPath}/view/calendar_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-calendar"/></a>
-            <%--<a href="${pageContext.request.contextPath}/view/archive_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-archive"/></a>
---%>
+
             <button class="w3-bar-item w3-button tablink w3-right"
                     onclick="location.href='${pageContext.request.contextPath}/view/logout'"><fmt:message
                     key="logout"/></button>
@@ -42,7 +40,7 @@
                     <%@ include file="../speaker/speaker_inbox.jsp" %>
                 </c:when>
             </c:choose>
-
+        </div>
         <c:choose>
             <c:when test="${sessionScope.role == 'ADMIN'}">
                 <%@ include file="all_users.jsp" %>
@@ -53,9 +51,6 @@
             <c:when test="${sessionScope.role == 'SPEAKER'}">
                 <%@ include file="all_users.jsp" %>
             </c:when>
-<%--            <c:when test="${sessionScope.role == 'PARTICIPANT'}">
-                <%@ include file="common/all_users.jsp" %>
-            </c:when>--%>
         </c:choose>
         </div>
     </div>

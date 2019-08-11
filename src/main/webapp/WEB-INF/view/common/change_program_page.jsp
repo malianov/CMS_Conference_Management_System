@@ -41,6 +41,7 @@
                     <%@ include file="../speaker/speaker_inbox.jsp" %>
                 </c:when>
             </c:choose>
+        </div>
                 <%@ include file="../moderator/conference_program.jsp"%>
         </div>
     </div>

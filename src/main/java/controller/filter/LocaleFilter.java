@@ -22,7 +22,7 @@ public class LocaleFilter implements Filter {
         String path = request.getRequestURI();
         path        = path.replaceAll("language/", "");
 
-        if (path.equals("/view//")) {
+        if (path.equals("cms/view//")) {
             path = "/";
         }
 

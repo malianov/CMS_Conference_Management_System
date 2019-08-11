@@ -13,6 +13,6 @@ public abstract class LogoutUtil {
     public static void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.getSession().invalidate();
         //logger.info("logout");
-        response.sendRedirect("/");
+        response.sendRedirect("/cms/");
     }
 }

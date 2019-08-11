@@ -4,21 +4,21 @@
     <div class="w3-card-4">
         <div class="w3-container w3-center w3-green">
             <h2>
-                <c:if test="${language == 'en'}"><c:out value=" ${user.getName()},"/></c:if>
-                <c:if test="${language == 'en-EN'}"><c:out value=" ${user.getName()},"/></c:if>
+                <c:if test="${language == 'en' || language == 'en-EN'}"><c:out value=" ${user.getName()},"/></c:if>
                 <c:if test="${language == 'uk-UA'}"><c:out value=" ${user.getName()},"/></c:if>
                 <fmt:message key="welcome-to-the-system-CMS_admin"/></h2>
         </div>
 
         <div class="w3-bar w3-light-blue">
-            <a href="${pageContext.request.contextPath}/view/main_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="main-admin-page"/></a>
+            <a href="${pageContext.request.contextPath}/view/main_page"
+               class="w3-bar-item w3-button w3-hover-red"><fmt:message key="main-admin-page"/></a>
             <c:if test="${sessionScope.role != 'PARTICIPANT'}">
                 <a href="${pageContext.request.contextPath}/view/all_users_page"
                    class="w3-bar-item w3-button w3-hover-red"><fmt:message key="all-users"/></a>
             </c:if>
-            <a href="${pageContext.request.contextPath}/view/calendar_page" class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-calendar"/></a>
-            <%--<a href="${pageContext.request.contextPath}/view/archive_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-archive"/></a>
---%>
+            <a href="${pageContext.request.contextPath}/view/calendar_page"
+               class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-calendar"/></a>
+
             <button class="w3-bar-item w3-button tablink w3-right"
                     onclick="location.href='${pageContext.request.contextPath}/view/logout'"><fmt:message
                     key="logout"/></button>
@@ -32,31 +32,23 @@
                        class="w3-bar-item w3-button"><fmt:message key="english"/></a>
                 </div>
             </div>
-
-            <c:choose>
-                <c:when test="${sessionScope.role == 'MODERATOR'}">
-                    <%@ include file="../moderator/moderator_inbox.jsp" %>
-                </c:when>
-                <c:when test="${sessionScope.role == 'SPEAKER'}">
-                    <%@ include file="../speaker/speaker_inbox.jsp" %>
-                </c:when>
-            </c:choose>
-
-        <%@ include file="conference_calendar.jsp"%>
-       <%-- <c:choose>
-            <c:when test="${sessionScope.role == 'ADMIN'}">
-                <%@ include file="../admin/conference_calendar.jsp"%>
-            </c:when>
-            <c:when test="${sessionScope.role == 'MODERATOR'}">
-                <%@ include file="../moderator/moderator_conference_calendar.jsp"%>
-            </c:when>
-        </c:choose>--%>
         </div>
-     </div>
+        <c:choose>
+            <c:when test="${sessionScope.role == 'MODERATOR'}">
+                <%@ include file="../moderator/moderator_inbox.jsp" %>
+            </c:when>
+            <c:when test="${sessionScope.role == 'SPEAKER'}">
+                <%@ include file="../speaker/speaker_inbox.jsp" %>
+            </c:when>
+        </c:choose>
+
+        <%@ include file="conference_calendar.jsp" %>
+    </div>
 </div>
 
 
-<footer class="<%--w3-bottom--%> w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
+
+<footer class="w3-container w3-blue-grey w3-opacity w3-teal w3-bottom">
     <p>igor-malianov-2019</p>
 </footer>
 
