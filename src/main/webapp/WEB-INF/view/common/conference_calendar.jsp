@@ -35,7 +35,7 @@
                                 </c:when>
                                 <c:when test="${sessionScope.role == 'SPEAKER'}">
                                     <td>
-                                        <form action="${pageContext.request.contextPath}/view/view_program">
+                                        <form action="${pageContext.request.contextPath}/view/change_program">
                                             <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleEng()}
                                                 <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
                                             </button>
@@ -44,7 +44,7 @@
                                 </c:when>
                                 <c:when test="${sessionScope.role == 'PARTICIPANT'}">
                                     <td>
-                                        <form action="${pageContext.request.contextPath}/view/view_program">
+                                        <form action="${pageContext.request.contextPath}/view/change_program">
                                             <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleEng()}
                                                 <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
                                             </button>
@@ -73,7 +73,7 @@
                             </c:when>
                             <c:when test="${sessionScope.role == 'SPEAKER'}">
                                 <td>
-                                    <form action="${pageContext.request.contextPath}/view/view_program">
+                                    <form action="${pageContext.request.contextPath}/view/view/change_program">
                                         <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleUkr()}
                                             <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
                                         </button>
@@ -82,7 +82,7 @@
                             </c:when>
                             <c:when test="${sessionScope.role == 'PARTICIPANT'}">
                                 <td>
-                                    <form action="${pageContext.request.contextPath}/view/view_program">
+                                    <form action="${pageContext.request.contextPath}/view/view/change_program">
                                         <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleUkr()}
                                             <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
                                         </button>

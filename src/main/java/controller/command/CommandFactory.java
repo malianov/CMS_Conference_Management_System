@@ -44,7 +44,6 @@ public class CommandFactory {
         commands.put(Operation.CHANGE_CONFERENCE_TITLE.getPath(),    new ChangeConferenceTitleCommand());
         commands.put(Operation.CHANGE_SEMINAR_DAY.getPath(),    new ChangeSeminarDayCommand());
         commands.put(Operation.CHANGE_SEMINAR_DAY.getPath(),    new ChangeSeminarDayCommand());
-        commands.put(Operation.TO_VIEW_CONFERENCE_PROGRAM.getPath(), new ViewConferenceProgramCommand());
 //
 //        commands.put(Operation.SHOW_LOGIN_PAGE.getPath(), new ShowLoginCommand());
 //        commands.put(Operation.SHOW_MAIN_PAGE.getPath(), new ShowMainCommand());
