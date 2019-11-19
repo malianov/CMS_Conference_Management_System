@@ -6,7 +6,7 @@
             <h2>
                 <c:if test="${language == 'en' || language == 'en-EN'}"><c:out value=" ${user.getName()},"/></c:if>
                 <c:if test="${language == 'uk-UA'}"><c:out value=" ${user.getName()},"/></c:if>
-                <fmt:message key="welcome-to-the-system-cms"/>
+                <fmt:message key="welcome-to-the-system-cms"/> (${sessionScope.role})
             </h2>
         </div>
 

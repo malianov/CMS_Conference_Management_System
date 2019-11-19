@@ -2,12 +2,16 @@ package model.dao.impl;
 
 import connection.ConnectionPool;
 import model.dao.daoFactory.UserDao;
+import model.dao.impl.queries.SeminarSQL;
 import model.dao.impl.queries.UserSQL;
+import model.dao.mapper.SeminarMapper;
 import model.dao.mapper.UserMapper;
 import model.dao.utility.FindQueryGenerator;
+import model.entity.Seminar;
 import model.entity.User;
 import model.exception.DAOException;
 import model.service.UserService;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

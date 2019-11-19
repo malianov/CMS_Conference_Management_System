@@ -6,7 +6,7 @@
             <h2>
                 <c:if test="${language == 'en' || language == 'en-EN'}"><c:out value=" ${user.getName()},"/></c:if>
                 <c:if test="${language == 'uk-UA'}"><c:out value=" ${user.getName()},"/></c:if>
-                <fmt:message key="welcome-to-the-system-cms"/>
+                <fmt:message key="welcome-to-the-system-cms"/> (${sessionScope.role})
             </h2>
         </div>
 
@@ -18,7 +18,7 @@
                    class="w3-bar-item w3-button w3-hover-red"><fmt:message key="all-cms-users-list"/></a>
             </c:if>
             <a href="${pageContext.request.contextPath}/view/calendar_page"
-               class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-catalog"/>"/></a>
+               class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-catalog"/></a>
 
             <button class="w3-bar-item w3-button tablink w3-right"
                     onclick="location.href='${pageContext.request.contextPath}/view/logout'"><fmt:message

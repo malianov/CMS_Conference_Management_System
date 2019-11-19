@@ -18,7 +18,7 @@
             <p><fmt:message key="dear-admin"/></p>
             <p><fmt:message key="be-sure-you-are-doing-the-right-thing"/></p>
             <p>
-                <fmt:message key="you-are-going-to-change-the-current-activity-status-for-user"/> ${all_users_list.getLogin()} ${all_users_list.getSurname()}</p>
+                <fmt:message key="you-are-going-to-change-the-current-activity-status-for-user"/> ${all_users_list.getLogin()} ${all_users_list.getName()} ${all_users_list.getSurname()}</p>
             <p><fmt:message key="now-his-activity-status-is"/> ${all_users_list.getIsActive()}</p>
 
             <h3><fmt:message key="make-your-choice-here"/></h3>

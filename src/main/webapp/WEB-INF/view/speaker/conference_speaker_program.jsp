@@ -43,20 +43,13 @@
                 <tr>
                     <td>${seminar.getIdSeminar()}</td>
                     <td>${seminar.getDayConference()}</td>
+                    <td>${seminar.getSeminarTime()}</td>
                     <td>
-                        <%@ include file="../moderator/modal_change_seminar_time.jsp"%>
+                        <c:if test="${language == 'en'|| language == 'en-EN'}">${seminar.getSeminarTitle_eng()}></c:if>
+                        <c:if test="${language == 'uk-UA'}">${seminar.getSeminarTitle_ukr()}</c:if>
                     </td>
-                    <td>
-                        <%@ include file="../moderator/modal_change_seminar_title.jsp"%>
-                    </td>
-                    <td>
-                        <%@ include file="../moderator/modal_change_seminar_speaker.jsp"%>
-                            <%--${seminar.getSeminarSpeaker()}--%>
-                    </td>
-                    <td>
-                        <%@ include file="../moderator/modal_change_seminar_room.jsp"%>
-                            <%--${seminar.getSeminarRoom()}</td>--%>
-                    </td>
+                    <td>${seminar.getSeminarSpeaker()}</td>
+                    <td>${seminar.getSeminarRoom()}</td>
                 </tr>
         </c:forEach>
             </table>

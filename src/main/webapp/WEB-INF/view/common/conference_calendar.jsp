@@ -16,66 +16,99 @@
             <c:forEach items="${conferences}" var="all_conferences_list">
                 <tr>
                     <td>${all_conferences_list.getIdConference()}</td>
-                    <td><%@ include file="../moderator/modal_change_start_date.jsp" %></td>
-                    <td><%@ include file="../moderator/modal_change_end_date.jsp" %></td>
+                    <c:choose>
+                        <c:when test="${sessionScope.role == 'ADMIN' || sessionScope.role == 'SPEAKER' || sessionScope.role == 'PARTICIPANT'}">
+                            <td>${all_conferences_list.getStartDate()}</td>
+                            <td>${all_conferences_list.getEndDate()}</td>
+                        </c:when>
+                        <c:when test="${sessionScope.role == 'MODERATOR'}">
+                            <td>
+                                <%@ include file="../moderator/modal_change_start_date.jsp" %>
+                            </td>
+                            <td>
+                                <%@ include file="../moderator/modal_change_end_date.jsp" %>
+                            </td>
+                        </c:when>
+                    </c:choose>
 
                     <c:if test="${language eq 'en' || language eq 'en-EN'}">
-                            <c:choose>
-                                <c:when test="${sessionScope.role == 'ADMIN'}">
-                                    <td><%@ include file="../admin/modal_change_conference_title.jsp"%></td>
-                                </c:when>
-                                <c:when test="${sessionScope.role == 'MODERATOR'}">
-                                   <td>
+                        <c:choose>
+                            <c:when test="${sessionScope.role == 'ADMIN'}">
+                                <td>
+                                    <%@ include file="../admin/modal_change_conference_title.jsp" %>
+                                </td>
+                            </c:when>
+                            <c:when test="${sessionScope.role == 'MODERATOR'}">
+                                <td>
                                     <form action="${pageContext.request.contextPath}/view/change_program">
                                         <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleEng()}
-                                            <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
+                                            <input type="hidden" name="conference_change_id"
+                                                   value="${all_conferences_list.getIdConference()}">
                                         </button>
                                     </form>
-                                   </td>
-                                </c:when>
-                                <c:when test="${sessionScope.role == 'SPEAKER'}">
-                                    <td>
-                                        <form action="${pageContext.request.contextPath}/view/change_program">
-                                            <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleEng()}
-                                                <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
-                                            </button>
-                                        </form>
-                                    </td>
-                                </c:when>
-                                <c:when test="${sessionScope.role == 'PARTICIPANT'}">
-                                    <td>
-                                        <form action="${pageContext.request.contextPath}/view/change_program">
-                                            <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleEng()}
-                                                <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
-                                            </button>
-                                        </form>
-                                    </td>
-                                </c:when>
-                            </c:choose>
+                                </td>
+                            </c:when>
+                            <c:when test="${sessionScope.role == 'SPEAKER'}">
+                                <td>
+                                    <form action="${pageContext.request.contextPath}/view/change_program">
+                                        <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleEng()}
+                                            <input type="hidden" name="conference_change_id"
+                                                   value="${all_conferences_list.getIdConference()}">
+                                        </button>
+                                    </form>
+                                </td>
+                            </c:when>
+                            <c:when test="${sessionScope.role == 'PARTICIPANT'}">
+                                <td>
+                                    <form action="${pageContext.request.contextPath}/view/change_program">
+                                        <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleEng()}
+                                            <input type="hidden" name="conference_change_id"
+                                                   value="${all_conferences_list.getIdConference()}">
+                                        </button>
+                                    </form>
+                                </td>
+                            </c:when>
+                        </c:choose>
 
-                        <td><%@ include file="../moderator/modal_change_conference_city.jsp"%></td>
-                        <td><%@ include file="../moderator/modal_change_conference_place.jsp"%></td>
+                        <c:choose>
+                            <c:when test="${sessionScope.role == 'ADMIN' || sessionScope.role == 'SPEAKER' || sessionScope.role == 'PARTICIPANT'}">
+                                <td>${all_conferences_list.getConferenceCityEng()}</td>
+                                <td>${all_conferences_list.getConferencePlaceEng()}</td>
+                            </c:when>
+                            <c:when test="${sessionScope.role == 'MODERATOR'}">
+                                <td>
+                                    <%@ include file="../moderator/modal_change_conference_city.jsp" %>
+                                </td>
+                                <td>
+                                    <%@ include file="../moderator/modal_change_conference_place.jsp" %>
+                                </td>
+                            </c:when>
+                        </c:choose>
                     </c:if>
 
                     <c:if test="${language eq 'uk-UA'}">
                         <c:choose>
                             <c:when test="${sessionScope.role == 'ADMIN'}">
-                                <td><%@ include file="../admin/modal_change_conference_title.jsp"%></td>
+                                <td>
+                                    <%@ include file="../admin/modal_change_conference_title.jsp" %>
+                                </td>
                             </c:when>
                             <c:when test="${sessionScope.role == 'MODERATOR'}">
                                 <td>
-                                <form action="${pageContext.request.contextPath}/view/change_program">
-                                    <button class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleUkr()}
-                                        <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
-                                    </button>
-                                </form>
+                                    <form action="${pageContext.request.contextPath}/view/change_program">
+                                        <button class="w3-button w3-red w3-round-large">${all_conferences_list.getConferenceTitleUkr()}
+                                            <input type="hidden" name="conference_change_id"
+                                                   value="${all_conferences_list.getIdConference()}">
+                                        </button>
+                                    </form>
                                 </td>
                             </c:when>
                             <c:when test="${sessionScope.role == 'SPEAKER'}">
                                 <td>
                                     <form action="${pageContext.request.contextPath}/view/view/change_program">
                                         <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleUkr()}
-                                            <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
+                                            <input type="hidden" name="conference_change_id"
+                                                   value="${all_conferences_list.getIdConference()}">
                                         </button>
                                     </form>
                                 </td>
@@ -84,14 +117,27 @@
                                 <td>
                                     <form action="${pageContext.request.contextPath}/view/view/change_program">
                                         <button class="w3-button w3-green w3-round-large">${all_conferences_list.getConferenceTitleUkr()}
-                                            <input type="hidden" name="conference_change_id" value="${all_conferences_list.getIdConference()}">
+                                            <input type="hidden" name="conference_change_id"
+                                                   value="${all_conferences_list.getIdConference()}">
                                         </button>
                                     </form>
                                 </td>
                             </c:when>
                         </c:choose>
-                        <td><%@ include file="../moderator/modal_change_conference_city.jsp"%></td>
-                        <td><%@ include file="../moderator/modal_change_conference_place.jsp"%></td>
+                        <c:choose>
+                            <c:when test="${sessionScope.role == 'ADMIN' || sessionScope.role == 'SPEAKER' || sessionScope.role == 'PARTICIPANT'}">
+                                <td>${all_conferences_list.getConferenceCityUkr()}</td>
+                                <td>${all_conferences_list.getConferencePlaceUkr()}</td>
+                            </c:when>
+                            <c:when test="${sessionScope.role == 'MODERATOR'}">
+                                <td>
+                                    <%@ include file="../moderator/modal_change_conference_city.jsp" %>
+                                </td>
+                                <td>
+                                    <%@ include file="../moderator/modal_change_conference_place.jsp" %>
+                                </td>
+                            </c:when>
+                        </c:choose>
                     </c:if>
                 </tr>
             </c:forEach>

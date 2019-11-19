@@ -39,7 +39,7 @@
                 <input type="hidden" name="conferenceId" value="${all_conferences_list.getIdConference()}">
 
                 <div class="w3-center">
-                    <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom">confirm</button>
+                    <button class="w3-btn w3-round-large w3-green w3-hover-red w3-margin-bottom"><fmt:message key="confirm"/></button>
                 </div>
             </form>
         </div>

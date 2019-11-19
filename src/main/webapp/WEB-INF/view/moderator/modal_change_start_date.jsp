@@ -8,7 +8,7 @@
             <h2><fmt:message key="change-conference-start-date"/></h2>
         </header>
 
-        <div class="w3-container w3-left-align"/>">
+        <div class="w3-container w3-left-align">
             <p><fmt:message key="dear-moderator"/></p>
             <p><fmt:message key="be-sure-you-are-doing-the-right-thing"/></p>
             <p>

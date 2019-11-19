@@ -31,8 +31,8 @@
                                 <span class="w3-large"><b>Jill - moderator</b></span><br>
                                 <span><fmt:message key="you-have-recommended-to-new-seminar"/></span><br>
                                 <span class="w3-bar-item w3-left">
-                                                    <button class="w3-btn w3-light-green w3-round-large w3-left-align">confirm</button>
-                                                    <button class="w3-btn w3-red w3-round-large w3-left-align">decline</button></span>
+                                                    <button class="w3-btn w3-light-green w3-round-large w3-left-align"><fmt:message key="confirm"/></button>
+                                                    <button class="w3-btn w3-red w3-round-large w3-left-align"><fmt:message key="decline"/></button></span>
                             </div>
                         </li>
                         <li class="w3-bar">

@@ -4,7 +4,7 @@ public class FindQueryGenerator {
     public StringBuilder findUsersByCriteriaRequests(String search_user_id, String search_user_login,
                                                      String search_user_name, String search_user_surname,
                                                      String search_user_email) {
-        StringBuilder sb = new StringBuilder("SELECT * FROM CMS.users WHERE");
+        StringBuilder sb = new StringBuilder("SELECT * FROM cms.users WHERE");
         sb.append(" (u_id LIKE \"%" + search_user_id + "%\")");
 
         if(search_user_login    != "") { sb.append(" AND (u_login LIKE \"%" + search_user_login + "%\")");}
@@ -18,7 +18,7 @@ public class FindQueryGenerator {
                                                      String search_user_name, String search_user_surname,
                                                      String search_user_email) {
 
-        StringBuilder sb = new StringBuilder("SELECT COUNT(*) FROM CMS.users WHERE");
+        StringBuilder sb = new StringBuilder("SELECT COUNT(*) FROM cms.users WHERE");
 
         sb.append(" (u_id LIKE \"%" + search_user_id + "%\")");
 

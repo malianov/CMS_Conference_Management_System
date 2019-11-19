@@ -1,8 +1,11 @@
 package model.dao.daoFactory;
 
+import model.entity.Seminar;
 import model.entity.User;
 import model.exception.DAOException;
 import model.service.UserService;
+
+import java.util.List;
 
 public interface UserDao extends AutoCloseable {
     User findUserByLoginAndPassword(String login, String password) throws DAOException;
