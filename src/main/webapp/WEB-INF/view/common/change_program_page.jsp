@@ -12,12 +12,14 @@
         </div>
 
         <div class="w3-bar w3-light-blue">
-            <a href="${pageContext.request.contextPath}/view/main_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="main-page"/></a>
+            <a href="${pageContext.request.contextPath}/view/main_page"
+               class="w3-bar-item w3-button w3-hover-red"><fmt:message key="main-page"/></a>
             <c:if test="${sessionScope.role != 'PARTICIPANT'}">
                 <a href="${pageContext.request.contextPath}/view/all_users_page"
                    class="w3-bar-item w3-button w3-hover-red"><fmt:message key="all-cms-users-list"/></a>
             </c:if>
-            <a href="${pageContext.request.contextPath}/view/calendar_page" class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-catalog"/></a>
+            <a href="${pageContext.request.contextPath}/view/calendar_page"
+               class="w3-bar-item w3-button w3-hover-red w3-green"><fmt:message key="conference-catalog"/></a>
             <%--<a href="${pageContext.request.contextPath}/view/archive_page" class="w3-bar-item w3-button w3-hover-red"><fmt:message key="conference-archive"/></a>
 --%>
             <button class="w3-bar-item w3-button tablink w3-right"
@@ -43,9 +45,16 @@
                 </c:when>
             </c:choose>
         </div>
-                <%@ include file="../moderator/conference_program.jsp"%>
-        </div>
+        <c:choose>
+            <c:when test="${sessionScope.role == 'MODERATOR'}">
+                <%@ include file="../moderator/conference_program.jsp" %>
+            </c:when>
+            <c:when test="${sessionScope.role == 'SPEAKER' || sessionScope.role == 'PARTICIPANT'}">
+                <%@ include file="../common/common_conference_program.jsp" %>
+            </c:when>
+        </c:choose>
     </div>
+</div>
 </div>
 
 
