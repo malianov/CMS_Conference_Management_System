@@ -23,8 +23,6 @@ public final class ConnectionPool {
                     ds.setMinIdle(Integer.valueOf(resource.getString("MYSQL_DB_MIN")));
                     ds.setMaxIdle(Integer.valueOf(resource.getString("MYSQL_DB_MAX")));
                     ds.setMaxOpenPreparedStatements(Integer.valueOf(resource.getString("MYSQL_DB_STATEMENTS")));
-                    System.out.println("ConnectionPool.java -> ds = " + ds);
-
                     dataSource = ds;
                 }
             }
